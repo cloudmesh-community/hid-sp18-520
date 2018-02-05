@@ -1,0 +1,19 @@
+﻿#Run the below URL to View the System details - 
+---
+http://127.0.0.1:5000/ubuntu/ram
+
+http://127.0.0.1:5000/ubuntu/processorName
+
+http://127.0.0.1:5000/ubuntu/diskspace
+
+http://127.0.0.1:5000/ubuntu/CPUDetails
+
+#Using CURL 
+---
+curl -H "Content-Type: application/json" http://127.0.0.1:5000/ubuntu/ram/
+
+curl -H "Content-Type: application/json" http://127.0.0.1:5000/ubuntu/processorName
+
+curl -H "Content-Type: application/json" http://127.0.0.1:5000/ubuntu/diskspace
+
+curl -H "Content-Type: application/json" http://127.0.0.1:5000/ubuntu/CPUDetails
