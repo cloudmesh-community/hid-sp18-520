@@ -13,9 +13,9 @@ app = Eve()
 @app.route('/ubuntu/ram', methods=['GET'])
 def ram():
     ramdata = {
-            "Total Virtual Memory": psutil.virtual_memory().total,
-            "Used Virtual Memory": psutil.virtual_memory().used,
-            "Free Virtual Memory": psutil.virtual_memory().free
+            "Total Virtual Memory": str(psutil.virtual_memory().total) + " Bytes",
+            "Used Virtual Memory": str(psutil.virtual_memory().used)+ " Bytes",
+            "Free Virtual Memory": str(psutil.virtual_memory().free)+ " Bytes"
             }
     return (jsonify(ramdata))
 
@@ -33,9 +33,9 @@ def processor():
 @app.route("/ubuntu/diskspace", methods=['GET'])
 def Diskdetail():
     Diskdata = {
-		"Total Disk": psutil.disk_usage('/').total,
-            	"Used Disk": psutil.disk_usage('/').used,
-            	"Free Disk": psutil.disk_usage('/').free	
+		"Total Disk": str(psutil.disk_usage('/').total)+ " Bytes",
+            	"Used Disk": str(psutil.disk_usage('/').used)+ " Bytes",
+            	"Free Disk": str(psutil.disk_usage('/').free)+ " Bytes"	
             }
     return(jsonify(Diskdata))
 
