@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex dest/abstract"] 1519025892 "dest/abstract.aux" "dest/abstract.bbl" "dest/abstract" 1519025893
+["bibtex dest/abstract"] 1519030063 "dest/abstract.aux" "dest/abstract.bbl" "dest/abstract" 1519030064
   "/Users/AdyantSinha/github/cloudmesh-community/hid-sp18-520/technology/plainurl.bst" 1518825922 31050 ffdaefb09013f5fd4b31e485c13933c1 ""
-  "abstract-hid-sp18-520.bib" 1519005555 994 81b78551f4c77f922be5c3ac58c718f2 ""
-  "dest/abstract.aux" 1519025893 1481 ee638916f2dc3e8bc9e5841991aeb06a ""
+  "dest/abstract.aux" 1519030064 1472 d2799f2ab54e4b2b74890d6e4e34fe02 ""
+  "hid-sp18-520.bib" 1519005555 994 81b78551f4c77f922be5c3ac58c718f2 ""
   (generated)
-  "dest/abstract.bbl"
   "dest/abstract.blg"
-["pdflatex"] 1519025892 "abstract.tex" "dest/abstract.pdf" "abstract" 1519025893
+  "dest/abstract.bbl"
+["pdflatex"] 1519030063 "abstract.tex" "dest/abstract.pdf" "abstract" 1519030064
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1480098701 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1480098701 1288 655e228510b4c2a1abe905c368440826 ""
@@ -39,12 +39,12 @@
   "abstract-RabbitMQ.tex" 1518998251 681 d69adb82859eb28f3237375aac7ea85f ""
   "abstract-Redis.tex" 1518998177 698 5e47083796f1245744d7f5ea15b5267d ""
   "abstract-TensorFlow.tex" 1518998233 706 a1587be33c19a7bfb8000ea8b54f1646 ""
-  "abstract.tex" 1519025762 463 d8a125a0655731cb2ad32da749ba3a9f ""
-  "dest/abstract.aux" 1519025893 1481 ee638916f2dc3e8bc9e5841991aeb06a ""
-  "dest/abstract.bbl" 1519025892 981 46d844322e33c9f81ce70544795f27a2 "bibtex dest/abstract"
-  "dest/abstract.out" 1519025893 213 49e4ec41ff16c46528d977aa0c9d323d ""
+  "abstract.tex" 1519030028 453 67e9b1622f9c2d12c6ebd17420023f67 ""
+  "dest/abstract.aux" 1519030064 1472 d2799f2ab54e4b2b74890d6e4e34fe02 ""
+  "dest/abstract.bbl" 1519030063 981 46d844322e33c9f81ce70544795f27a2 "bibtex dest/abstract"
+  "dest/abstract.out" 1519030064 213 49e4ec41ff16c46528d977aa0c9d323d ""
   (generated)
-  "dest/abstract.aux"
   "dest/abstract.out"
   "dest/abstract.log"
+  "dest/abstract.aux"
   "dest/abstract.pdf"
