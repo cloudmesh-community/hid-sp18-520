@@ -1,0 +1,50 @@
+\begin{thebibliography}{1}
+
+\bibitem{OrientDB}
+OrientDB.
+\newblock Orientdb.
+\newblock Web.
+\newblock URL: \url{http://orientdb.com/}.
+
+\bibitem{OrientDB-cloud}
+OrientDB.
+\newblock Orientdb in the cloud.
+\newblock Web.
+\newblock URL: \url{http://orientdb.com/cloud/}.
+
+\bibitem{PyTorch}
+PyTorch.
+\newblock About.
+\newblock Web.
+\newblock URL: \url{http://pytorch.org/about/}.
+
+\bibitem{RabbitMQ}
+Rabbitmq.
+\newblock Web.
+\newblock URL: \url{https://www.rabbitmq.com/}.
+
+\bibitem{RabbitMQ-wiki}
+Rabbitmq.
+\newblock Rabbitmq.
+\newblock Web.
+\newblock URL: \url{https://en.wikipedia.org/wiki/RabbitMQ}.
+
+\bibitem{Redis}
+Redis.
+\newblock Introduction to redis.
+\newblock Web.
+\newblock URL: \url{https://redis.io/}.
+
+\bibitem{Redis-Modules}
+Redis.
+\newblock Redis modules.
+\newblock Web.
+\newblock URL: \url{https://redis.io/modules}.
+
+\bibitem{TensorFlow}
+TensorFlow.
+\newblock About tensorflow.
+\newblock Web.
+\newblock URL: \url{https://www.tensorflow.org/}.
+
+\end{thebibliography}
