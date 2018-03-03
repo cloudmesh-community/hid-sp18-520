@@ -1,0 +1,13 @@
+{
+  "model": [
+    "Filesystem      Size  Used Avail Use% Mounted on", 
+    "udev            468M     0  468M   0% /dev", 
+    "tmpfs            99M  3.6M   96M   4% /run", 
+    "/dev/sda1        19G  7.7G   10G  44% /", 
+    "tmpfs           493M  396K  493M   1% /dev/shm", 
+    "tmpfs           5.0M  4.0K  5.0M   1% /run/lock", 
+    "tmpfs           493M     0  493M   0% /sys/fs/cgroup", 
+    "tmpfs            99M   52K   99M   1% /run/user/1000", 
+    ""
+  ]
+}
