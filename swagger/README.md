@@ -28,7 +28,7 @@ Create the Bash Shell scripts which will download the Swagger Codegen 2.3.1 and 
 Execute the bash script - mybashscript_Server.sh
 
 ## Client - 
-Create the Bash Shell scripts which will download the Swagger Codegen 2.3.1 and create the Server with Code and Virtual Environment. 
+Create the Bash Shell scripts which will download the Swagger Codegen 2.3.1 and create the Client with Code and Virtual Environment. 
 
 Execute the bash script - mybashscript_Client.sh
 
