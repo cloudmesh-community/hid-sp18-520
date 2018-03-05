@@ -41,6 +41,16 @@ Verify the server with URL - on any browser http://localhost:8080/diskspace/Free
 
 Verify the server with URL - on any browser http://localhost:8080/diskspace/Diskusage 
 
+## Execute with CURL - 
+
+curl -H "Content-Type: application/json" http://localhost:8080/diskspace/TotalDisk
+
+curl -H "Content-Type: application/json" http://localhost:8080/diskspace/UsedDisk
+
+curl -H "Content-Type: application/json" http://localhost:8080/diskspace/FreeDisk
+
+curl -H "Content-Type: application/json" http://localhost:8080/diskspace/Diskusage
+
 ## Execute with Client to verify - 
 
 Create and Execute the "disk_test_script_clientDU.sh", calling to verify Disk Usage.
@@ -51,12 +61,5 @@ Create and Execute the "disk_test_script_clientTS.sh", calling to verify Total D
 
 Create and Execute the "disk_test_script_clientUS.sh", calling to verify Used Disk.
 
-## Execute with CURL - 
-curl -H "Content-Type: application/json" http://localhost:8080/diskspace/TotalDisk
 
-curl -H "Content-Type: application/json" http://localhost:8080/diskspace/UsedDisk
-
-curl -H "Content-Type: application/json" http://localhost:8080/diskspace/FreeDisk
-
-curl -H "Content-Type: application/json" http://localhost:8080/diskspace/Diskusage
 
