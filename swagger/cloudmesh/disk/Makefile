@@ -1,7 +1,7 @@
 # assumes swager_codegen environment variable contains
 # the path to swagger codegen jarfile
 
-SWAGGER=${swaggercodegen}
+SWAGGER=${swagger_codegen}
 SPEC=diskinfo.yaml
 
 all: generate requirements run
