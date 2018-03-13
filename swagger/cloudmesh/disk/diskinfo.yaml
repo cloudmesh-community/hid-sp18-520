@@ -11,7 +11,7 @@ info:
   license:
     name: Apache
 host: 'localhost:8080'
-basePath: /cloudmesh/disk
+basePath: '/cloudmesh/disk'
 schemes:
   - http
 consumes:
