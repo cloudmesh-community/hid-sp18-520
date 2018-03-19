@@ -1,0 +1,111 @@
+% status: 0
+% chapter: TBD
+
+\title{Amazon Relational Database Services (RDS)}
+
+
+\author{Arijit Sinha}
+\affiliation{%
+	\institution{Indiana University}
+	\country{USA}}
+\email{arisinha@iu.edu}
+
+
+% The default list of authors is too long for headers}
+\renewcommand{\shortauthors}{A.Sinha}
+
+\keywords{hid520, hid-sp18-520, i524, Amazon RDS, RDS, AWS RDS}
+
+\maketitle
+
+\section{Overview}
+
+Amazon Relational Database Service also known as RDS is a prime ``web service 
+provided on cloud by Amazon to operate with relational databases. 
+With AWS database migration services, it provides an mechanism for 
+replicating/ migrating any existing databases on AWS cloud''
+~\cite{hid-sp18-520-amazonrds}.
+Amazon Relational database services has been effectively used for  handling
+and managing relational databases, which in return provides high performance, 
+security, maximum availability and compatibility. 
+It is compatible with variety of database engines running in background 
+including ``Amazon Aurora, PostgrSQL, MySQL, MariaDB, Oracle and 
+Microsoft SQL Server''~\cite{hid-sp18-520-amazonrds}.
+
+\section{Key features}
+
+Amazon RDS provides many key features which makes it popular are such as below - 
+1. Scaling Storage - It can automatically increase the storage once size or 
+volume of the databases ins reaching its maximum capacity.
+2. Offers less Administrative workload - When the services are getting setup, 
+all the databases instances are configured with its respective database engines. 
+Amazon provides command line and management consoles for easy administration 
+of the databases.
+3. Reliability - It can replicate the data to a standby instance on different 
+Availability Zone using the Multi-AZ DB instance. It provides  automates backups, 
+user defined snapshots of the data stored on Amazon S3. In the event of failure 
+of an hardware, it can automatically replace the instance.
+4. High Performance and Secure -  It provides high performance using General 
+purpose SSD storage and Provisioned IOPS SSD storage. It provides the feature of 
+encrypting the databases using keys (AWS Key Management Services). Along with, it 
+provides Amazon VPC for network isolation for databases on cloud to securely 
+connect with on premise applications
+~\cite{hid-sp18-520-amazonrds}.
+ 
+
+\section{Building Blocks for Amazon RDS}
+
+DB Instances are Amazon RDS primary building blocks which is a secured database 
+environment on AWS cloud. As mentioned in above section, these DB instance can be 
+easily managed using simple API, AWS management console and Command line interfaces 
+to set the configurations and monitor the behavior and capabilities of relational 
+databases. It does not need any additional database maintenance software.
+In these DB instances, we can have multiple databases created by many users or 
+applications.
+In the background, we have DB engines interacting with DB instances. Few of the 
+examples can be MySQL, Maria DB, PostgreSQL, Oracle and Microsoft SQL Server DB 
+engines.
+There are 3 types of storage available with DB instances (Magnetic, General 
+Purpose SSD and Provisioned IOPS).
+Storage capacity depends on various storage type and respective database engines 
+it been configured.
+Amazon RDS can select IP address range, subnets, access control list and 
+configure routing to make it more secure and reliable.
+Another component provided by Amazon is IAM (Identity and Access Management), 
+which this you can provide provision on users to create, delete, modify read 
+any DB instances
+~\cite{hid-sp18-520-amazonrdswel}.
+
+\section{RDS Automated and Manual Monitoring Tools}
+
+Amazon RDS can monitored for it performance and can be reported in case of 
+any issues or failures on DB instances, DB clusters DB Cluster Snapshots, DB 
+parameter group or DB security group.
+On real time, DB instances or clusters can be monitored. It also maintains the 
+database log files which can referred or consulted in cases of any failure or 
+issues encountered.
+Amazon TRDS also provided extra feature for monitoring with CloudWatch for 
+metrics, alarms and logs, along with service health status.
+With Command Prompt - using below command can view performance metrics and 
+alarm- 
+
+``aws cloudwatch list-metrics --namespace AWS/RDS
+
+put-metric-alarm''
+
+With API - using the CloudWatch API GetMetricStatistics with start and end time 
+can provide detail metrics on performance and form setting up alarm 
+with PutMetricAlarm on DB Instance''.
+
+Based on the user defined baseline for performance and resource to be monitored 
+Amazon RDS store the respective monitoring logs including your CPU, RAM, Disk 
+Space consumption.
+Number of users connected to database can be monitored with kind of operation 
+getting performed on Database with Amazon RDS console.  
+
+Various Amazon RDS metrics dimensions can be on name of the Engine, specific 
+DB Instances, DB Clusters with Roles and database class
+~\cite{hid-sp18-520-amardsmon}.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{report} 
