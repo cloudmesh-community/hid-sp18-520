@@ -23,11 +23,15 @@ endif
 #>> report-latex.log 2>&1
 #	make -f Makefile check >> report-latex.log 2>&1
 
-all: clean iureport
-	$(LATEX) ${FILE}
+all:
+	cp ../../hid-sample/paper/Makefile .
+	make -f Makefile generate
+
+generate: clean iureport
+	$(LATEX) ${FLAGS} ${FILE}
 	$(BIBTEX) ${FILE}
-	$(LATEX) ${FILE}
-	$(LATEX) ${FILE}
+	$(LATEX) ${FLAGS} ${FILE}
+	$(LATEX) ${FLAGS} ${FILE}
 
 iureport:
 	cp ../../hid-sample/tex/format/iureport.cls .
@@ -157,7 +161,7 @@ insert:
 	tail ${REVIEW}.tex
 
 #review-fetch:
-#	wget -q https://raw.githubusercontent.com/bigdata-i520/sample-hid000/master/paper1/issues.tex
+#	wget -q https://raw.githubusercontent.com/bigdata-i523/sample-hid000/master/paper1/issues.tex
 
 review:
 	rm -rf ~/tmp-review
