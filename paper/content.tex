@@ -29,28 +29,31 @@ Amazon Relational database services has been effectively used for  handling
 and managing relational databases, which in return provides high performance, 
 security, maximum availability and compatibility. 
 It is compatible with variety of database engines running in background 
-including Amazon Aurora, PostgrSQL, MySQL, MariaDB, Oracle and 
-Microsoft SQL Server~\cite{hid-sp18-520-amazonrds}.
+including ``Amazon Aurora, PostgrSQL, MySQL, MariaDB, Oracle and 
+Microsoft SQL Server''~\cite{hid-sp18-520-amazonrds}.
 
 \section{Key features}
 
 Amazon RDS provides many key features which makes it popular are such as below - 
+
 1. Scaling Storage - It can automatically increase the storage once size or 
 volume of the databases ins reaching its maximum capacity.
+
 2. Offers less Administrative workload - When the services are getting setup, 
 all the databases instances are configured with its respective database engines. 
 Amazon provides command line and management consoles for easy administration 
 of the databases.
+
 3. Reliability - It can replicate the data to a standby instance on different 
 Availability Zone using the Multi-AZ DB instance. It provides  automates 
 backups, user defined snapshots of the data stored on Amazon S3. In the event 
 of failure of an hardware, it can automatically replace the instance.
+
 4. High Performance and Secure - It provides high performance using General 
 purpose SSD storage and Provisioned IOPS SSD storage. It provides the feature 
 of encrypting the databases using keys (AWS Key Management Services). 
 Along with, it provides Amazon VPC for network isolation for databases on 
-cloud to securely connect with on premise applications
-~\cite{hid-sp18-520-amazonrds}.
+cloud to securely connect with on premise applications.
  
 
 \section{Building Blocks for Amazon RDS}
@@ -64,8 +67,8 @@ software. In these DB instances, we can have multiple databases created by many
 users or 
 applications.
 In the background, we have DB engines interacting with DB instances. Few of the 
-examples can be MySQL, Maria DB, PostgreSQL, Oracle and Microsoft SQL Server DB 
-engines.
+examples can be ``MySQL, Maria DB, PostgreSQL, Oracle and Microsoft SQL Server DB 
+engines''~\cite{hid-sp18-520-amazonrds}.
 There are 3 types of storage available with DB instances (Magnetic, General 
 Purpose SSD and Provisioned IOPS).
 Storage capacity depends on various storage type and respective database engines 
@@ -74,8 +77,7 @@ Amazon RDS can select IP address range, subnets, access control list and
 configure routing to make it more secure and reliable.
 Another component provided by Amazon is IAM (Identity and Access Management), 
 which this you can provide provision on users to create, delete, modify read 
-any DB instances
-~\cite{hid-sp18-520-amazonrdswel}.
+any DB instances.
 
 \section{RDS Automated and Manual Monitoring Tools}
 
@@ -92,11 +94,11 @@ alarm-
 
 ``aws cloudwatch list-metrics --namespace AWS/RDS
 
-put-metric-alarm''
+put-metric-alarm''~\cite{hid-sp18-520-amardsmon}
 
 With API - using the CloudWatch API GetMetricStatistics with start and end time 
 can provide detail metrics on performance and form setting up alarm 
-with PutMetricAlarm on DB Instance''.
+with ``PutMetricAlarm''~\cite{hid-sp18-520-amardsmon} on DB Instance.
 
 Based on the user defined baseline for performance and resource to be monitored 
 Amazon RDS store the respective monitoring logs including your CPU, RAM, Disk 
@@ -105,8 +107,7 @@ Number of users connected to database can be monitored with kind of operation
 getting performed on Database with Amazon RDS console.  
 
 Various Amazon RDS metrics dimensions can be on name of the Engine, specific 
-DB Instances, DB Clusters with Roles and database class
-~\cite{hid-sp18-520-amardsmon}.
+DB Instances, DB Clusters with Roles and database class.
 
 \section{Create DB Instance - Example with MySQL}
 
@@ -165,8 +166,7 @@ can pass the connection parameters like hostname, port -default to 3306,
 Username, and password.
 
 Step 11 - Once connected to the database, we can perform DDL, DML 
-statements on the database
-~\cite{hid-sp18-520-amazonrdscreatesteps}.
+statements on the database.
 
 \section{Delete DB Instance - Example with MySQL}
 
@@ -174,8 +174,6 @@ Step 1 - Once logged into Amazon RDS console, navigate to Instance Actions
 and hit the delete link.
 DB instances can be deleted after taking the final snapshot or it can be 
 deleted with taking final snapshot of relational database.
-
-~\cite{hid-sp18-520-amazonrdscreatesteps}.
 
 
 \bibliographystyle{ACM-Reference-Format}
