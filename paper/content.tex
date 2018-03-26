@@ -15,20 +15,20 @@
 % The default list of authors is too long for headers}
 \renewcommand{\shortauthors}{A.Sinha}
 
-\begin{Abstract}
-Amazon Relational Database Service also known as RDS is a prime web service 
-provided on cloud by Amazon to operate with relational databases. 
-With AWS database migration services, it provides an mechanism for 
-replicating/ migrating any existing databases on AWS cloud.
+\begin{abstract}
+Amazon Relational Database Service also known as RDS is cloud computing
+platform providing a prime web service to operate with relational databases. 
+With AWS database services, it provides an mechanism for 
+creating/ replicating/ migrating any existing databases on AWS cloud.
 
 \end{abstract}
 
-\keywords{hid-sp18-520, i524, Amazon RDS, RDS, AWSRDS, AWS RDS}
+\keywords{520, i524, Amazon RDS, RDS, AWSRDS, AWS RDS}
 
 \maketitle
 
 \section{Introduction}
-Amazon Relational database services are the web services which has been 
+Amazon Relational database services are the web service which has been 
 effectively used for  handling and managing relational databases, which 
 in return provides high performance, security, maximum availability and 
 compatibility. 
@@ -37,23 +37,27 @@ including Amazon Aurora, PostgrSQL, MySQL, MariaDB, Oracle and
 Microsoft SQL Server.
 
 \section{Key features}
+Amazon RDS provided is the latest infrastructure platform with updated 
+database softwares and management tools to maintain and perform databases 
+administration with security and fault tolerant features.
+Below are some popular features 
 
-Amazon RDS provides many key features which makes it popular are such as below - 
+1. Scaling Storage-It can automatically increase the storage once size or 
+volume of the databases ins reaching its maximum capacity. It can also 
+scale storage based on high volume data getting loaded or read 
+from the database. Based on the usage trend, it can scale the database services.
 
-1. Scaling Storage - It can automatically increase the storage once size or 
-volume of the databases ins reaching its maximum capacity.
-
-2. Offers less Administrative workload - When the services are getting setup, 
+2. Offers less Administrative workload-When the services are getting setup, 
 all the databases instances are configured with its respective database engines. 
 Amazon provides command line and management consoles for easy administration 
 of the databases.
 
-3. Reliability - It can replicate the data to a standby instance on different 
+3. Reliability-It can replicate the data to a standby instance on different 
 Availability Zone using the Multi-AZ DB instance. It provides  automates 
 backups, user defined snapshots of the data stored on Amazon S3. In the event 
 of failure of an hardware, it can automatically replace the instance.
 
-4. High Performance and Secure - It provides high performance using General 
+4. High Performance and Secure-It provides high performance using General 
 purpose SSD storage and Provisioned IOPS SSD storage. It provides the feature 
 of encrypting the databases using keys (AWS Key Management Services). 
 Along with, it provides Amazon VPC for network isolation for databases on 
@@ -63,7 +67,8 @@ cloud to securely connect with on premise applications.
 \section{Building Blocks for Amazon RDS}
 
 DB Instances are Amazon RDS primary building blocks which is a secured database 
-environment on AWS cloud. As mentioned in above section, these DB instance can 
+environment on AWS cloud. DB Instance can consists of multiple databases. 
+As mentioned in above section, these DB instance can 
 be easily managed using simple API, AWS management console and Command line 
 interfaces to set the configurations and monitor the behavior and capabilities 
 of relational databases. It does not need any additional database maintenance 
@@ -93,14 +98,14 @@ database log files which can referred or consulted in cases of any failure or
 issues encountered.
 Amazon TRDS also provided extra feature for monitoring with CloudWatch for 
 metrics, alarms and logs, along with service health status.
-With Command Prompt - using below command can view performance metrics and 
+With Command Prompt-using below command can view performance metrics and 
 alarm- 
 
 ``aws cloudwatch list-metrics --namespace AWS/RDS
 
 put-metric-alarm''~\cite{hid-sp18-520-amardsmon}
 
-With API - using the CloudWatch API GetMetricStatistics with start and end time 
+With API-using the CloudWatch API GetMetricStatistics with start and end time 
 can provide detail metrics on performance and form setting up alarm 
 with ``PutMetricAlarm''~\cite{hid-sp18-520-amardsmon} on DB Instance.
 
@@ -113,48 +118,37 @@ getting performed on Database with Amazon RDS console.
 Various Amazon RDS metrics dimensions can be on name of the Engine, specific 
 DB Instances, DB Clusters with Roles and database class.
 
-\section{Create DB Instance - Example with MySQL}
-
-Prerequisite - Need to have access on AWS management console.
-
-Step 1 - For initial DB Instance set-up, it is managed through AWS Management
+\section{Create DB Instance-Example with MySQL}
+Creating a DB instance using MySQL Database engine.
+As prerequisite, we need to have access on AWS management console.
+For initial DB Instance set-up, it is managed through AWS Management
 Console.
-
-Step 2 - Search from Database section having listing as RDS.
-
-Step 3 - Navigate to open Amazon RDS Console.
-
+Search from Database section having listing as RDS.
+Navigate to open Amazon RDS Console.
 Next, its needed to have the understanding on what configuration is needed 
 for creating MySQL DB instance. For example, we can have certain amount of 
-storage and backup statergy.
-
-Step 4  - From the AWS RDS Console, we first need to select the region, also 
+storage and backup strategy to be build.
+From the AWS RDS Console, we first need to select the region, also 
 known as Availability zone, where we can host AWS RDB activities.
-
-Step 5 - From AWS RDB Console, we next need to launch DB Instance from 
+From AWS RDB Console, we next need to launch DB Instance from 
 Instances menu.
-
 Next, we will provided with option to select the SQL Engine for the DB 
 Instance. As we are taking the example for MySQL, we will select the 
 MySQL Engine.
-
-Step 6 - From Console, we need to select the Database engine - MySQL.
-
-Step 7 - Need to select the purpose of teh database instance like for 
+From Console, we need to select the Database engine named MySQL.
+Need to select the purpose of the database instance like for 
 production purpose, we can select the radio button as Dev/Test.
-
-Step 8 - In this step, we need to specify the DB details or configurations
+In this step, we need to specify the DB details or configurations
 DB Instance Specifications with license, engine version, class, multi-AZ 
 deployment, storage type, storage allocation.
 Provide the Identification name of DB Instance, username and password.
-DB Instance can be configured with network security - Virtual private 
+DB Instance can be configured with network security-Virtual private 
 cloud, security group, subnet group.
 
-Provide the database name, port - default to 3306, DB parameter group. 
-Along with backup statergy and monitoring capabilities cab be defined 
+Provide the database name, port-default to 3306, DB parameter group. 
+Along with backup strategy and monitoring capabilities cab be defined 
 while creating.
-
-Step 9 - Next launch DB Instance button on the console.
+Next launch DB Instance button on the console.
 
 These above steps have completed the creation DB Instance.The Status- 
 creating for DB Instance changes to ready for use and then to available.
@@ -164,25 +158,23 @@ with SQL client.
 
 In this example, we are configuring MySQL, so we can download and connect 
 using MySQL workbench as SQL client for MySQL database. 
-
-Step 10 - On MySQL Workbench-Database, Click on connect to database. We 
+On MySQL Workbench-Database, Click on connect to database. We 
 can pass the connection parameters like hostname, port -default to 3306, 
 Username, and password.
-
-Step 11 - Once connected to the database, we can perform DDL, DML 
+Once connected to the database, we can perform DDL, DML 
 statements on the database.
 
-\section{Delete DB Instance - Example with MySQL}
+\section{Delete DB Instance-Example with MySQL}
 
-Step 1 - Once logged into Amazon RDS console, navigate to Instance Actions 
+Once logged into Amazon RDS console, navigate to Instance Actions 
 and hit the delete link.
 DB instances can be deleted after taking the final snapshot or it can be 
-deleted with taking final snapshot of relational database.
+deleted with capturing final snapshot of relational database.
 
 \section{Conclusion}
-Amazon RDS is provides highly optimized and high performnace web services
-with mutiple type of databases with SQL and No SQL databases with ease to 
-customize, configure and monitor the DB activities.
+Amazon RDS is provides highly optimized and high performance web services
+supporting multiple type of SQL databases, providing service to easily 
+customize, configure and monitor the DB activities and administration.
 
 \begin{acks}
   The authors would like to thank Dr.~Gregor~von~Laszewski for his
