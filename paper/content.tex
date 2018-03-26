@@ -39,13 +39,13 @@ Microsoft SQL Server.
 \section{Key features}
 Amazon RDS provided is the latest infrastructure platform with updated 
 database softwares and management tools to maintain and perform databases 
-administration with security and fault tolerant features.
+administration with security and fault tolerant features. It check and updates the latest patches of software and ensuring the database are running on latest software and hardware.
 Below are some popular features 
 
 1. Scaling Storage-It can automatically increase the storage once size or 
 volume of the databases ins reaching its maximum capacity. It can also 
 scale storage based on high volume data getting loaded or read 
-from the database. Based on the usage trend, it can scale the database services.
+from the database. Based on the usage trend, it can scale the database services. It handles the read request effectively and optimally with read replicas, which is to create the replica of the database. 
 
 2. Offers less Administrative workload-When the services are getting setup, 
 all the databases instances are configured with its respective database engines. 
@@ -95,7 +95,7 @@ any issues or failures on DB instances, DB clusters DB Cluster Snapshots, DB
 parameter group or DB security group.
 On real time, DB instances or clusters can be monitored. It also maintains the 
 database log files which can referred or consulted in cases of any failure or 
-issues encountered.
+issues encountered.  
 Amazon TRDS also provided extra feature for monitoring with CloudWatch for 
 metrics, alarms and logs, along with service health status.
 With Command Prompt-using below command can view performance metrics and 
@@ -117,6 +117,8 @@ getting performed on Database with Amazon RDS console.
 
 Various Amazon RDS metrics dimensions can be on name of the Engine, specific 
 DB Instances, DB Clusters with Roles and database class.
+
+Amazon RDS can also encryption of databases with Amazon Key management services. It can restore point in time data as part of recovery process.
 
 \section{Create DB Instance-Example with MySQL}
 Creating a DB instance using MySQL Database engine.
@@ -175,6 +177,11 @@ deleted with capturing final snapshot of relational database.
 Amazon RDS is provides highly optimized and high performance web services
 supporting multiple type of SQL databases, providing service to easily 
 customize, configure and monitor the DB activities and administration.
+We have many sources of data getting generated and are gets used for 
+multiple purpose of analysis, interpretation. This cause for highly complex
+and high performance databases, which as a service is provided by Amazon to 
+maintain a relation database on cloud. With disaster recover mechanism reduces
+the risk of downtown and latency.
 
 \begin{acks}
   The authors would like to thank Dr.~Gregor~von~Laszewski for his
