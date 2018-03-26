@@ -42,28 +42,45 @@ Amazon RDS provided is the latest infrastructure platform with
 updated database softwares and management tools to maintain and 
 perform databases administration with security and fault tolerant 
 features. It check and updates the latest patches of software and 
-ensuring the database are running on latest software and hardware.
+ensuring the database are running on latest software and hardware. 
+It schedule major and minor releases of the software to keep the 
+Infrastructure platform updated. It also allows to configure with 
+previous DB Instance version.
+
 Below are some popular features 
-Scaling Storage-It can automatically increase the storage once size or 
+\begin{itemize}
+	
+\item Scaling Storage-It can automatically increase the storage once size or 
 volume of the databases ins reaching its maximum capacity. It can also 
 scale storage based on high volume data getting loaded or read 
 from the database. Based on the usage trend, it can scale the database 
 services. It handles the read request effectively and optimally with read 
-replicas, which is to create the replica of the database. 
-Offers less Administrative workload-When the services are getting setup, 
+replicas, which is to create the replica of the database. Also, upon usage 
+if it is not needed, it can be deleted from Management console or API.
+
+\item Offers less Administrative workload-When the services are getting setup, 
 all the databases instances are configured with its respective database 
 engines. Amazon provides command line and management consoles for easy 
 administration of the databases.
-Reliability-It can replicate the data to a standby instance on different 
+
+\item Reliability-It can replicate the data to a standby instance on different 
 Availability Zone using the Multi-AZ DB instance. It provides  automates 
 backups, user defined snapshots of the data stored on Amazon S3. In the 
-event of failure of an hardware, it can automatically replace the instance.
-High Performance and Secure-It provides high performance using General 
+event of failure of an hardware, it can automatically replace the instance. 
+Upgrade from single AZ to multi AZ can occur with no latency or downtime. 
+Once the selection is done from upgrade to Multi AZ, the snapshot of the 
+instance is captured, after which a new instance is built from the snapshot 
+and configuration is setup for taking or keeping the 
+Multi AZ databases in sync.
+~\cite{hid-sp18-520-amazonrdsfaqs}
+
+\item High Performance and Secure-It provides high performance using General 
 purpose SSD storage and Provisioned IOPS SSD storage. It provides the feature 
 of encrypting the databases using keys (AWS Key Management Services). 
 Along with, it provides Amazon VPC for network isolation for databases on 
 cloud to securely connect with on premise applications.
- 
+
+\end{itemize}
 
 \section{Building Blocks for Amazon RDS}
 
@@ -98,7 +115,7 @@ On real time, DB instances or clusters can be monitored. It also maintains the
 database log files which can referred or consulted in cases of any failure or 
 issues encountered.  
 Amazon TRDS also provided extra feature for monitoring with CloudWatch for 
-metrics, alarms and logs, along with service health status.
+metrics, alarms and logs, along with service health status. 
 With Command Prompt-using below command can view performance metrics and 
 alarm- 
 
@@ -122,6 +139,17 @@ service AWS Config like security, subnet, events on DB instance.
 
 Various Amazon RDS metrics dimensions can be on name of the Engine, specific 
 DB Instances, DB Clusters with Roles and database class. 
+It uses EBS volumes, which it automatically adjusts to upgrade and 
+enhance performance.
+IOPS (SSD) storage is recommended with High workloads from Online 
+transaction processing data.
+General purpose (SSD) stroage is recommended for workloads with small
+scale on database.
+It also provides the enhanced monitoring, which will be used for monitoring 
+the health of DB instance. It will help in monitoring the opererating system 
+with process being executed details. It will capture the system level metrics 
+for CPU, memory, file system and disk I/O.
+
 
 Amazon RDS can also encryption on databases with Amazon Key management services. 
 It can restore point in time data as part of recovery process.It can 
@@ -175,8 +203,17 @@ On MySQL Workbench-Database, Click on connect to database. We
 can pass the connection parameters like hostname, port -default to 3306, 
 Username, and password.
 Once connected to the database, we can perform DDL, DML 
-statements on the database
+statements on the database. 
+
+You can connect to Read Replica as the same way with details on endpoints. 
+DDL statement can also be performed on read Replica
 ~\cite{hid-sp18-520-amazonrdscreatesteps}.
+
+\section{Paid Service}
+DB Instance hours, Storage per month, I/O request per month with data transfer, 
+backup storage with provisioned IOPS per month are paid services.
+So the services must be deleted or stopped and avoid extra billing than usage.
+~\cite{hid-sp18-520-amazonrdsfaqs}
 
 \section{Delete DB Instance-Example with MySQL}
 
