@@ -50,27 +50,28 @@ previous DB Instance version.
 Below are some popular features 
 \begin{itemize}
 	
-\item Scaling Storage-It can automatically increase the storage once size or 
-volume of the databases ins reaching its maximum capacity. It can also 
+\item Scaling Storage-It can automatically increase the storage once 
+size or volume of the databases ins reaching its maximum capacity. It 
+can also 
 scale storage based on high volume data getting loaded or read 
 from the database. Based on the usage trend, it can scale the database 
 services. It handles the read request effectively and optimally with read 
 replicas, which is to create the replica of the database. Also, upon usage 
 if it is not needed, it can be deleted from Management console or API.
 
-\item Offers less Administrative workload-When the services are getting setup, 
-all the databases instances are configured with its respective database 
-engines. Amazon provides command line and management consoles for easy 
-administration of the databases.
+\item Offers less Administrative workload-When the services are getting 
+setup, all the databases instances are configured with its respective 
+database engines. Amazon provides command line and management consoles for 
+easy administration of the databases.
 
-\item Reliability-It can replicate the data to a standby instance on different 
-Availability Zone using the Multi-AZ DB instance. It provides  automates 
-backups, user defined snapshots of the data stored on Amazon S3. In the 
-event of failure of an hardware, it can automatically replace the instance. 
-Upgrade from single AZ to multi AZ can occur with no latency or downtime. 
-Once the selection is done from upgrade to Multi AZ, the snapshot of the 
-instance is captured, after which a new instance is built from the snapshot 
-and configuration is setup for taking or keeping the 
+\item Reliability-It can replicate the data to a standby instance on 
+different Availability Zone using the Multi-AZ DB instance. It provides  
+automates backups, user defined snapshots of the data stored on Amazon S3. 
+In the event of failure of an hardware, it can automatically replace the 
+instance. Upgrade from single AZ to multi AZ can occur with no latency or 
+downtime. Once the selection is done from upgrade to Multi AZ, the snapshot 
+of the instance is captured, after which a new instance is built from the 
+snapshot and configuration is setup for taking or keeping the 
 Multi AZ databases in sync.
 ~\cite{hid-sp18-520-amazonrdsfaqs}
 
@@ -84,8 +85,8 @@ cloud to securely connect with on premise applications.
 
 \section{Building Blocks for Amazon RDS}
 
-DB Instances are Amazon RDS primary building blocks which is a secured database 
-environment on AWS cloud. DB Instance can consists of multiple databases. 
+DB Instances are Amazon RDS primary building blocks which is a secured 
+database environment on AWS cloud. DB Instance can consists of multiple databases. 
 As mentioned in above section, these DB instance can 
 be easily managed using simple API, AWS management console and Command line 
 interfaces to set the configurations and monitor the behavior and capabilities 
