@@ -56,8 +56,11 @@ can also
 scale storage based on high volume data getting loaded or read 
 from the database. Based on the usage trend, it can scale the database 
 services. It handles the read request effectively and optimally with read 
-replicas, which is to create the replica of the database. Also, upon usage 
-if it is not needed, it can be deleted from Management console or API.
+replicas, which is to create the replica of the database. 
+Also, upon usage if it is not needed, it can be deleted from Management 
+console or API. With API, it can manage the same operation as possible 
+with managenement console for create, start, stop, modify, failover, 
+describe, authorize and add DB clusters and DB instances.
 
 \item Offers less Administrative workload-When the services are getting 
 setup, all the databases instances are configured with its respective 
@@ -66,7 +69,8 @@ easy administration of the databases.
 
 \item Reliability-It can replicate the data to a standby instance on 
 different Availability Zone using the Multi-AZ DB instance. It provides  
-automates backups, user defined snapshots of the data stored on Amazon S3. 
+automates backups, user defined snapshots of the data stored 
+on Amazon S3. 
 In the event of failure of an hardware, it can automatically replace the 
 instance. Upgrade from single AZ to multi AZ can occur with no latency or 
 downtime. Once the selection is done from upgrade to Multi AZ, the snapshot 
@@ -79,7 +83,10 @@ Multi AZ databases in sync.
 purpose SSD storage and Provisioned IOPS SSD storage. It provides the feature 
 of encrypting the databases using keys (AWS Key Management Services). 
 Along with, it provides Amazon VPC for network isolation for databases on 
-cloud to securely connect with on premise applications.
+cloud to securely connect with on premise applications. 
+With in this Amazon VPC, we may have mutiple subnets with atleast on 
+the AZ zone. Data restoration or migration outside VPN is prohibited and 
+it is not supported. 
 
 \end{itemize}
 
