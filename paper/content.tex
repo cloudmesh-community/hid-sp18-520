@@ -115,15 +115,21 @@ with ``PutMetricAlarm''~\cite{hid-sp18-520-amardsmon} on DB Instance.
 
 Based on the user defined baseline for performance and resource to be monitored 
 Amazon RDS store the respective monitoring logs including your CPU, RAM, Disk 
-Space consumption.
+Space consumption. It can monitor the network traffics and help in deciding 
+the throughput details. With Amazon RDS, it helps in Disk space monitoring 
+helps in taking decision, if the data needs to be purged or archived.
 Number of users connected to database can be monitored with kind of operation 
 getting performed on Database with Amazon RDS console.  
 
 Various Amazon RDS metrics dimensions can be on name of the Engine, specific 
-DB Instances, DB Clusters with Roles and database class.
+DB Instances, DB Clusters with Roles and database class. 
 
-Amazon RDS can also encryption of databases with Amazon Key management services. 
-It can restore point in time data as part of recovery process
+Amazon RDS can also encryption on databases with Amazon Key management services. 
+It can restore point in time data as part of recovery process.It can 
+automatically initiate the failover process, if we can not access the 
+primary AZ, can't connect to primary on network, failure of storage.
+Database events can be integrated with another amazon service known as
+Amazon SNS, which can send the SMS text messages.
 ~\cite{hid-sp18-520-amardsmon}.
 
 \section{Create DB Instance-Example with MySQL}
