@@ -1,0 +1,145 @@
+% status: 100
+% chapter: SciKit Learn Algorithm
+
+\title{ProjectProposal of REST Service Framework with SciKit Learn Algorithm}
+
+\author{Arijit Sinha}
+\affiliation{%
+  \institution{Indiana University}
+  \city{Bloomington} 
+  \state{IN} 
+  \postcode{47408}
+  \country{USA}}
+\email{arisinha@iu.edu}
+
+\author{Ritesh Tandon}
+\affiliation{%
+  \institution{Indiana University}
+  \city{Bloomington} 
+  \state{IN} 
+  \postcode{47408}
+  \country{USA}}
+\email{ritandon@iu.edu}
+
+% The default list of authors is too long for headers}
+\renewcommand{\shortauthors}{G. v. Laszewski}
+
+
+\begin{abstract}
+In current world, data is getting generated and stored with different storage systems. 
+We need to use this data for a better understanding, analyze and can estimate the 
+future scenarios with certain probability. There are many algorithms, which have 
+developed and implemented for providing better accuracy on the future scenarios.
+\end{abstract}
+
+\keywords{hidsp18520, hidsp18523, REST, scikit learn, linear, decision tree, 
+random forest, algorithm, Machine, learning}
+
+
+\maketitle
+
+\section{Introduction}
+
+Scikit learn is a library created under machine learning algorithms, which uses 
+different datasets gathered over years to learn and predicts future scenarios. 
+Supervised and unsupervised learning can differentiation conducted for learning 
+variety of dataset.
+
+Supervised algorithms are on the dataset, which has the target variable, which 
+need to be predicted or estimated. This datasets can be acted with below different 
+approaches
+
+Classification is based on the classes and the labeled data, we need to predict 
+the unlabeled data.
+
+Regression is based on the continuous variable or data, we need to predict the 
+future state of data is known as regression
+
+Unsupervised algorithms are on the dataset, where we donot see the target variable 
+for prediction, we learn its behavior set of vector input variable to identify the 
+clustering group of similar behavior data or sample
+~\cite{sckitml}
+Kaggle is a known location for different kind of datasets gathered by various 
+institutes across globe.
+
+\section{Scope of work}
+
+Below are the 3 algorithm from Scikit learn
+\begin{itemize}
+\item Implement Linear Regression
+\item Implement Decision Tree
+\item Implement Random Forest
+\end{itemize}
+
+We have acquired the dataset from Kaggle and read the data dictionary details on 
+different websites which includes below describes attributes. We have 14204 instances and 13 
+attributes in the dataset, which will be spitted into Training and Test Data set. This dataset 
+is available on public websites
+
+BigMart Dataset, With this dataset, we will predict the sale price of various products based 
+on the learning of historical data in the datasets using different algorithm. The dataset has 
+various data with respect to
+\begin{itemize}
+\item Item_Fat_Content
+\item Item_Identifier
+\item Item_MRP
+\item Item_Outlet_Sales
+\item Item_Type
+\item Item_Visibility
+\item Item_Weight
+\item Outlet_Establishment_Year
+\item Outlet_Identifier
+\item Outlet_Location_Type
+\item Outlet_Size
+\item Outlet_Type
+\item source
+\end{itemize}
+~\cite{kaggleds}
+
+\section{Reason}
+
+We are planning to use Regression learning algorithm because the target variable is 
+numerical and continuous in nature. We will be creating ML pipeline using linear, 
+regularized linear, tree and forest learning algorithm. We will compare and evaluate 
+different models based on CV and accuracy of different learning algorithm.
+
+\section{Technology Stack}
+
+Python will be used for Data loading, preprocessing and cleaning. Using Scikit learn 
+library, we will implement varity of algorithms to conduct above process and finally 
+will predict the sale price of its products.
+
+REST services will be implemented to provide a provide prediction of price of the 
+products:
+
+\begin{itemize}
+\item REST data preprocessing: It will be the service, which does the data processing 
+with removal or imputing the data with mean or median. Removal of the columns which 
+doesn’t any correlation with target variable
+\item REST data prediction: it will be the service, which will do multiple predictions 
+using multiple algorithms as below -
+
+\item Rest API with Linear Regression – Display the outcome of product and predicted 
+price
+\item Rest API with Random Forest – Display the outcome of product and predicted price
+\item Rest API with Decision Tree – Display the outcome of product and predicted price
+\end{itemize}
+
+Cloud technology will be Microsoft Azure.
+
+\section{Conclusion}
+
+With all the 3 alogorithms, it displays lot of different ways to consider the feature
+and do the prediction with high accuracy.
+
+
+\begin{acks}
+
+  The authors would like to thank Dr.~Gregor~von~Laszewski for his
+  support and suggestions to write this paper.
+
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{report} 
+
