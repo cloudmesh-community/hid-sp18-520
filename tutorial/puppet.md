@@ -1,37 +1,20 @@
 ﻿# Puppet
-hid-sp18-520 Arjit Sinha
-hid-sp18-523 Ritesh Tandon
+- hid-sp18-520 Arjit Sinha
+- hid-sp18-523 Ritesh Tandon
 
 ## Overiew
 
- Configuration management is an important task of IT department in any organization. It is a process of managing changes in infrastructure in a structured and systematic way.
-
-Configuring large infrastructure has always been a tedious task. Moreover in case of any technical glitches when updating software, manual rolling back the infrastructure to
-
-previous version of the software is time consuming and error prone. Puppet is a configuration management tool that makes the complex task of deploying new software, updating
-
-software updates , rolling back softwares on large cluster easily and in efficient way. Puppet does this through Infrastructure as Code ( IAC ). In this process code is written for
-
-infrastructure on one central location and is pushed to all the nodes in all environments ( Dev, Test, Production ) using puppet as tool. Configuration managment tool has two
-
-approaches for managing infrastructure configuration push and pull. In push configuration, infrastructure as code is pushed from centralized server to the nodes where as in pull
-
-configuration nodes pulls the infrastructure as code from central server. puppet uses pull configuration.
-
-<img src="figure/IAC.png" title="IAC" alt="IAC" style="display: block; margin: auto;"/>
-
-<img src="figure/push-pull-configuration.png" title="push-pull-config" alt="push-pull-config" style="display: block; margin: auto;"/>
+ Configuration management is an important task of IT department in any organization. It is a process of managing changes in infrastructure in a structured and systematic way. Configuring large infrastructure has always been a tedious task. Moreover in case of any technical glitches when updating software, manual rolling back the infrastructure to previous version of the software is time consuming and error prone. Puppet is a configuration management tool that makes the complex task of deploying new software, updating software updates , rolling back softwares on large cluster easily and in efficient way. Puppet does this through Infrastructure as Code ( IAC ). In this process code is written for infrastructure on one central location and is pushed to all the nodes in all environments ( Dev, Test, Production ) using puppet as tool. Configuration management tool has two approaches for managing infrastructure configuration push and pull. In push configuration, infrastructure as code is pushed from centralized server to the nodes where as in pull configuration nodes pulls the infrastructure as code from central server. puppet uses pull configuration.
 
 ![IAC Image](figure/IAC.jpg)
 
 ![push-pull-config Image](figure/push-pull-configuration.jpg)
 
 
+
 ## Master Slave Architecture
 
-Puppet uses master slave architecture. There is puppet master node and client nodes called as puppet agent. Agents poll the server at regular interval and pulls the updated configuration
-
-from the master. Puppet Master is highly available as it supports muti master marchitecture, in case if one goes down backup master stands up to serve the infrastructure. In this architecture-
+Puppet uses master slave architecture. There is puppet master node and client nodes called as puppet agent. Agents poll the server at regular interval and pulls the updated configuration from the master. Puppet Master is highly available as it supports multi master architecture, in case if one goes down backup master stands up to serve the infrastructure. In this architecture-
 
 - nodes ( puppet agents ) sends the information (for e.g IP, hardware detail, network etc. ) to master. Master stores such information in the manifest.
 
@@ -43,13 +26,10 @@ from the master. Puppet Master is highly available as it supports muti master ma
 
 - Connection between master and slave is SSL encrypted ( Refer to Puppet Master Slave Connection figure belwo )
 
-<img src="figure/master-slave.png" title="master-slave" alt="master-slave" style="display: block; margin: auto;"/>
 ![master-slave Image](figure/master-slave.jpg)
 
-<img src="figure/master-slave1.png" title="master-slave1" alt="master-slave1" style="display: block; margin: auto;"/>
 ![master-slave1 Image](figure/master-slave1.jpg)
 
-<img src="figure/master-slave-connection.png" title="master-slave-connection" alt="master-slave-connection" style="display: block; margin: auto;"/>
 ![master-slave-connection Image](figure/master-slave-connection.jpg)
 
 ## Installation
@@ -84,7 +64,7 @@ We have to specify the configuration file (pe.conf) when we install in text mode
 
 ```sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>```
 
-	+ To have the installer open a copy of pe.conf for you to edit and install with, run the installer without the -c flag:
++ To have the installer open a copy of pe.conf for you to edit and install with, run the installer without the -c flag:
 
 ```sudo ./puppet-enterprise-installer```
 
