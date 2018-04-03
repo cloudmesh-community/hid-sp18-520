@@ -102,5 +102,14 @@ In a split installation, after you install the master and PuppetDB, you're ready
 To complete a split installation, run Puppet on all infrastructure nodes in the order that they were installed.
 
 - Unpack the installation tarball:
+	- Run Puppet on the master node.  
+	- Run Puppet on the PuppetDB node.  
+	- Run Puppet on the master node a second time.  
+	- Run Puppet on the console node.
+
+## Reference
+
+- [https://puppet.com/docs/pe/2017.3/installing/installing_pe.html#concept-3157](https://www.google.com/url?q=https://puppet.com/docs/pe/2017.3/installing/installing_pe.html%23concept-3157&sa=D&source=hangouts&ust=1522821857125000&usg=AFQjCNEPcs-uZes-m-fZYqK2WcTfkYRPLQ)  
+- Images - are taken form from [www.edureka.com](https://www.google.com/url?q=http://www.edureka.com&sa=D&source=hangouts&ust=1522821857125000&usg=AFQjCNE9YT10FeEvCoV3fhnTWVZlfy-hrQ) devops class
 
 ## Rest of the Topics are in Progress
