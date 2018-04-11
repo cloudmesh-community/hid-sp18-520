@@ -105,11 +105,6 @@ To complete a split installation, run Puppet on all infrastructure nodes in the 
 	- Run Puppet on the master node a second time.  
 	- Run Puppet on the console node.
 
-## Reference
-
-- [https://puppet.com/docs/pe/2017.3/installing/installing_pe.html#concept-3157](https://www.google.com/url?q=https://puppet.com/docs/pe/2017.3/installing/installing_pe.html%23concept-3157&sa=D&source=hangouts&ust=1522821857125000&usg=AFQjCNEPcs-uZes-m-fZYqK2WcTfkYRPLQ)  
-- Images - are taken form from [www.edureka.com](https://www.google.com/url?q=http://www.edureka.com&sa=D&source=hangouts&ust=1522821857125000&usg=AFQjCNE9YT10FeEvCoV3fhnTWVZlfy-hrQ) devops class
-
 ## Configuring Puppet
 
 ### Puppet.conf
@@ -193,4 +188,12 @@ Following command automatically starts the puppet server when master server is s
 
 ```$ sudo systemctl enable puppetserver```
 
+## Reference
+
+- [https://puppet.com/docs/pe/2017.3/installing/installing_pe.html#concept-3157](https://www.google.com/url?q=https://puppet.com/docs/pe/2017.3/installing/installing_pe.html%23concept-3157&sa=D&source=hangouts&ust=1522821857125000&usg=AFQjCNEPcs-uZes-m-fZYqK2WcTfkYRPLQ)  
+- Images - are taken form from [www.edureka.com](https://www.google.com/url?q=http://www.edureka.com&sa=D&source=hangouts&ust=1522821857125000&usg=AFQjCNE9YT10FeEvCoV3fhnTWVZlfy-hrQ) devops class
+
+
 ## Rest of the Topics are in Progress
+
+
