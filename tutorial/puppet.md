@@ -6,7 +6,11 @@
 
  Configuration management is an important task of IT department in any organization. It is a process of managing changes in infrastructure in a structured and systematic way. Configuring large infrastructure has always been a tedious task. Moreover in case of any technical glitches when updating software, manual rolling back the infrastructure to previous version of the software is time consuming and error prone. Puppet is a configuration management tool that makes the complex task of deploying new software, updating software updates , rolling back software on large cluster easily and in efficient way. Puppet does this through Infrastructure as Code ( IAC ). In this process code is written for infrastructure on one central location and is pushed to all the nodes in all environments ( Dev, Test, Production ) using puppet as tool. Configuration management tool has two approaches for managing infrastructure configuration push and pull. In push configuration, infrastructure as code is pushed from centralized server to the nodes where as in pull configuration nodes pulls the infrastructure as code from central server. puppet uses pull configuration.
 
+Infrastructure As Code
+
 ![IAC Image](figure/IAC.jpg)
+
+Push Pull Configuration
 
 ![push-pull-config Image](figure/push-pull-configuration.jpg)
 
@@ -24,9 +28,15 @@ Puppet uses master slave architecture. There is puppet master node and client no
 
 - Connection between master and slave is SSL encrypted ( Refer to Puppet Master Slave Connection figure belwo )
 
+Master and Slave Architecture
+
 ![master-slave Image](figure/master-slave.jpg)
 
+Master Slave Workflow 1
+
 ![master-slave1 Image](figure/master-slave1.jpg)
+
+Master  Slave SSL Workflow
 
 ![master-slave-connection Image](figure/master-slave-connection.jpg)
 
