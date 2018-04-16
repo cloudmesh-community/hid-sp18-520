@@ -334,6 +334,4 @@ Run the following command and get a YAML output as the result.
 - Images - are taken form from [www.edureka.com](https://www.google.com/url?q=http://www.edureka.com&sa=D&source=hangouts&ust=1522821857125000&usg=AFQjCNE9YT10FeEvCoV3fhnTWVZlfy-hrQ) devops class
 
 
-## Rest of the Topics are in Progress
-
 
