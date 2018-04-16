@@ -58,7 +58,28 @@ paths:
         '200':
           description: 'Usage of Disk Space'
           schema:
-            $ref: '#/definitions/USAGE'            
+            $ref: '#/definitions/USAGE' 
+  '/Mgmtusage':
+    get:
+      description: "Returns disk space information of the hosting server"
+      produces: 
+        - "application/json"
+      responses:
+        '200':
+          description: 'Usage of Mgmt Space'
+          schema:
+            $ref: '#/definitions/MgmtUSAGE' 
+  '/Diskiocounter':
+    get:
+      description: "Returns disk space information of the hosting server"
+      produces: 
+        - "application/json"
+      responses:
+        '200':
+          description: 'Usage of DiskIO Space'
+          schema:
+            $ref: '#/definitions/DiskIO'
+          
 definitions:
   TOTAL:
     type: object
@@ -87,4 +108,24 @@ definitions:
       - size
     properties:
       size:
-        type: string        
+        type: string       
+  MgmtUSAGE:
+    type: object
+    required:
+      - detail
+      - size
+    properties:
+      detail:
+        type: string
+      size:
+        type: string
+  DiskIO:
+    type: object
+    required:
+      - detail
+      - size
+    properties:
+      detail:
+        type: string
+      size:
+        type: string 

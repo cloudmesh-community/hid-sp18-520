@@ -1,4 +1,4 @@
-﻿# Project : Disk - REST Server Service Generation with Swagger
+﻿# Disk - REST Server Service with Swagger
 
 ## Objective :
 
@@ -14,26 +14,31 @@ java -jar swagger-codegen-cli-2.3.1.jar generate \
 -D supportPython2=true
 3. Update the code under server/disks/flaskconnexion folder.
 
-# Create the Makefile Script
+# Makefile Script details
 ## Server - 
 Create the Make file which asssumes to have SwaggerCodegen (Swagger Codegen 2.3.1) downloaded, create the Server with Code and Virtual Environment. 
 
-Execute the Make file - Makefile
+Execute the commands from the Makefile.
 
-prerequisite: store the path to swagger codegen jarfile in an environment variable named swagger_codegen
+Prerequisite: store the path to swagger codegen jarfile in an environment variable named swagger_codegen
 
-export swagger_codegen="path to swagger codegen jarfile"
+```SWAGGERCODEGEN=java -jar swagger-codegen-cli-2.3.1.jar```
 
 Command to generate swagger code run the command
-make
+
+```make service```
 
 Command to run the code, execute the following
 
-make run
+```make run```
+
+Command to test the service is up and running on local machine 
+
+```make test```
 
 Command to remove swagger codegen files run the command, and clean the directory
 
-make clean
+```make clean```
 
 
 ## Execute on Server to verify - 
@@ -47,11 +52,26 @@ Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk
 
 
 ## Execute with CURL - 
-curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/TotalDisk
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/TotalDisk```
 
-curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/UsedDisk
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/UsedDisk``
 
-curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/FreeDisk
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/FreeDisk```
 
-curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Diskusage
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Diskusage```
 
+# Docker - 
+
+Create the Image and Container with following commands - build the image, container from Dockerfile and push it to Docker Hub - 
+
+```docker build -t resourcediskdetail_swagger .```
+
+```docker run -p 8080:8080 arisinha/resourcediskdetail_swagger```
+
+```docker push arisinha/resourcediskdetail_swagger```
+
+Pull the public Image and run with below commands -
+
+```docker pull arisinha/resourcediskdetail_swagger```
+
+```docker run -p 8080:8080 arisinha/resourcediskdetail_swagger```
