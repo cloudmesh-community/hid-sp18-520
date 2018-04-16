@@ -1,5 +1,5 @@
 ﻿# Puppet
-- hid-sp18-520 Arjit Sinha
+- hid-sp18-520 Arijit Sinha
 - hid-sp18-523 Ritesh Tandon
 
 ## Overiew
@@ -8,11 +8,11 @@
 
 Infrastructure As Code
 
-![IAC Image](figure/IAC.jpg)
+![IAC Image](Images/IAC.jpg)
 
 Push Pull Configuration
 
-![push-pull-config Image](figure/push-pull-configuration.jpg)
+![push-pull-config Image](Images/push-pull-configuration.jpg)
 
 ## Master Slave Architecture
 
@@ -30,15 +30,15 @@ Puppet uses master slave architecture. There is puppet master node and client no
 
 Master and Slave Architecture
 
-![master-slave Image](figure/master-slave.jpg)
+![master-slave Image](Images/master-slave.jpg)
 
 Master Slave Workflow 1
 
-![master-slave1 Image](figure/master-slave1.jpg)
+![master-slave1 Image](Images/master-slave1.jpg)
 
 Master  Slave SSL Workflow
 
-![master-slave-connection Image](figure/master-slave-connection.jpg)
+![master-slave-connection Image](Images/master-slave-connection.jpg)
 
 ## Installation
 
