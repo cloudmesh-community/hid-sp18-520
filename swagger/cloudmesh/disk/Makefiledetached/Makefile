@@ -1,9 +1,6 @@
 SWAGGERCODEGEN=java -jar swagger-codegen-cli-2.3.1.jar
 YAML=diskinfo.yaml
 FLASKDIR=server/disks/flaskConnexion
-SERVERDIR=./server
-
-all: service docker-build docker-start
 
 service: 
 	sudo wget https://oss.sonatype.org/content/repositories/releases/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
@@ -30,18 +27,18 @@ stop:
 	ps -ef | grep swagger | grep -v "grep"| awk '{print $$2}' | xargs kill -9
 
 
-docker-build:
+container:
 	rm $(FLASKDIR)/Dockerfile
 	cp -r Dockerfile $(FLASKDIR)/
-	cd $(FLASKDIR); sudo docker build -t cloudmeshresourcediskdetail .; 
+	cd $(FLASKDIR); sudo docker build -t arisinha/resourcediskdetail_swagger .; docker run -p 8080:8080 arisinha/resourcediskdetail_swagger;
+
+
+docker-push:
+	docker push arisinha/resourcediskdetail_swagger
 
 docker-start:
-	docker run -p 8080:8080 cloudmeshresourcediskdetail
-
-
-clean:
-	rm -r $(SERVERDIR)
-	rm -f ./swagger-codegen-cli-2.3.1.jar
+	docker pull arisinha/resourcediskdetail_swagger
+	docker run -p 8080:8080 arisinha/resourcediskdetail_swagger
 
 docker-stop:
 	docker stop $$(docker ps -a -q -f status=running)
