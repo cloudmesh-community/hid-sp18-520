@@ -50,6 +50,9 @@ Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk
 
 Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/Dusage 
 
+Verify the server with URL - on any browser  http://localhost:8080/cloudmesh/disk/Mgmtusage
+
+Verify the server with URL - on any browser  http://localhost:8080/cloudmesh/disk/Diocounter
 
 ## Execute with CURL - 
 ```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/TotalD```
@@ -59,6 +62,11 @@ Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk
 ```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/FreeD```
 
 ```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Dusage```
+
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Mgmtusage```
+
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Diocounter```
+
 
 # Docker - 
 
