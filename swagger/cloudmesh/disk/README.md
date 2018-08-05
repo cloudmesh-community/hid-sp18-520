@@ -42,23 +42,23 @@ Command to remove swagger codegen files run the command, and clean the directory
 
 
 ## Execute on Server to verify - 
-Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/TotalDisk 
+Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/TotalD 
 
-Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/UsedDisk 
+Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/UsedD 
 
-Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/FreeDisk 
+Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/FreeD 
 
-Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/Diskusage 
+Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/Dusage 
 
 
 ## Execute with CURL - 
-```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/TotalDisk```
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/TotalD```
 
-```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/UsedDisk``
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/UsedD```
 
-```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/FreeDisk```
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/FreeD```
 
-```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Diskusage```
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Dusage```
 
 # Docker - 
 
