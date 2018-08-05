@@ -16,11 +16,11 @@ REST Services with Eve - Capture the local machine details
 
 http://127.0.0.1:5000/ubuntu/ram
 
-![Alt](REST/RAMScreenshotURL.png)
+![Alt](/REST/RAMScreenshotURL.png)
 
 http://127.0.0.1:5000/ubuntu/processorName
 
-![Alt](REST/ProcessorSystemScreenshotURL.png)
+![Alt](/REST/ProcessorSystemScreenshotURL.png)
 
 http://127.0.0.1:5000/ubuntu/diskspace
 
@@ -28,7 +28,7 @@ http://127.0.0.1:5000/ubuntu/diskspace
 
 http://127.0.0.1:5000/ubuntu/CPUDetails
 
-![Alt](REST/CPUScreenshotURL.png)
+![Alt](/REST/CPUScreenshotURL.png)
 
 #Using CURL 
 curl -H "Content-Type: application/json" http://127.0.0.1:5000/ubuntu/ram/
@@ -42,5 +42,4 @@ curl -H "Content-Type: application/json" http://127.0.0.1:5000/ubuntu/CPUDetails
 Screenshot for all the above curl statement outputs -
 
 
-![Alt](REST/CURLStatementsScreenshot.png.png)
-
+![Alt](/REST/CURLStatementsScreenshot.png)
