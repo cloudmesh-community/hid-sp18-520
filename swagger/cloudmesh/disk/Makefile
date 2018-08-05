@@ -18,12 +18,12 @@ run:
 	sudo python setup.py install && python -m swagger_server
 
 test:
-	curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/TotalDisk
-	curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/UsedDisk
-	curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/FreeDisk
-	curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Diskusage
+	curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/TotalD
+	curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/UsedD
+	curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/FreeD
+	curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Dusage
 	curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Mgmtusage
-	curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Diskiocounter
+	curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Diocounter
 
 		            
 stop:

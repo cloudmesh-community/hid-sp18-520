@@ -28,6 +28,12 @@
 
 ## Docker Container Execution
 
+Docker Build 
+![Alt](TestResultScreenshots/DockerBuildCompletion.png)
+
+Docker Start 
+![Alt](TestResultScreenshots/DockerStartServer.png)
+
 * Total Disk
 ![Alt](TestResultScreenshots/FromContainer_TotalDisk.png)
 
@@ -46,22 +52,7 @@
 * Disk IO
 ![Alt](TestResultScreenshots/FromContainer_DiskIO.png)
 
-## Docker Image outside of Local Machine
+## Kill The process running -
 
-* Total Disk
-![Alt](TestResultScreenshots/FromOutsideDocker_TotalDisk.png)
+![Alt](TestResultScreenshots/KillProcess.png)
 
-* Free Disk
-![Alt](TestResultScreenshots/FromOutsideDocker_FreeDisk.png)
-
-* Used Disk
-![Alt](TestResultScreenshots/FromOutsideDocker_UsedDisk.png)
-
-* Disk Usage
-![Alt](TestResultScreenshots/FromOutsideDocker_DiskUsage.png)
-
-* Disk Partition
-![Alt](TestResultScreenshots/FromOutsideDocker_DiskPartition.png)
-
-* Disk IO
-![Alt](TestResultScreenshots/FromOutsideDocker_DiskIOCounter.png)

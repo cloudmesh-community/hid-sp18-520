@@ -60,7 +60,7 @@ def get_diskio_counter():
     }
     return (io_info)
 
-def diskusage_get():  # noqa: E501
+def dusage_get():  # noqa: E501
     """diskusage_get
 
     Returns disk space information of the hosting server # noqa: E501
@@ -71,7 +71,7 @@ def diskusage_get():  # noqa: E501
     return USAGE(get_diskusage_name())
 
 
-def free_disk_get():  # noqa: E501
+def free_dget():  # noqa: E501
     """free_disk_get
 
     Returns disk space information of the hosting server # noqa: E501
@@ -82,7 +82,7 @@ def free_disk_get():  # noqa: E501
     return FREE(get_freedsk_name())
 
 
-def total_disk_get():  # noqa: E501
+def total_dget():  # noqa: E501
     """total_disk_get
 
     Returns disk space information of the hosting server # noqa: E501
@@ -93,7 +93,7 @@ def total_disk_get():  # noqa: E501
     return TOTAL(get_totdsk_name())
 
 
-def used_disk_get():  # noqa: E501
+def used_dget():  # noqa: E501
     """used_disk_get
 
     Returns disk space information of the hosting server # noqa: E501
@@ -113,7 +113,7 @@ def mgmtusage_get():  # noqa: E501
     """
     return MgmtUSAGE(get_diskmgmt_name())
 
-def diskiocounter_get():  # noqa: E501
+def diocounter_get():  # noqa: E501
     """used_disk_get
 
     Returns disk space information of the hosting server # noqa: E501
