@@ -16,6 +16,7 @@
 \renewcommand{\shortauthors}{A.Sinha}
 
 \begin{abstract}
+
 Amazon Relational Database Service also known as RDS is cloud 
 computing platform providing a prime web service to operate 
 with relational databases. With AWS database services, 
@@ -29,6 +30,7 @@ any existing databases on AWS cloud.
 \maketitle
 
 \section{Introduction}
+
 Amazon Relational database services are the web service which 
 has been effectively used for  handling and managing relational 
 databases, which in return provides high performance, security, 
@@ -41,6 +43,7 @@ background including Amazon Aurora, PostgrSQL, MySQL, MariaDB,
 Oracle and Microsoft SQL Server.
 
 \section{Key features}
+
 Amazon RDS provided is the latest infrastructure platform with 
 updated database softwares and management tools to maintain and 
 perform databases administration with security and fault tolerant 
@@ -51,6 +54,7 @@ Infrastructure platform updated. It also allows to configure with
 previous DB Instance version.
 
 Below are some popular features 
+
 \begin{itemize}
 	
 \item Scaling Storage-It can automatically increase the storage once 
@@ -90,7 +94,6 @@ cloud to securely connect with on premise applications.
 With in this Amazon VPC, we may have mutiple subnets with atleast on 
 the AZ zone. Data restoration or migration outside VPN is prohibited and 
 it is not supported. 
-
 \end{itemize}
 
 \section{Building Blocks for Amazon RDS}
@@ -125,14 +128,22 @@ parameter group or DB security group.
 On real time, DB instances or clusters can be monitored. It also maintains the 
 database log files which can referred or consulted in cases of any failure or 
 issues encountered.  
-Amazon TRDS also provided extra feature for monitoring with CloudWatch for 
+Amazon RDS also provided extra feature for monitoring with CloudWatch for 
 metrics, alarms and logs, along with service health status. 
 With Command Prompt-using below command can view performance metrics and 
 alarm- 
 
-``aws cloudwatch list-metrics --namespace AWS/RDS
+\begin{verbatim}
+$ aws cloudwatch list-metrics --namespace AWS/RDS
+\end{verbatim}
+~\cite{hid-sp18-520-amardsmon}.
 
-put-metric-alarm''~\cite{hid-sp18-520-amardsmon}
+With AWS CLI Set the alarm command
+
+\begin{verbatim}
+$ put-metric-alarm
+\end{verbatim}
+~\cite{hid-sp18-520-amardsmon}.
 
 With API-using the CloudWatch API GetMetricStatistics with start and end time 
 can provide detail metrics on performance and form setting up alarm 
@@ -171,6 +182,7 @@ Amazon SNS, which can send the SMS text messages.
 ~\cite{hid-sp18-520-amardsmon}.
 
 \section{Create DB Instance-Example with MySQL}
+
 Creating a DB instance using MySQL Database engine.
 As prerequisite, we need to have access on AWS management console.
 For initial DB Instance set-up, it is managed through AWS Management
@@ -221,6 +233,7 @@ DDL statement can also be performed on read Replica
 ~\cite{hid-sp18-520-amazonrdscreatesteps}.
 
 \section{Paid Service}
+
 DB Instance hours, Storage per month, I/O request per month with data transfer,
 backup storage with provisioned IOPS per month are paid services.
 So the services must be deleted or stopped and avoid extra billing than usage.
@@ -236,15 +249,20 @@ deleted with capturing final snapshot of relational database
 Using the CLI, there can be a option to issue commands for deleting the 
 DB instances. Below are the CLI statements for various operating system.
 
-aws rds delete-db-instance \
+\begin{verbatim}
+
+$ aws rds delete-db-instance \
 --db-instance-identifier mydbinstance  \
 --final-db-snapshot-identifier mydbinstancefinalsnapshot
+
+\end{verbatim}
 
 With above command, it will first or create the final snapshot of data and
 then proceed with the deletion of DB instance
 ~\cite{hid-sp18-520-amazonrdsdel}.
 
 \section{Conclusion}
+
 Amazon RDS is provides highly optimized and high performance web services
 supporting multiple type of SQL databases, providing service to easily 
 customize, configure and monitor the DB activities and administration.
@@ -255,8 +273,10 @@ maintain a relation database on cloud. With disaster recover mechanism reduces
 the risk of downtown and latency.
 
 \begin{acks}
+
   The authors would like to thank Dr.~Gregor~von~Laszewski for his
   support and suggestions to write this paper.
+
 \end{acks}
 
 
