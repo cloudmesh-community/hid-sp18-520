@@ -4,7 +4,7 @@
 
 ## Overiew
 
- Configuration management is an important task of IT department in any organization. It is a process of managing changes in infrastructure in a structured and systematic way. Configuring large infrastructure has always been a tedious task. Moreover in case of any technical glitches when updating software, manual rolling back the infrastructure to previous version of the software is time consuming and error prone. Puppet is a configuration management tool that makes the complex task of deploying new software, updating software updates , rolling back software on large cluster easily and in efficient way. Puppet does this through Infrastructure as Code ( IAC ). In this process code is written for infrastructure on one central location and is pushed to all the nodes in all environments ( Dev, Test, Production ) using puppet as tool. Configuration management tool has two approaches for managing infrastructure configuration push and pull. In push configuration, infrastructure as code is pushed from centralized server to the nodes where as in pull configuration nodes pulls the infrastructure as code from central server. puppet uses pull configuration.
+Configuration management is an important task of IT department in any organization. It is a process of managing changes in infrastructure in a structured and systematic way. Configuring large infrastructure has always been a tedious task. Moreover in case of any technical glitches when updating software, manual rolling back the infrastructure to previous version of the software is time consuming and error prone. Puppet is a configuration management tool that makes the complex task of deploying new software, updating software updates , rolling back software on large cluster easily and in efficient way. Puppet does this through Infrastructure as Code(IAC). In this process code is written for infrastructure on one central location and is pushed to all the nodes in all environments(Dev, Test, Production) using puppet as tool. Configuration management tool has two approaches for managing infrastructure configuration push and pull. In push configuration, infrastructure as code is pushed from centralized server to the nodes where as in pull configuration nodes pulls the infrastructure as code from central server. puppet uses pull configuration.
 
 Infrastructure As Code
 
@@ -18,7 +18,7 @@ Push Pull Configuration
 
 Puppet uses master slave architecture. There is puppet master node and client nodes called as puppet agent. Agents poll the server at regular interval and pulls the updated configuration from the master. Puppet Master is highly available as it supports multi master architecture, in case if one goes down backup master stands up to serve the infrastructure. In this architecture-
 
-- nodes ( puppet agents ) sends the information (for e.g IP, hardware detail, network etc. ) to master. Master stores such information in the manifest.
+- nodes(puppet agents) sends the information(for e.g IP, hardware detail, network etc.) to master. Master stores such information in the manifest.
 
 - Puppet master then compiles the catalog which is the information about the configuration that master wants the client resources also known as puppet agent to implement.
 
@@ -26,7 +26,7 @@ Puppet uses master slave architecture. There is puppet master node and client no
 
 - Client nodes sends back the updated report to Master
 
-- Connection between master and slave is SSL encrypted ( Refer to Puppet Master Slave Connection figure belwo )
+- Connection between master and slave is SSL encrypted(Refer to Puppet Master Slave Connection figure below)
 
 Master and Slave Architecture
 
@@ -46,35 +46,35 @@ Master  Slave SSL Workflow
 
 - Import the Puppet public key using below command
 
-```wget -O -  [https://downloads.puppetlabs.com/puppet-gpg-signing-key.pub](https://downloads.puppetlabs.com/puppet-gpg-signing-key.pub)  | gpg --import```
+```$ wget -O -  [https://downloads.puppetlabs.com/puppet-gpg-signing-key.pub](https://downloads.puppetlabs.com/puppet-gpg-signing-key.pub)  | gpg --import```
 
 - Print the fingerprint of the key using below command
 
-```gpg --fingerprint 0x7F438280EF8D349F```
+```$ gpg --fingerprint 0x7F438280EF8D349F```
 
 - Verify the release signature of the installation package.
 
 ```$ gpg --verify puppet-enterprise-<version>-<platform>.tar.gz.asc```
 
-### Install using text mode ( Master / Client based installation)
+### Install using text mode(Master / Client based installation)
 
-Specify the configuration file (pe.conf) when it has to be installed in text mode. This file contains values for the parameters needed for installation.
+Specify the configuration file(pe.conf) when it has to be installed in text mode. This file contains values for the parameters needed for installation.
 
 #### Install the Master
 
 - Unpack the installation tarball:
 
-```tar -xf <TARBALL_FILENAME>```
+```$ tar -xf <TARBALL_FILENAME>```
 
 - From the installer directory, run the installer. The installation steps vary depending on the path you choose.
 
 	+ To use a pe.conf file that you've previously populated, run the installer with the -c flag pointed at the pe.conf file.:
 
-```sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>```
+```$ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>```
 
 + To have the installer open a copy of pe.conf for you to edit and install with, run the installer without the -c flag:
 
-```sudo ./puppet-enterprise-installer```
+```$ sudo ./puppet-enterprise-installer```
 
 - When installation completes, transfer the installer and the pe.conf file located at /etc/puppetlabs/enterprise/conf.d/ to the next server that you're installing a component on.
 
@@ -84,11 +84,11 @@ In a split installation, after you install the master, you're ready to install P
 
 - Unpack the installation tarball:
 
-```tar -xf <TARBALL_FILENAME>```
+```$ tar -xf <TARBALL_FILENAME>```
 
 - From the installer directory, run the installer:
 
-```sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>```
+```$ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>```
 
 - When installation completes, transfer the installer and the pe.conf file located at
 /etc/puppetlabs/enterprise/conf.d/ to the next server that you're installing a component on.
@@ -99,11 +99,11 @@ In a split installation, after you install the master and PuppetDB, you're ready
 
 - Unpack the installation tarball:
 
-```tar -xf <TARBALL_FILENAME>```
+```$ tar -xf <TARBALL_FILENAME>```
 
 - From the installer directory, run the installer:
 
-```sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>```
+```$ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>```
 
 #### Run Puppet on infrastructure nodes
 
@@ -169,7 +169,7 @@ Setting line consists the name of the setting followed by equal sign , value of 
 
 ## Setting up Puppet Master
 
-Puppet server software is installed on puppet master machine which then pushes the configuration to clients nodes ( puppet agents ).
+Puppet server software is installed on puppet master machine which then pushes the configuration to clients nodes(puppet agents).
 
 Following command is used to pull the software package from the repository.
 
@@ -186,7 +186,7 @@ Use following command to edit the server configuration
 
 ```$ sudo vi /etc/sysconfig/puppetserver```
 
-Set the value of following variable to increase memory to 3GB ( 3g after -Xmx specify that )
+Set the value of following variable to increase memory to 3GB(3g after -Xmx specify that)
 
 ```JAVA_ARGS="-Xms3g -Xmx3g"```
 
@@ -229,7 +229,7 @@ Use the following command on puppet master to in order to list all unsigned cert
 
 ### View the requests
 
-If the new agent node is set up , request similar to following will be displayed ( Note - Below certificate name is for illustration purpose only. )
+If the new agent node is set up , request similar to following will be displayed(Note - Below certificate name is for illustration purpose only.)
 
 "[test.hid520-hid523.com](http://test.hid520-hid523.com/)" (SHA259)
 
@@ -241,9 +241,9 @@ Identification of signed/un-signed certificate is done by looking at the + sign 
 
 ### Sign a Request
 
-Following command is run on puppet master in order to sign the new certificate request that is sent by puppet agent ( client node ) for approval ( signing )
+Following command is run on puppet master in order to sign the new certificate request that is sent by puppet agent(client node) for approval(signing)
 
-Note - "[test.hid520-hid523.com](http://test.hid520-hid523.com/)" (SHA259) certificate name is used for illustration only
+Note - "[test.hid520-hid523.com](http://test.hid520-hid523.com/)"(SHA259) certificate name is used for illustration only
 
 ```$ sudo /opt/puppetlabs/bin/puppet cert sign  [test.hid520-hid523.com](http://test.hid520-hid523.com/)```
 
@@ -267,25 +267,25 @@ Sometimes there is a need to remove the puppet agent node from puppet infrastruc
 
 ### Viewing All Signed Requests
 
-Use the following command to list all the certificates that are signed ( Note + sign in the beginning indicates signed certificate ).
+Use the following command to list all the certificates that are signed(Note + sign in the beginning indicates signed certificate).
 
 ```$ sudo /opt/puppetlabs/bin/puppet cert list --all```
 
 Following will be its output.
 
-+ "puppet" (SHA256)
++ "puppet"(SHA256)
 
 5A:71:E6:06:D8:0F:44:4D:70:F0:BE:51:72:15:97:68:D9:67:16:41:B0:38:9A:F2:B2:6C:B
 
 B:33:7E:0F:D4:53 (alt names: "DNS:puppet", "DNS:[test.hid520-hid523.puppetproject.com](http://test.hid520-hid523.puppetproject.com/)")
 
-+ "[test.hid520-hid523.com](http://test.hid520-hid523.com/)" (SHA259)
++ "[test.hid520-hid523.com](http://test.hid520-hid523.com/)"(SHA259)
 
 F5:DC:68:24:63:E6:F1:9E:C5:FE:F5:1A:90:93:DF:19:F2:28:8B:D7:BD:D2:6A:83:07:BA:F
 
 E:24:11:24:54:6A
 
-+ "  [test.hid520-hid523.com](http://test.hid520-hid523.com/)" (SHA259)
++ "  [test.hid520-hid523.com](http://test.hid520-hid523.com/)"(SHA259)
 
 CB:CB:CA:48:E0:DF:06:6A:7D:75:E6:CB:22:BE:35:5A:9A:B3
 
@@ -303,7 +303,7 @@ environmentpath = $confdir/environments
 
 ### Create a Configuration File for r10k Config
 
-```cat <<EOF >/etc/r10k.yaml```
+```$ cat <<EOF >/etc/r10k.yaml```
 ```:cachedir: '/var/cache/r10k'```
 ```:sources:```
 ```:opstree:```
@@ -318,7 +318,7 @@ r10k deploy environment -pv
 
 Since the environment needs to be updated at regular intervals it is recommended to create cron job.
 
-```cat << EOF > /etc/cron.d/r10k.conf SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin H/15 * * * * root r10k deploy environment -p EOF```
+```$ cat << EOF > /etc/cron.d/r10k.conf SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin H/15 * * * * root r10k deploy environment -p EOF```
 
 ### Testing Installation
 
@@ -326,7 +326,7 @@ Puppet manifest for Puppet module needs to be complied in order to test/validate
 
 Run the following command and get a YAML output as the result.
 
-```curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \--key /etc/puppet/ssl/private_keys/puppet.corp.guest.pem \--cacert /etc/puppet/ssl/ca/ca_crt.pem \-H 'Accept: yaml' \```
+```$ curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \--key /etc/puppet/ssl/private_keys/puppet.corp.guest.pem \--cacert /etc/puppet/ssl/ca/ca_crt.pem \-H 'Accept: yaml' \```
 
 ## Reference
 

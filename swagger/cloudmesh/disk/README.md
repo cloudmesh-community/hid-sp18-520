@@ -42,23 +42,31 @@ Command to remove swagger codegen files run the command, and clean the directory
 
 
 ## Execute on Server to verify - 
-Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/TotalDisk 
+Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/TotalD 
 
-Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/UsedDisk 
+Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/UsedD 
 
-Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/FreeDisk 
+Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/FreeD 
 
-Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/Diskusage 
+Verify the server with URL - on any browser http://localhost:8080/cloudmesh/disk/Dusage 
 
+Verify the server with URL - on any browser  http://localhost:8080/cloudmesh/disk/Mgmtusage
+
+Verify the server with URL - on any browser  http://localhost:8080/cloudmesh/disk/Diocounter
 
 ## Execute with CURL - 
-```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/TotalDisk```
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/TotalD```
 
-```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/UsedDisk``
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/UsedD```
 
-```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/FreeDisk```
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/FreeD```
 
-```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Diskusage```
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Dusage```
+
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Mgmtusage```
+
+```curl -H "Content-Type: application/json" http://localhost:8080/cloudmesh/disk/Diocounter```
+
 
 # Docker - 
 
@@ -75,3 +83,61 @@ Pull the public Image and run with below commands -
 ```docker pull arisinha/resourcediskdetail_swagger```
 
 ```docker run -p 8080:8080 arisinha/resourcediskdetail_swagger```
+
+﻿# Test Results - 
+## Make Command Execution from Terminal and Browser - 
+
+### From Terminal
+
+![Alt](TestResultScreenshots/Screenshot_Make_Server_results1.png)
+
+![Alt](TestResultScreenshots/Screenshot_Make_Server_results2.png)
+
+### From Browser
+* Total Disk
+![Alt](TestResultScreenshots/ScreenshotWebTotalDisk.png)
+
+* Used Disk
+![Alt](TestResultScreenshots/ScreenshotWebUsedDisk.png)
+
+* Free Disk
+![Alt](TestResultScreenshots/ScreenshotWebFreeDisk.png)
+
+* Disk Usage
+![Alt](TestResultScreenshots/ScreenshotWebDiskUsage.png)
+
+* Disk Partition
+![Alt](TestResultScreenshots/ScreenshotfromBrowserDiskMgmt.png)
+
+* Disk IO
+![Alt](TestResultScreenshots/ScreenshotfromBrowserDiskIO.png)
+
+## Docker Container Execution
+
+Docker Build 
+![Alt](TestResultScreenshots/DockerBuildCompletion.png)
+
+Docker Start 
+![Alt](TestResultScreenshots/DockerStartServer.png)
+
+* Total Disk
+![Alt](TestResultScreenshots/FromContainer_TotalDisk.png)
+
+* Used Disk
+![Alt](TestResultScreenshots/FromContainer_UsedDisk.png)
+
+* Free Disk
+![Alt](TestResultScreenshots/FromContainer_FreeDisk.png)
+
+* Disk Usage
+![Alt](TestResultScreenshots/FromContainer_DiskUsage.png)
+
+* Disk Partition
+![Alt](TestResultScreenshots/FromContainer_Diskpartition.png)
+
+* Disk IO
+![Alt](TestResultScreenshots/FromContainer_DiskIO.png)
+
+## Kill The process running -
+
+![Alt](TestResultScreenshots/KillProcess.png)
