@@ -210,4 +210,4 @@ hid-sp18-520
 
 # Week 39 	October 1, 2018 - October 7, 2018 Notes -
 ---
-2018/10/04- Sent the Updated status for all Incomplete work in Piazza
+
