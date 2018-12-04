@@ -4,20 +4,22 @@ owner:
   hid: hid-sp18-520
   community: i524
 Assignments:
-    - title: Eve Rest Service
+    - Eve Rest Service
       url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/REST
-    - title: Swagger rest service
+    - Swagger rest service
       url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/swagger/cloudmesh/disk
-    - title: Tutorial
+    - Tutorial
       url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/tutorial
-    - title: Technology abstracts
+    - Technology abstracts (6 abstracts)
       url: https://github.com/cloudmesh/technologies/tree/master/chapters/incomming
 
 Technology paper:
-    -title: Amazon Relational Database Service (RDS)
-     url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/paper
+    - Amazon Relational Database Service (RDS)
+      url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/paper
 
 project:
-    - title: SciKit Learn Algorithms with Rest API 
+    - SciKit Learn Algorithms with Rest API
+      Project Report
       url: https://github.com/cloudmesh-community/hid-sp18-523/tree/master/project-paper
+      Project Code
       url: https://github.com/cloudmesh-community/hid-sp18-602/tree/master/project-code
