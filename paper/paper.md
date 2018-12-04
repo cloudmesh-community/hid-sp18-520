@@ -4,7 +4,7 @@
 | arisinha@iu.edu
 | Indiana University, Bloomington
 | hid : hid-sp18-520
-| github: [:cloud:](https://github.com/cloudmesh-community/hid-sp18-520/edit/master/paper/paper.md)
+| github: [:cloud:](https://github.com/cloudmesh-community/hid-sp18-520/blob/master/paper/paper.md)
 
 ---
 
