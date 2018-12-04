@@ -107,11 +107,15 @@ Amazon RDS also provided extra feature for monitoring with CloudWatch for
 metrics, alarms and logs, along with service health status. With Command 
 Prompt-using below command can view performance metrics and alarm-
 
+```
 $ aws cloudwatch list-metrics --namespace AWS/RDS
+```
 @hid-sp18-520-amardsmon
 With AWS CLI Set the alarm command
 
+```
 $ put-metric-alarm
+```
 @hid-sp18-520-amardsmon
 
 With API-using the CloudWatch API GetMetricStatistics with start and end 
@@ -206,8 +210,10 @@ relational database Using the CLI, there can be a option to issue commands
 for deleting the DB instances. Below are the CLI statements for various 
 operating system.
 
+```
 $ aws rds delete-db-instance --db-instance-identifier mydbinstance \
 --final-db-snapshot-identifier mydbinstancefinalsnapshot
+```
 
 With above command, it will first or create the final snapshot of data and 
 then proceed with the deletion of DB instance @hid-sp18-520-amazonrdsdel.
