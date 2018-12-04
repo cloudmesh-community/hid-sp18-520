@@ -3,3 +3,20 @@ owner:
   lastname: Sinha
   hid: hid-sp18-520
   community: i524
+Assignments- 
+Eve rest service: 
+  https://github.com/cloudmesh-community/hid-sp18-520/tree/master/REST
+Swagger rest service: 
+  https://github.com/cloudmesh-community/hid-sp18-520/tree/master/swagger/cloudmesh/disk
+Tutorial: 
+  https://github.com/cloudmesh-community/hid-sp18-520/tree/master/tutorial
+Technology abstracts: 
+  https://github.com/cloudmesh/technologies/tree/master/chapters/incomming
+
+Technology paper: 
+  https://github.com/cloudmesh-community/hid-sp18-520/tree/master/paper
+
+project paper: 
+  https://github.com/cloudmesh-community/hid-sp18-523/tree/master/project-paper 
+project code: 
+  https://github.com/cloudmesh-community/hid-sp18-523/tree/master/project-code 
