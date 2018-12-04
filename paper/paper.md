@@ -110,16 +110,14 @@ Prompt-using below command can view performance metrics and alarm-
 ```
 $ aws cloudwatch list-metrics --namespace AWS/RDS
 ```
-@hid-sp18-520-amardsmon
-With AWS CLI Set the alarm command
+@hid-sp18-520-amardsmon. With AWS CLI Set the alarm command
 
 ```
 $ put-metric-alarm
 ```
-@hid-sp18-520-amardsmon
-
-With API-using the CloudWatch API GetMetricStatistics with start and end 
-time can provide detail metrics on performance and form setting up alarm 
+@hid-sp18-520-amardsmonWith API-using the CloudWatch API 
+GetMetricStatistics with start and end time can provide detail 
+metrics on performance and form setting up alarm 
 with “PutMetricAlarm” @hid-sp18-520-amardsmon on DB Instance.
 
 Based on the user defined baseline for performance and resource to be 
