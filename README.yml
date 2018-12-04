@@ -10,7 +10,7 @@ Assignments:
       url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/swagger/cloudmesh/disk
     - Tutorial
       url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/tutorial
-    - Technology abstracts (6 abstracts)
+    - Technology abstracts (6 abstracts-OpenNN, PyTorch, Redis, TensorFlow, OrientDB, RabittMQ)
       url: https://github.com/cloudmesh/technologies/tree/master/chapters/incomming
 
 Technology paper:
