@@ -12,6 +12,7 @@ Assignments:
       url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/tutorial
     - Technology abstracts (6 abstracts-OpenNN, PyTorch, Redis, TensorFlow, OrientDB, RabittMQ)
       url: https://github.com/cloudmesh/technologies/tree/master/chapters/incomming
+      url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/technology
 
 Technology paper:
     - Amazon Relational Database Service (RDS)
