@@ -24,7 +24,7 @@ http://127.0.0.1:5000/ubuntu/processorName
 
 http://127.0.0.1:5000/ubuntu/diskspace
 
-![Alt](REST/DiskScreenshotURL.png)
+![Alt](/REST/DiskScreenshotURL.png)
 
 http://127.0.0.1:5000/ubuntu/CPUDetails
 
