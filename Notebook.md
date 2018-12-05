@@ -255,6 +255,14 @@ hid-sp18-520
 
 2018/09/28 - Merged Pull Request OrientDB
 
-# Week 39 	October 1, 2018 - October 7, 2018 Notes -
+# Week 49 	Dec 2, 2018 - Dec 9, 2018 Notes -
+2018/12/03 - Updated content in project-report in MD format
+
+2018/12/03 - Updated content in paper in MD format
+
+2018/12/04 - Updated image in Rest Service
+
+2018/12/04 - Updated ReadMe.yml
+
 ---
 
