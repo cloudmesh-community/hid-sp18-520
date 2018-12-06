@@ -63,7 +63,7 @@ Upgrade from single AZ to multi AZ can occur with no latency or downtime.
 Once the selection is done from upgrade to Multi AZ, the snapshot of the 
 instance is captured, after which a new instance is built from the snapshot 
 and configuration is setup for taking or keeping the Multi AZ databases in 
-sync [@hid-sp18-520-amazonrdsfaqs]
+sync [@hid-sp18-520-amazonrdsfaqs].
 
 * High Performance and Secure-It provides high performance using General 
 purpose SSD storage and Provisioned IOPS SSD storage. It provides the 
@@ -86,7 +86,7 @@ database maintenance software. In these DB instances, we can have multiple
 databases created by many users or applications. In the background, we 
 have DB engines interacting with DB instances. Few of the examples can be 
 > 'MySQL, Maria DB, PostgreSQL, Oracle and Microsoft SQL Server DB engines' 
-[@hid-sp18-520-amazonrds]
+[@hid-sp18-520-amazonrds].
 
 There are 3 types of storage available with DB instances (Magnetic, 
 General Purpose SSD and Provisioned IOPS). Storage capacity depends on 
@@ -108,12 +108,12 @@ Amazon RDS also provided extra feature for monitoring with CloudWatch for
 metrics, alarms and logs, along with service health status. With Command 
 Prompt-using below command can view performance metrics and alarm-
 
-```
+```bash
 $ aws cloudwatch list-metrics --namespace AWS/RDS
 ```
 [@hid-sp18-520-amardsmon]. With AWS CLI Set the alarm command
 
-```
+```bash
 $ put-metric-alarm
 ```
 [@hid-sp18-520-amardsmon] With API-using the CloudWatch API 
@@ -148,7 +148,7 @@ point in time data as part of recovery process.It can automatically initiate
 the failover process, if we can not access the primary AZ, can't connect 
 to primary on network, failure of storage. Database events can be integrated 
 with another amazon service known as Amazon SNS, which can send the SMS 
-text messages [@hid-sp18-520-amardsmon]
+text messages [@hid-sp18-520-amardsmon].
 
 ## Create DB Instance-Example with MySQL
 
@@ -192,14 +192,14 @@ and password.
 Once connected to the database, we can perform DDL, DML statements on the 
 database. You can connect to Read Replica as the same way with details on 
 endpoints. DDL statement can also be performed on read Replica 
-[@hid-sp18-520-amazonrdscreatesteps]
+[@hid-sp18-520-amazonrdscreatesteps].
 
 ## Paid Service
 
 DB Instance hours, Storage per month, I/O request per month with data 
 transfer, backup storage with provisioned IOPS per month are paid services. 
 So the services must be deleted or stopped and avoid extra billing than 
-usage [@hid-sp18-520-amazonrdsfaqs]
+usage [@hid-sp18-520-amazonrdsfaqs].
 
 ## Delete DB Instance-Example with MySQL
 
@@ -210,13 +210,13 @@ relational database Using the CLI, there can be a option to issue commands
 for deleting the DB instances. Below are the CLI statements for various 
 operating system.
 
-```
+```bash
 $ aws rds delete-db-instance --db-instance-identifier mydbinstance \
 --final-db-snapshot-identifier mydbinstancefinalsnapshot
 ```
 
 With above command, it will first or create the final snapshot of data and 
-then proceed with the deletion of DB instance [@hid-sp18-520-amazonrdsdel]
+then proceed with the deletion of DB instance [@hid-sp18-520-amazonrdsdel].
 
 ## Conclusion
 
