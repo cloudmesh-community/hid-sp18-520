@@ -85,8 +85,8 @@ capabilities of relational databases. It does not need any additional
 database maintenance software. In these DB instances, we can have multiple 
 databases created by many users or applications. In the background, we 
 have DB engines interacting with DB instances. Few of the examples can 
-be “MySQL, Maria DB, PostgreSQL, Oracle and Microsoft SQL Server DB 
-engines” [@hid-sp18-520-amazonrds]
+be >'MySQL, Maria DB, PostgreSQL, Oracle and Microsoft SQL Server DB 
+engines' [@hid-sp18-520-amazonrds]
 There are 3 types of storage available with DB instances (Magnetic, 
 General Purpose SSD and Provisioned IOPS). Storage capacity depends on 
 various storage type and respective database engines it been configured.
