@@ -63,7 +63,7 @@ Upgrade from single AZ to multi AZ can occur with no latency or downtime.
 Once the selection is done from upgrade to Multi AZ, the snapshot of the 
 instance is captured, after which a new instance is built from the snapshot 
 and configuration is setup for taking or keeping the Multi AZ databases in 
-sync @hid-sp18-520-amazonrdsfaqs
+sync [@hid-sp18-520-amazonrdsfaqs]
 
 * High Performance and Secure-It provides high performance using General 
 purpose SSD storage and Provisioned IOPS SSD storage. It provides the 
