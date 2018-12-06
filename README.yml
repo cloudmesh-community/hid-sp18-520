@@ -4,7 +4,7 @@ owner:
   lastname: Sinha
   hid: hid-sp18-520
   community: i524
-  semester: fa18
+  semester: sp18
 technologies:
   - url: https://github.com/cloudmesh/technologies/blob/master/chapters/incomming/tensorflow.md
   - url: https://github.com/cloudmesh/technologies/blob/master/chapters/incomming/redis.md
