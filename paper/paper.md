@@ -86,6 +86,7 @@ database maintenance software. In these DB instances, we can have multiple
 databases created by many users or applications. In the background, we 
 have DB engines interacting with DB instances. Few of the examples can be 
 > 'MySQL, Maria DB, PostgreSQL, Oracle and Microsoft SQL Server DB engines' 
+
 [@hid-sp18-520-amazonrds].
 
 There are 3 types of storage available with DB instances (Magnetic, 
@@ -120,6 +121,7 @@ $ put-metric-alarm
 GetMetricStatistics with start and end time can provide detail 
 metrics on performance and form setting up alarm with 
 > 'PutMetricAlarm'
+
 [@hid-sp18-520-amardsmon] on DB Instance.
 
 Based on the user defined baseline for performance and resource to be 
