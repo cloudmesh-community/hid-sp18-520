@@ -1,29 +1,25 @@
+---
 owner:
   firstname: Arijit
   lastname: Sinha
   hid: hid-sp18-520
   community: i524
-Assignments:
-    - Eve Rest Service
-      url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/REST
-      
-    - Swagger rest service
-      url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/swagger/cloudmesh/disk
-      
-    - Tutorial
-      url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/tutorial
-      
-    - Technology abstracts (6 abstracts-OpenNN, PyTorch, Redis, TensorFlow, OrientDB, RabittMQ)
-      url: https://github.com/cloudmesh/technologies/tree/master/chapters/incomming
-      url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/technology
-
-Technology paper:
-    - Amazon Relational Database Service (RDS)
-      url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/paper
-
+  semester: fa18
+technologies:
+  - url: https://github.com/cloudmesh/technologies/blob/master/chapters/incomming/tensorflow.md
+  - url: https://github.com/cloudmesh/technologies/blob/master/chapters/incomming/redis.md
+  - url: https://github.com/cloudmesh/technologies/blob/master/chapters/incomming/rabbitmq.md
+  - url: https://github.com/cloudmesh/technologies/blob/master/chapters/incomming/pytorch.md
+  - url: https://github.com/cloudmesh/technologies/blob/master/chapters/incomming/orientdb.md
+  - url: https://github.com/cloudmesh/technologies/blob/master/chapters/incomming/opennn.md
+paper:
+  - keyword: Amazon RDS, RDS, AWSRDS, AWS RDS
+    title: Amazon Relational Database Service (RDS)
+    url: https://github.com/cloudmesh-community/hid-sp18-520/tree/master/paper
+    group: hid-sp18-520
 project:
-    - SciKit Learn Algorithms with Rest API
-      Project Report
-      url: https://github.com/cloudmesh-community/hid-sp18-523/tree/master/project-report
-      Project Code
-      url: https://github.com/cloudmesh-community/hid-sp18-523/tree/master/project-code
+  - keyword: docker, Scikit, AWS, Azure, Linear Regression, Boosted Decision
+    title: SciKit Learn Algorithms with Rest API
+    url: https://github.com/cloudmesh-community/hid-sp18-523/tree/master/project-report
+    group: hid-sp18-520 hid-sp18-523
+    code: https://github.com/cloudmesh-community/hid-sp18-523/tree/master/project-code
