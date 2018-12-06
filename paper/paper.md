@@ -17,7 +17,7 @@ platform providing a prime web service to operate with relational
 databases. With AWS database services, it provides an mechanism for 
 creating/ replicating/ migrating any existing databases on AWS cloud.
 
-# Introduction
+## Introduction
 
 Amazon Relational database services are the web service which has been 
 effectively used for handling and managing relational databases, which in 
@@ -28,7 +28,7 @@ tracking or monitoring. It is compatible with variety of database engines
 running in background including Amazon Aurora, PostgrSQL, MySQL, MariaDB,
 Oracle and Microsoft SQL Server.
 
-# Key features
+## Key features
 
 Amazon RDS provided is the latest infrastructure platform with updated 
 database softwares and management tools to maintain and perform databases 
@@ -39,7 +39,7 @@ releases of the software to keep the Infrastructure platform updated.
 It also allows to configure with previous DB Instance version. Below 
 are some popular features
 
-- Scaling Storage-It can automatically increase the storage once size 
+* Scaling Storage-It can automatically increase the storage once size 
 or volume of the databases ins reaching its maximum capacity. It can also 
 scale storage based on high volume data getting loaded or read from the 
 database. Based on the usage trend, it can scale the database services. 
@@ -50,12 +50,12 @@ it can manage the same operation as possible with management console for
 create, start, stop, modify, fail over, describe, authorize and add DB 
 clusters and DB instances.
 
-- Offers less Administrative workload-When the services are getting setup, 
+* Offers less Administrative workload-When the services are getting setup, 
 all the databases instances are configured with its respective database 
 engines. Amazon provides command line and management consoles for easy 
 administration of the databases.
 
-- Reliability-It can replicate the data to a standby instance on different 
+* Reliability-It can replicate the data to a standby instance on different 
 Availability Zone using the Multi-AZ DB instance. It provides automates 
 backups, user defined snapshots of the data stored on Amazon S3. In the 
 event of failure of an hardware, it can automatically replace the instance. 
@@ -65,7 +65,7 @@ instance is captured, after which a new instance is built from the snapshot
 and configuration is setup for taking or keeping the Multi AZ databases in 
 sync @hid-sp18-520-amazonrdsfaqs
 
-- High Performance and Secure-It provides high performance using General 
+* High Performance and Secure-It provides high performance using General 
 purpose SSD storage and Provisioned IOPS SSD storage. It provides the 
 feature of encrypting the databases using keys (AWS Key Management Services). 
 Along with, it provides Amazon VPC for network isolation for databases on 
@@ -74,7 +74,7 @@ With in this Amazon VPC, we may have multiple subnets with at least on the
 AZ zone. Data restoration or migration outside VPN is prohibited and it 
 is not supported.
 
-# Building Blocks for Amazon RDS
+## Building Blocks for Amazon RDS
 
 DB Instances are Amazon RDS primary building blocks which is a secured 
 database environment on AWS cloud. DB Instance can consists of multiple 
@@ -86,7 +86,7 @@ database maintenance software. In these DB instances, we can have multiple
 databases created by many users or applications. In the background, we 
 have DB engines interacting with DB instances. Few of the examples can 
 be “MySQL, Maria DB, PostgreSQL, Oracle and Microsoft SQL Server DB 
-engines” @hid-sp18-520-amazonrds.
+engines” [@hid-sp18-520-amazonrds]
 There are 3 types of storage available with DB instances (Magnetic, 
 General Purpose SSD and Provisioned IOPS). Storage capacity depends on 
 various storage type and respective database engines it been configured.
@@ -96,7 +96,7 @@ Another component provided by Amazon is IAM (Identity and Access
 Management), which this you can provide provision on users to create, 
 delete, modify read any DB instances.
 
-# RDS Automated and Manual Monitoring Tools
+## RDS Automated and Manual Monitoring Tools
 
 Amazon RDS can monitored for it performance and can be reported in case of 
 any issues or failures on DB instances, DB clusters DB Cluster Snapshots, 
@@ -110,15 +110,15 @@ Prompt-using below command can view performance metrics and alarm-
 ```
 $ aws cloudwatch list-metrics --namespace AWS/RDS
 ```
-@hid-sp18-520-amardsmon. With AWS CLI Set the alarm command
+[@hid-sp18-520-amardsmon]. With AWS CLI Set the alarm command
 
 ```
 $ put-metric-alarm
 ```
-@hid-sp18-520-amardsmonWith API-using the CloudWatch API 
+[@hid-sp18-520-amardsmon] With API-using the CloudWatch API 
 GetMetricStatistics with start and end time can provide detail 
 metrics on performance and form setting up alarm 
-with “PutMetricAlarm” @hid-sp18-520-amardsmon on DB Instance.
+with “PutMetricAlarm” [@hid-sp18-520-amardsmon] on DB Instance.
 
 Based on the user defined baseline for performance and resource to be 
 monitored Amazon RDS store the respective monitoring logs including your 
@@ -146,9 +146,9 @@ point in time data as part of recovery process.It can automatically initiate
 the failover process, if we can not access the primary AZ, can't connect 
 to primary on network, failure of storage. Database events can be integrated 
 with another amazon service known as Amazon SNS, which can send the SMS 
-text messages @hid-sp18-520-amardsmon.
+text messages [@hid-sp18-520-amardsmon]
 
-# Create DB Instance-Example with MySQL
+## Create DB Instance-Example with MySQL
 
 Creating a DB instance using MySQL Database engine. As prerequisite, we 
 need to have access on AWS management console. For initial DB Instance 
@@ -190,16 +190,16 @@ and password.
 Once connected to the database, we can perform DDL, DML statements on the 
 database. You can connect to Read Replica as the same way with details on 
 endpoints. DDL statement can also be performed on read Replica 
-@hid-sp18-520-amazonrdscreatesteps.
+[@hid-sp18-520-amazonrdscreatesteps]
 
-# Paid Service
+## Paid Service
 
 DB Instance hours, Storage per month, I/O request per month with data 
 transfer, backup storage with provisioned IOPS per month are paid services. 
 So the services must be deleted or stopped and avoid extra billing than 
-usage @hid-sp18-520-amazonrdsfaqs
+usage [@hid-sp18-520-amazonrdsfaqs]
 
-# Delete DB Instance-Example with MySQL
+## Delete DB Instance-Example with MySQL
 
 Once logged into Amazon RDS console, navigate to Instance Actions and 
 hit the delete link. DB instances can be deleted after taking the final 
@@ -214,9 +214,9 @@ $ aws rds delete-db-instance --db-instance-identifier mydbinstance \
 ```
 
 With above command, it will first or create the final snapshot of data and 
-then proceed with the deletion of DB instance @hid-sp18-520-amazonrdsdel.
+then proceed with the deletion of DB instance [@hid-sp18-520-amazonrdsdel]
 
-# Conclusion
+## Conclusion
 
 Amazon RDS is provides highly optimized and high performance web services 
 supporting multiple type of SQL databases, providing service to easily 
@@ -226,6 +226,8 @@ multiple purpose of analysis, interpretation. This cause for highly
 complex and high performance databases, which as a service is provided by 
 Amazon to maintain a relation database on cloud. With disaster recover 
 mechanism reduces the risk of downtown and latency.
+
+## Acknowledgement
 
 The authors would like to thank Dr.Gregor von Laszewski for his support
 and suggestions to write this paper.
