@@ -20,10 +20,11 @@ Configuration management tool has two approaches for managing infrastructure
 configuration push and pull. In push configuration, infrastructure as 
 code is pushed from centralized server to the nodes where as in pull 
 configuration nodes pulls the infrastructure as code from central server 
-as shown in +@fig:InfrastructureAsCode. puppet uses pull configuration 
-as shown in +@fig:push-pull-configImage.
+as shown in +@fig:InfrastructureAsCode. 
 
 ![Infrastructure As Code](Images/IAC.jpg){#fig:InfrastructureAsCode}
+
+puppet uses pull configuration as shown in +@fig:push-pull-configImage.
 
 ![push-pull-config Image](Images/push-pull-configuration.jpg){#fig:push-pull-configImage}
 
@@ -53,10 +54,12 @@ Puppet Master Slave Connection figure below)
 
 ![Master and Slave Architecture](Images/master-slave.jpg){#fig:master-slaveImage}
 
-In +@fig:master-slave1Image and +@fig:master-slave-connection Image, 
-we can see the SSL workflow for master and slave.
+In +@fig:master-slave1Image, we can see flow between master and slave.
 
 ![Master Slave Workflow 1](Images/master-slave1.jpg){#fig:master-slave1Image}
+
++@fig:master-slave-connection Image, we can see the SSL workflow for 
+master and slave
 
 ![Master  Slave SSL Workflow](Images/master-slave-connection.jpg){#fig:master-slave-connection Image}
 
