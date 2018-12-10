@@ -24,7 +24,8 @@ as shown in +@fig:InfrastructureAsCode.
 
 ![Infrastructure As Code](Images/IAC.jpg){#fig:InfrastructureAsCode}
 
-puppet uses pull configuration as shown in +@fig:push-pull-configImage.
+Puppet uses push and pull configuration in centralized manner 
+as shown in +@fig:push-pull-configImage.
 
 ![push-pull-config Image](Images/push-pull-configuration.jpg){#fig:push-pull-configImage}
 
