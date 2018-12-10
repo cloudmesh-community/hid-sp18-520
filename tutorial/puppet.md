@@ -8,8 +8,6 @@ Configuration management is an important task of IT department in any organizati
 
 ![Infrastructure As Code](Images/IAC.jpg){#fig:InfrastructureAsCode}
 
-Push Pull Configuration
-
 ![push-pull-config Image](Images/push-pull-configuration.jpg){#fig:push-pull-configImage}
 
 ## Master Slave Architecture
