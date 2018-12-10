@@ -139,7 +139,7 @@ This is the main puppet configuration file. Most settings such as Master, Agent 
 
 [main]
 
-certname =  * <http://testing.hid520-hid523.com/>
+certname = <http://testing.hid520-hid523.com/>
 
 server = puppetserver
 
@@ -151,7 +151,7 @@ runinterval = 4h
 
 [main]
 
-certname =  * <http://testing.hid520-hid523.com/>
+certname =  <http://testing.hid520-hid523.com/>
 
 server = puppetmaster
 
@@ -163,7 +163,7 @@ strict_variables = true
 
 [master]
 
-dns_alt_names = puppetserver,puppet, * <http://puppet.test.com/>
+dns_alt_names = puppetserver,puppet, <http://puppet.test.com/>
 
 reports = pupated
 
@@ -263,7 +263,6 @@ $ sudo /opt/puppetlabs/bin/puppet cert list
 ### View the requests
 
 If the new agent node is set up , request similar to following will be displayed(Note - Below certificate name is for illustration purpose only.)
-
 * <http://test.hid520-hid523.com/> (SHA259)
 
 15:90:C2:FB:ED:69:A4:F7:B1:87:0B:BF:F7:ll:B5:1C:33:F7:76:67:F3:F6:45:AE:07:4B:F
@@ -276,15 +275,15 @@ Identification of signed/un-signed certificate is done by looking at the + sign 
 
 Following command is run on puppet master in order to sign the new certificate request that is sent by puppet agent(client node) for approval(signing)
 
-Note - * <http://test.hid520-hid523.com/> (SHA259) certificate name is used for illustration only
+Note - <http://test.hid520-hid523.com/> (SHA259) certificate name is used for illustration only
 
 ```$ sudo /opt/puppetlabs/bin/puppet cert sign  [test.hid520-hid523.com](http://test.hid520-hid523.com/)```
 
 Following will be the output.
 
-Notice: Signed certificate request for * <http://test.hid520-hid523.com/>
+Notice: Signed certificate request for <http://test.hid520-hid523.com/>
 
-Notice: Removing file Puppet::SSL::CertificateRequest * <http://test.hid520-hid523.com/> at
+Notice: Removing file Puppet::SSL::CertificateRequest <http://test.hid520-hid523.com/> at
 
 '/etc/puppetlabs/puppet/ssl/ca/requests/test.hid520-hid523.com.pem'
 
@@ -378,4 +377,4 @@ $ curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \--key /etc/puppet/ssl
 ## Reference
 
 * <https://www.google.com/url?q=https://puppet.com/docs/pe/2017.3/installing/installing_pe.html%23concept-3157&sa=D&source=hangouts&ust=1522821857125000&usg=AFQjCNEPcs-uZes-m-fZYqK2WcTfkYRPLQ> 
-- Images - are taken form from * <https://www.google.com/url?q=http://www.edureka.com&sa=D&source=hangouts&ust=1522821857125000&usg=AFQjCNE9YT10FeEvCoV3fhnTWVZlfy-hrQ> devops class
+* Images - are taken form from <https://www.google.com/url?q=http://www.edureka.com&sa=D&source=hangouts&ust=1522821857125000&usg=AFQjCNE9YT10FeEvCoV3fhnTWVZlfy-hrQ> devops class
