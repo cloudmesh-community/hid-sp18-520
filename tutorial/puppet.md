@@ -1,4 +1,4 @@
-# Puppet :smiley: :new:
+# Puppet :smiley:
 - hid-sp18-520 Arijit Sinha
 - hid-sp18-523 Ritesh Tandon
 
@@ -68,7 +68,9 @@ For Ubuntu download -ubuntu-<version and arch>.tar.gz
 * Import the Puppet public key using below command
 
 ```bash
-$ wget -O -  [https://downloads.puppetlabs.com/puppet-gpg-signing-key.pub](https://downloads.puppetlabs.com/puppet-gpg-signing-key.pub)  | gpg --import
+$ wget -O -  [https://downloads.puppetlabs.com/puppet-gpg-signing-key.pub]
+(https://downloads.puppetlabs.com/puppet-gpg-signing-key.pub)  | 
+gpg --import
 ```
 
 - Print the fingerprint of the key using below command
@@ -83,7 +85,7 @@ $ gpg --fingerprint 0x7F438280EF8D349F
 $ gpg --verify puppet-enterprise-<version>-<platform>.tar.gz.asc
 ```
 
-### Install using text mode(Master / Client based installation)
+### Install using Configration file (Master/Client installation)
 
 Specify the configuration file(pe.conf) when it has to be installed 
 in text mode. This file contains values for the parameters needed for 
@@ -97,51 +99,54 @@ installation.
 $ tar -xf <TARBALL_FILENAME>
 ```
 
-- From the installer directory, run the installer. The installation steps 
-vary depending on the path.
-
-	+ To use a pe.conf file that have been previously populated, run the 
-	installer with the -c flag pointed at the pe.conf file.:
+* From the installer directory, run the installer. The installation 
+steps vary depending on the path. To use a pe.conf file that have 
+been previously populated, run the installer with the -c flag 
+pointed at the pe.conf file.
 
 ```bash
 $ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>
 ```
 
-+ To have the installer open a copy of pe.conf for editing and install with, 
-run the installer without the -c flag:
+To have the installer open a copy of pe.conf for editing, 
+run the installer without the -c flag.
 
 ```bash
 $ sudo ./puppet-enterprise-installer
 ```
 
-- When installation is completed, transfer the installer and pe.conf file 
+* When installation is completed, transfer the installer and pe.conf file 
 located at /etc/puppetlabs/enterprise/conf.d/ to the next server for 
 installation.
 
 #### Install Puppet DB
 
+PuppetDB, stores the details on the relations, nodes, resources
+for the whole architecture. This information can be accessed 
+any tool or workflow.
+
 In a split installation, after installing the master, its ready to 
 install PuppetDB.
 
-- Unpack the installation tarball:
+* Unpack the installation tarball:
 
 ```bash
 $ tar -xf <TARBALL_FILENAME>
 ```
 
-- From the installer directory, run the installer:
+* From the installer directory, run the installer:
 
 ```bash
 $ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>
 ```
 
-- When installation completes, transfer the installer and the pe.conf 
+* When installation completes, transfer the installer and the pe.conf 
 file located at/etc/puppetlabs/enterprise/conf.d/ to the next server.
 
-#### Install the console
+#### Install using console
 
-In a split installation, after install the master and PuppetDB, are 
-ready to install the console.
+In a split installation, after installing master and PuppetDB, 
+are ready to install from console.
 
 - Unpack the installation tarball:
 
@@ -160,20 +165,22 @@ $ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>
 To complete a split installation, run Puppet on all infrastructure 
 nodes in the order that they were installed.
 
-- Unpack the installation tarball:
-	- Run Puppet on the master node.  
-	- Run Puppet on the PuppetDB node.  
-	- Run Puppet on the master node a second time.  
-	- Run Puppet on the console node.
+* Unpack the installation tarball:
+** Run Puppet on the master node.  
+** Run Puppet on the PuppetDB node.  
+** Run Puppet on the master node a second time.  
+** Run Puppet on the console node.
 
 ## Configuring Puppet
 
 ### Puppet.conf
 
 This is the main puppet configuration file. Most settings such as 
-Master, Agent , certificates are all specified in this file.
+Master, Agent, certificates are all specified in this file.
 
-### Main Config Section
+### Agent Config Section
+
+Below is the example
 
 [main]
 
@@ -186,6 +193,8 @@ environment = testing
 runinterval = 4h
 
 ### Puppet Master Config File
+
+Below is the example
 
 [main]
 
@@ -232,7 +241,9 @@ pushes the configuration to clients nodes(puppet agents).
 Following command is used to pull the software package from the repository.
 
 ```bash
-$ sudo rpm -ivh  [https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm](https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm)
+$ sudo rpm -ivh 
+[https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm]
+(https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm)
 ```
 
 Install puppetserver package.
@@ -251,9 +262,12 @@ Use following command to edit the server configuration
 $ sudo vi /etc/sysconfig/puppetserver
 ```
 
-Set the value of following variable to increase memory to 3GB(3g after -Xmx specify that)
+Set the value of following variable to increase memory to 3GB
+(3g after -Xmx specify that)
 
-```JAVA_ARGS="-Xms3g -Xmx3g"```
+```bash
+JAVA_ARGS="-Xms3g -Xmx3g"
+```
 
 Start the puppet server using following command
 
@@ -279,19 +293,21 @@ any Linux, Unix or windows based machines.
 
 ### Steps to install Puppet agent software
 
-1.Use following command for puppet repository.
+* Use following command for puppet repository.
 
 ```bash
-$ sudo rpm -ivh  [https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm](https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm)
+$ sudo rpm -ivh 
+[https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm]
+(https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm)
 ```
 
-2.Use following command to Install the Puppet agent.
+* Use following command to Install the Puppet agent.
 
 ```bash
 $ sudo yum -y install puppet-agent
 ```
 
-3.Use following command to enable agent.
+* Use following command to enable agent.
 
 ```bash
 $ sudo /opt/puppetlabs/bin/puppet resource service puppet ensure=running enable=true
@@ -304,7 +320,7 @@ master can communicate and mage the client node.
 
 Each puppet client node in puppet infrastructure needs to follow this process
 
-# Setting up SSL
+# Configuring SSL
 
 As explained above, SSL certificate approval by puppet master is required 
 for all the nodes in the infrastructure in order for master to communicate 
@@ -337,17 +353,19 @@ Following command is run on puppet master in order to sign the new certificate
 request that is sent by puppet agent(client node) for approval(signing)
 
 Note - <http://test.hid520-hid523.com/> (SHA259) certificate name is used for 
-illustration only
+illustration and example only
 
 ```bash
-$ sudo /opt/puppetlabs/bin/puppet cert sign  [test.hid520-hid523.com](http://test.hid520-hid523.com/)
+$ sudo /opt/puppetlabs/bin/puppet cert sign  
+[test.hid520-hid523.com](http://test.hid520-hid523.com/)
 ```
 
 Following will be the output.
 
 Notice: Signed certificate request for <http://test.hid520-hid523.com/>
 
-Notice: Removing file Puppet::SSL::CertificateRequest <http://test.hid520-hid523.com/> 
+Notice: Removing file Puppet::SSL::CertificateRequest 
+<http://test.hid520-hid523.com/> 
 at '/etc/puppetlabs/puppet/ssl/ca/requests/test.hid520-hid523.com.pem'
 
 After certificate approval Puppet master can now communicate and 
@@ -376,13 +394,15 @@ Use the following command to list all the certificates that are signed
 $ sudo /opt/puppetlabs/bin/puppet cert list --all
 ```
 
-Following will be its output.
+Following will be its output details .
 
 + "puppet"(SHA256)
 
 5A:71:E6:06:D8:0F:44:4D:70:F0:BE:51:72:15:97:68:D9:67:16:41:B0:38:9A:F2:B2:6C:B
 
-B:33:7E:0F:D4:53 (alt names: "DNS:puppet", "DNS:[test.hid520-hid523.puppetproject.com](http://test.hid520-hid523.puppetproject.com/)")
+B:33:7E:0F:D4:53 (alt names: "DNS:puppet", 
+"DNS:[test.hid520-hid523.puppetproject.com]
+(http://test.hid520-hid523.puppetproject.com/)")
 
 + "[test.hid520-hid523.com](http://test.hid520-hid523.com/)"(SHA259)
 
@@ -404,7 +424,10 @@ then use modules stored in repo to install and update the environment
 Following command is used on any node to install r10k tool
 
 ```bash
-$ urlgrabber -o /etc/yum.repos.d/timhughes-r10k-epel-6.repo [https://copr.fedoraproject.org/coprs/timhughes/yum](https://copr.fedoraproject.org/coprs/timhughes/yum)  -y install rubygem-r10k
+$ urlgrabber -o /etc/yum.repos.d/timhughes-r10k-epel-6.repo 
+[https://copr.fedoraproject.org/coprs/timhughes/yum]
+(https://copr.fedoraproject.org/coprs/timhughes/yum)  
+-y install rubygem-r10k
 ```
 
 ### Configure environment in /etc/puppet/puppet.conf for r10k
@@ -433,7 +456,9 @@ Since the environment needs to be updated at regular intervals it is
 recommended to create cron job.
 
 ```bash
-$ cat << EOF > /etc/cron.d/r10k.conf SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin H/15 * * * * root r10k deploy environment -p EOF
+$ cat << EOF > /etc/cron.d/r10k.conf SHELL=/bin/bash 
+PATH=/sbin:/bin:/usr/sbin:/usr/bin H/15 
+* * * * root r10k deploy environment -p EOF
 ```
 
 ### Testing Installation
@@ -444,7 +469,9 @@ test/validate if the environment is working correctly
 Run the following command and get a YAML output as the result.
 
 ```bash
-$ curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \--key /etc/puppet/ssl/private_keys/puppet.corp.guest.pem \--cacert /etc/puppet/ssl/ca/ca_crt.pem \-H 'Accept: yaml' \
+$ curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \
+--key /etc/puppet/ssl/private_keys/puppet.corp.guest.pem \
+--cacert /etc/puppet/ssl/ca/ca_crt.pem \-H 'Accept: yaml' \
 ```
 
 ## Reference
