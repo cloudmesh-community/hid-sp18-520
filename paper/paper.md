@@ -1,4 +1,4 @@
-# Amazon Relational Database Services (RDS)  :smiley::new: hid-sp18-520
+# Amazon Relational Database Services (RDS)
 
 | Arijit Sinha
 | arisinha@iu.edu
