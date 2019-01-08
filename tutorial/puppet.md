@@ -24,10 +24,14 @@ as shown in +@fig:InfrastructureAsCode.
 
 ![Infrastructure As Code](Images/IAC.jpg){#fig:InfrastructureAsCode}
 
+[hid-sp18-523-puppetimages]
+
 Puppet uses push and pull configuration in centralized manner 
 as shown in +@fig:push-pull-configImage.
 
 ![push-pull-config Image](Images/push-pull-configuration.jpg){#fig:push-pull-configImage}
+
+[hid-sp18-523-puppetimages]
 
 ## Master Slave Architecture
 
@@ -55,14 +59,20 @@ Puppet Master Slave Connection figure below)
 
 ![Master and Slave Architecture](Images/master-slave.jpg){#fig:master-slaveImage}
 
+[hid-sp18-523-puppetimages]
+
 In +@fig:master-slave1Image, we can see flow between master and slave.
 
 ![Master Slave Workflow 1](Images/master-slave1.jpg){#fig:master-slave1Image}
+
+[hid-sp18-523-puppetimages]
 
 +@fig:master-slave-connection Image, we can see the SSL workflow for 
 master and slave
 
 ![Master  Slave SSL Workflow](Images/master-slave-connection.jpg){#fig:master-slave-connection Image}
+
+[hid-sp18-523-puppetimages]
 
 ## Installation
 
