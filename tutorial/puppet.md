@@ -188,6 +188,7 @@ Below is the example
 
 [main]
 
+```bash
 certname = <http://testing.hid520-hid523.com/>
 
 server = puppetserver
@@ -195,6 +196,7 @@ server = puppetserver
 environment = testing
 
 runinterval = 4h
+```
 
 ### Puppet Master Config File
 
@@ -202,6 +204,7 @@ Below is the example
 
 [main]
 
+```bash
 certname =  <http://testing.hid520-hid523.com/>
 
 server = puppetmaster
@@ -211,9 +214,11 @@ environment = testing
 runinterval = 4h
 
 strict_variables = true
+```
 
 [master]
 
+```bash
 dns_alt_names = puppetserver,puppet, <http://puppet.test.com/>
 
 reports = pupated
@@ -223,6 +228,7 @@ storeconfigs_backend = puppetdb
 storeconfigs = true
 
 environment_timeout = unlimited
+```
 
 ### Key Components of Config File
 
