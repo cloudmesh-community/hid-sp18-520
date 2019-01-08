@@ -487,4 +487,4 @@ $ curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \
 ## Reference
 
 * <https://www.google.com/url?q=https://puppet.com/docs/pe/2017.3/installing/installing_pe.html%23concept-3157&sa=D&source=hangouts&ust=1522821857125000&usg=AFQjCNEPcs-uZes-m-fZYqK2WcTfkYRPLQ> 
-* Images - are taken form from <https://www.google.com/url?q=http://www.edureka.com&sa=D&source=hangouts&ust=1522821857125000&usg=AFQjCNE9YT10FeEvCoV3fhnTWVZlfy-hrQ> devops class
+* Images - are taken form from <https://www.edureka.co/blog/videos/puppet-tutorial/> devops class
