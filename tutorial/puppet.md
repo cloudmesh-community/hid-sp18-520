@@ -555,14 +555,16 @@ beginning indicates signed certificate:
 
 :o: please fix the next using verbatim
 
-```
-5A:71:E6:06:D8:0F:44:4D:70:F0:BE:51:72:15:97:68:D9:67:16:41:B0:38:9A:F2:B2:6C:BB:33:7E:0F:D4:53 (alt names: "DNS:puppet", 
+```bash
+5A:71:E6:06:D8:0F:44:4D:70:F0:BE:51:72:15:97:68:D9:67:16:41:B0:38:
+9A:F2:B2:6C:BB:33:7E:0F:D4:53 (alt names: "DNS:puppet", 
 "DNS:[test.hid520-hid523.puppetproject.com]
 (http://test.hid520-hid523.puppetproject.com/)")
 
 + "[test.hid520-hid523.com](http://test.hid520-hid523.com/)"(SHA259)
 
-F5:DC:68:24:63:E6:F1:9E:C5:FE:F5:1A:90:93:DF:19:F2:28:8B:D7:BD:D2:6A:83:07:BA:FE:24:11:24:54:6A
+F5:DC:68:24:63:E6:F1:9E:C5:FE:F5:1A:90:93:DF:19:F2:28:8B:D7:BD:D2:6A:83:
+07:BA:FE:24:11:24:54:6A
 
 + "  [test.hid520-hid523.com](http://test.hid520-hid523.com/)"(SHA259)
 
