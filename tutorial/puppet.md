@@ -571,14 +571,13 @@ CB:CB:CA:48:E0:DF:06:6A:7D:75:E6:CB:22:BE:35:5A:9A:B3
 
 # Managing puppet environment through tool
 
-The Puppet environment mangement tool known as r10k is used for managing 
+r10k is pupper environment management tool that is used for managing 
 configurations related to different environments such as testing, staging 
-and production. The different configuration related information is stored in 
-a central repository. The r10k tool creates an environment on the puppet master and 
-then uses modules stored in the repo to install and update the
-environment. 
+and production. Configuration information is stored in central repository. 
+r10k tool creates an environment on puppet master and then uses modules 
+stored in repo to install and update the environment. 
 
-Let us first Install the r10k tool with 
+Install r10k tool 
 
 ```bash
 $ urlgrabber -o /etc/yum.repos.d/timhughes-r10k-epel-6.repo 
@@ -587,14 +586,12 @@ $ urlgrabber -o /etc/yum.repos.d/timhughes-r10k-epel-6.repo
 -y install rubygem-r10k
 ```
 
-### Configure environment in /etc/puppet/puppet.conf for r10k
+Configure environment in /etc/puppet/puppet.conf for r10k
 
-:o: to long of a heading, no sentence
-
-:o: not verbatim
-
+```bash
 [main]
 environmentpath = $confdir/environments
+```
 
 ### Create configuration file for r10k config
 
@@ -626,9 +623,10 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin H/15
 
 ### Testing installation
 
-Puppet manifest for Puppet module needs to be complied in order to
-test and validate if the environment is working correctly.  Run the
-following command and inspect the YAML output.
+Puppet manifest for Puppet module needs to be compiled in order to
+test and validate if environment is working correctly.  
+
+Get YAML manifest for puppet environment
 
 ```bash
 $ curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \
@@ -643,4 +641,5 @@ $ curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \
 * <https://puppet.com/docs/pe/2017.3/installing_pe.html#concept-3157> 
 * <https://puppet.com/docs/pe/2017.3/installing_pe.html>
 * <https://puppet.com/docs/puppet/5.3/config_file_main.html>
+* <https://fullstack-puppet-docs.readthedocs.io/en/latest/puppet_master.html>
 * Images - are taken form from <https://www.edureka.co/blog/videos/puppet-tutorial/> devops class
