@@ -636,12 +636,14 @@ $ curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \
 --cacert /etc/puppet/ssl/ca/ca_crt.pem \-H 'Accept: yaml' \
 ```
 
+[@hid-sp18-523-r10k]
+
 ## Reference
 
 :o: add bibtex
 
 * <https://puppet.com/docs/pe/2017.3/installing_pe.html#concept-3157> 
-* <https://puppet.com/docs/pe/2017.3/installing_pe.html>
-* <https://puppet.com/docs/puppet/5.3/config_file_main.html>
-* <https://fullstack-puppet-docs.readthedocs.io/en/latest/puppet_master.html>
+* <https://puppet.com/docs/pe/2017.3/installing_pe.html> --install
+* <https://puppet.com/docs/puppet/5.3/config_file_main.html> --config
+* <https://fullstack-puppet-docs.readthedocs.io/en/latest/puppet_master.html> r10k
 * Images - are taken form from <https://www.edureka.co/blog/videos/puppet-tutorial/> devops class
