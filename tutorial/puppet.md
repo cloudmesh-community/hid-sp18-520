@@ -217,7 +217,7 @@ host name
 
 Installation will begin after file is saved and closed.
 
-When installation is completed, transfer the installer and pe.conf file 
+When installation is completed, transfer installer and pe.conf file 
 located at `PECONFPATH` to next server if we need to set up
 infrastructure with multiple puppet masters.
 
@@ -245,12 +245,12 @@ Third, we select text-mode when prompted. `pe.conf` file will be opened
 
 
 Fourth, we edit value of `puppet_enterprise::puppet_master_host` 
-parameter to the puppet master host name and change other database
+parameter to puppet master host name and change other database
 related configuration parameter values
 
 Installation will begin after file is saved and closed.
 
-Transfer installer and `pe.conf` file to the next puppet db server 
+Transfer installer and `pe.conf` file to next puppet db server 
 in case if infrastructure with multiple PuppetDB server needs to be set up.
 
 
@@ -273,14 +273,14 @@ $ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>
 Third, we select text-mode when prompted. `pe.conf` file will be opened
 
 Fourth, we edit value of `puppet_enterprise::puppet_master_host` 
-parameter to the puppet master host name
+parameter to puppet master host name
 
 Installation will begin after file is saved and closed.
 
 #### Run Puppet on infrastructure nodes
 
 To complete split installation, run Puppet on all infrastructure 
-nodes in the order that they were installed.
+nodes in same order as they were installed.
 
 * Run Puppet on master node.
 * Run Puppet on PuppetDB node.
@@ -355,7 +355,7 @@ $ sudo yum -y install puppetserver
 By default 2GM memory is allocated, but it can be configured based on
 available memory as well as number of puppet agent nodes.  
 
-Open the configuration file to change configured value
+Open configuration file to change configured value
 
 ```bash
 $ sudo vi /etc/sysconfig/puppetserver
@@ -383,7 +383,7 @@ $ sudo systemctl enable puppetserver
 ## Installing puppet agent
 
 
-Puppet agent is installed on all the nodes that needs to be part of 
+Puppet agent is installed on all nodes that needs to be part of 
 managed network. Puppet master can not reach and manage any node 
 that does  not have puppet agent installed.  
 Puppet agent can be installed and run on any Linux, Unix or 
@@ -410,7 +410,7 @@ Third, we need to enable agent
 $ sudo /opt/puppetlabs/bin/puppet resource service puppet ensure=running enable=true
 ```
  
-Once the puppet agent is installed and runs for first time, it
+Once puppet agent is installed and runs for first time, it
 generates a SSL certificate and sends it to the master for
 signing. Puppet master communicates and manages client nodes after 
 certificate is signed.
