@@ -420,8 +420,6 @@ that does  not have puppet agent installed.
 Puppet agent can be installed and run on any Linux, Unix or 
 windows based platforms.
 
-### Steps to install Puppet agent
-
 
 First, we need to connect to puppet repository
 
