@@ -1,4 +1,4 @@
-# Puppet :wave:
+# Puppet :smiley:
 
 :o: Tyler: use of a and the needs to be checked as it seems there is
 a different opinion on how to use this. changes thet Gregor did were
@@ -134,7 +134,7 @@ Troubleshooting errors and upgrading infrastructure using this type
 is simple. This installation type can easily support infrastructure
 of up to 20,000 managed nodes. Compiled master nodes can be added as
 network grows. This is recommended installation type for small to 
-mid size organizations.
+mid size organizations[hid-sp18-523-mono].
 
 
 `pe.conf` configuration file needs to be specified in order to install
@@ -196,7 +196,7 @@ can manage large infrastucture that requires more than 20,000
 nodes.  In this type of installation different components of 
 Puppet Enterprise ( master, PuppetDB and Console ) are installed
 on different nodes. This installation type is recommended for
-organizations with large infrastructure needs. 
+organizations with large infrastructure needs[hid-sp18-523-split]. 
 
 
 In this type of installation, we need to install componenets in 
@@ -343,14 +343,11 @@ environment_timeout = unlimited
 ```
 
 Comment lines, Settings lines and Settings variables are main
-components of puppet configuration file.
-
-Comments in config files are specified by prefixing hash character
-
-Setting line consists name of setting followed by equal sign,
-value of setting are specified in this section. Setting
-variable value generally consists of one word but multiple can be
-specified in rare cases.
+components of puppet configuration file. Comments in config files 
+are specified by prefixing hash character.Setting line consists 
+name of setting followed by equal sign, value of setting are specified 
+in this section. Setting variable value generally consists of one word 
+but multiple can be specified in rare cases[hid-sp18-523-config].
 
 ## Setting up Puppet master
 
@@ -403,10 +400,10 @@ $ sudo systemctl enable puppetserver
 
 
 Puppet agent is installed on all the nodes that needs to be part of 
-network and managed. Puppet master can not reach and manage any node 
+managed network. Puppet master can not reach and manage any node 
 that does  not have puppet agent installed.  
 Puppet agent can be installed and run on any Linux, Unix or 
-windows based platforms.
+windows based platforms[hid-sp18-523-agent].
 
 
 First, we need to connect to puppet repository
@@ -435,7 +432,7 @@ signing. Puppet master communicates and manages client nodes after
 certificate is signed.
 
 Each puppet client node that needs to be managed with puppet
-is required to follow this process.
+is required to follow this process[hid-sp18-523-agent].
 
 First, we want to view all requests on master
 
@@ -482,7 +479,7 @@ r10k is pupper environment management tool that is used for managing
 configurations related to different environments such as testing, staging 
 and production. Configuration information is stored in central repository. 
 r10k tool creates an environment on puppet master and then uses modules 
-stored in repo to install and update the environment. 
+stored in repo to install and update the environment[@hid-sp18-523-r10k]. 
 
 Install r10k tool 
 
@@ -541,7 +538,7 @@ $ curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \
 --cacert /etc/puppet/ssl/ca/ca_crt.pem \-H 'Accept: yaml' \
 ```
 
-[@hid-sp18-523-r10k]
+
 
 ## Reference
 
