@@ -30,7 +30,7 @@ rollback software packages in large cluster efficiently. Puppet does
 this through Infrastructure as Code (IAC). Code is written for
 infrastructure on one central location and is pushed to nodes in all
 environments (Dev, Test, Production) using puppet tool.  Configuration
-management tool has two approaches for managing infrastructure.
+management tool has two approaches for managing infrastructure;
 Configuration push and pull. In push configuration, infrastructure as
 code is pushed from centralized server to nodes whereas in pull
 configuration nodes pulls infrastructure as code from central server
@@ -127,15 +127,15 @@ $ gpg --verify puppet-enterprise-VERSION-PLATFORM.tar.gz.asc
 ### Text mode monolithic installation
 
 
-In a monolithic installation all PE components are installed on 
-one node. This installation type is easy to install, upgrade, and 
-troubleshoot, and you can expand this installation type up to 20,000 
-managed nodes by adding compile masters to it as you scale. 
-A monolithic installation is the recommended install type for most users.
+This is called as monolithic installation as all components of 
+Puppet Enterprise such as Puppet master, PuppetDB and Console are 
+installed on single node. This installation type is easy to install.
+Troubleshooting errors and upgrading infrastructure using this type
+is simple. This installation type can easily support infrastructure
+of up to 20,000 managed nodes. Compiled master nodes can be added as
+network grows. This is recommended installation type for small to 
+mid size organizations.
 
-When you perform a monolithic installation of PE in text mode, you 
-install the Puppet master, PuppetDB, and the PE console components 
-all on the same machine.
 
 `pe.conf` configuration file needs to be specified in order to install
 Puppet Enterprise in text mode. This file contains parameters and
@@ -187,16 +187,16 @@ puppet agent `-t`
 
 ### Text mode split installation
 
-The split installation is the base installation type for a large 
-environment, which you’d use to manage more than 20,000 nodes. 
-If you’re not managing this many nodes, we recommend the 
-monolithic installation type.
+Compared to monolithic installation split installation type
+can manage large infrastucture that requires more than 20,000
+nodes.  In this type of installation different components of 
+Puppet Enterprise ( master, PuppetDB and Console ) are installed
+on different nodes. This installation type is recommended for
+organizations with large infrastructure needs. 
 
-When you perform a split PE install in text-mode, you pass the 
-installer and the pe.conf file to each machine on which your 
-installing component.
 
-We need to install componenets in order
+In this type of installation, e need to install componenets in 
+specific order. First master then PuppetDB followed by Console.
 
 #### Install Puppet master
 
@@ -226,7 +226,7 @@ Third, we select text-mode when prompted. `pe.conf` file will be opened
 
 Fourth, we change master node related configuration parameters
 
-Installation will begin after the file is saved and closed.
+Installation will begin after file is saved and closed.
 
 When installation is completed, transfer the installer and pe.conf file 
 located at `PECONFPATH` to next server if we need to set up
@@ -286,27 +286,25 @@ Third, we select text-mode when prompted. `pe.conf` file will be opened
 Fourth, we edit value of `puppet_enterprise::puppet_master_host` 
 parameter to the puppet master host name
 
-Installation will begin after the file is saved and closed.
+Installation will begin after file is saved and closed.
 
 #### Run Puppet on infrastructure nodes
 
 To complete split installation, run Puppet on all infrastructure 
 nodes in the order that they were installed.
 
-* Run Puppet on the master node.
-* Run Puppet on the PuppetDB node.
-* Run Puppet on the master node a second time.
-* Run Puppet on the console node.
+* Run Puppet on master node.
+* Run Puppet on PuppetDB node.
+* Run Puppet on master node a second time.
+* Run Puppet on console node.
 
 ## Configuring Puppet
 
-### Puppet.conf
+`puppet.conf` is main puppet configuration file. Most configuration settings 
+of Puppet Enterprise componenets such as Master, Agent and security certificates 
+are all specified in this file.
 
-This is the main puppet configuration file. Most settings such as
-Master, Agent, certificates are all specified in this file.
-
-### Agent config section
-
+Config section of Agent Node
 
 [main]
 
@@ -317,8 +315,7 @@ environment = testing
 runinterval = 4h
 ```
 
-
-### Puppet master config file
+Config section of Master Node
 
 [main]
 
@@ -340,15 +337,13 @@ storeconfigs = true
 environment_timeout = unlimited
 ```
 
-### Key components of config file
-
 Comment lines, Settings lines and Settings variables are main
-components of puppet
+components of puppet configuration file.
 
 Comments in config files are specified by prefixing hash character
 
-Setting line consists name of the setting followed by equal sign,
-value of the setting would be specified in this section. Setting
+Setting line consists name of setting followed by equal sign,
+value of setting are specified in this section. Setting
 variable value generally consists of one word but multiple can be
 specified in rare cases.
 
