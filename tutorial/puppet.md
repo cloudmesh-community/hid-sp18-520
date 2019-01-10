@@ -139,20 +139,21 @@ as both master and agent.
 Puppet Enterprise in text mode. This file contains parameters and
 values for installing , upgrading and configuring Puppet.
 
-Following are some important parameters that can be specified in 
-`pe.conf` file.
+Some important parameters that can be specified in 
+`pe.conf` file are
 
-:o: this must be done in verbatim mode
-
-* console_admin_password
-* puppet_enterprise::console_host
-* puppet_enterprise::puppetdb_host
-* puppet_enterprise::puppetdb_database_name
-* puppet_enterprise::puppetdb_database_user
+```bash
+console_admin_password
+puppet_enterprise::console_host
+puppet_enterprise::puppetdb_host
+puppet_enterprise::puppetdb_database_name
+puppet_enterprise::puppetdb_database_user
+```bash
 
 Next, you need to Unpack the installation tarball.
-Let us assume i is stored in a file. We will be storing the location
-in a variable `$TRABALL` and use the variable in our installation.
+Let us assume if it is stored in a file. We will be storing the 
+location in a variable `$TARBALL` and use the variable in our 
+installation.
 
 ```bash
 export TARBALL=put the path to the tarball filename here
@@ -202,12 +203,10 @@ $ tar -xf <TARBALL_FILENAME>
 <TARBALL_FILENAME> is the path where .tar file for respective
 operating system is downloaded.
 
-* Run the installer from installed directory. Installation steps vary
-depending on path. To use pe.conf file that have been previously
-populated, run the installer with the `-c` flag pointed at the
-`pe.conf` file.
+* Run installer from installed directory. Installation steps vary
+depending on path. Run it with  `-c` flag pointed to 
+`pe.conf` if it parameters have already been populated.
 
-:o:
 
 ```bash
 $ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>
@@ -327,7 +326,6 @@ environment = testing
 runinterval = 4h
 ```
 
-:o: gregor commented till here. will do other later
 
 ### Puppet master config file
 
