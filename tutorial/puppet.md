@@ -169,14 +169,18 @@ $ tar -xf $TARBALL
 Third, we define variable for storing path of configuration file 
 
 ```bash
-export PECONFPATH=path of peconf file
+export PECONFPATH=path of pe.conf file
 ```
 
-Fourth, we run installer from installer directory
+Fourth, we specify console admin password in `pe.conf` file
+and use default certificate
+
+Fifth, we run installer from installer directory
 
 ```bash
 sudo ./puppet-enterprise-installer -c PECONFPATH
 ```
+
 
 Lastly, we run puppet twice after installation is complete
 
@@ -195,8 +199,8 @@ on different nodes. This installation type is recommended for
 organizations with large infrastructure needs. 
 
 
-In this type of installation, e need to install componenets in 
-specific order. First master then PuppetDB followed by Console.
+In this type of installation, we need to install componenets in 
+specific order. First master then puppet db followed by console.
 
 #### Install Puppet master
 
@@ -224,7 +228,8 @@ $ sudo ./puppet-enterprise-installer
 
 Third, we select text-mode when prompted. `pe.conf` file will be opened
 
-Fourth, we change master node related configuration parameters
+Fourth, we change master node related configuration parameters such as
+host name
 
 Installation will begin after file is saved and closed.
 
