@@ -355,9 +355,9 @@ specified in rare cases.
 ## Setting up Puppet master
 
 Puppet server software is installed on puppet master node which then
-pushes the configuration to clients nodes(puppet agents).
+pushes configuration to clients nodes(puppet agents).
 
-Pull software package from the repository.
+Pull software package from repository.
 
 ```bash
 $ sudo rpm -ivh 
@@ -365,36 +365,35 @@ $ sudo rpm -ivh
 (https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm)
 ```
 
-Install puppetserver package.
-
-Following command is used to install server on master node
+Install puppetserver package on master node
 
 ```bash
 $ sudo yum -y install puppetserver
 ```
 
 By default 2GM memory is allocated, but it can be configured based on
-available memory as well as number of puppet agent nodes.  Use
-following command to edit the server configuration
+available memory as well as number of puppet agent nodes.  
+
+Open the configuration file to change configured value
 
 ```bash
 $ sudo vi /etc/sysconfig/puppetserver
 ```
 
-Set value of variable to increase memory to 3GB
-while specifying the options to the `JAVA_ARGS`:
+For example set value of variable to increase memory to 3GB
+by adding 3g after -Xmx to `JAVA_ARGS`. 
 
 ```bash
 JAVA_ARGS="-Xms3g -Xmx3g"
 ```
 
-Start the puppet server 
+Start puppet server 
 
 ```bash
 $ sudo systemctl start puppetserver
 ```
 
-Start the puppet server after the master server is started.
+Start puppet server after master server is started.
 
 ```bash
 $ sudo systemctl enable puppetserver
