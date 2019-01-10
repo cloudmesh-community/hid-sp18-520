@@ -124,12 +124,18 @@ $ gpg --verify puppet-enterprise-VERSION-PLATFORM.tar.gz.asc
 ```
 
 
-### Install using text mode (mono configuration)
+### Text mode monolithic installation
 
-:o: no brackets in headlines
 
-Mono configuration is used when single node acts
-as both master and agent.
+In a monolithic installation all PE components are installed on 
+one node. This installation type is easy to install, upgrade, and 
+troubleshoot, and you can expand this installation type up to 20,000 
+managed nodes by adding compile masters to it as you scale. 
+A monolithic installation is the recommended install type for most users.
+
+When you perform a monolithic installation of PE in text mode, you 
+install the Puppet master, PuppetDB, and the PE console components 
+all on the same machine.
 
 `pe.conf` configuration file needs to be specified in order to install
 Puppet Enterprise in text mode. This file contains parameters and
@@ -146,60 +152,62 @@ puppet_enterprise::puppetdb_database_name
 puppet_enterprise::puppetdb_database_user
 ```
 
-Next, we need to unpack installation tarball.
-Store location of path in a variable `$TARBALL`. This  variable will be
+First, we need to unpack installation tarball.
+Store location of path in `$TARBALL` variable. This  variable will be
 used in our installation.
 
 ```bash
 export TARBALL=path of tarball file
 ```
 
-First, we extract tarball
+Second, we extract tarball
 
 ```bash
 $ tar -xf $TARBALL
 ```
 
-Second, define variable for storing path of configuration file 
+Third, we define variable for storing path of configuration file 
 
 ```bash
 export PECONFPATH=path of peconf file
 ```
 
-Third, we run installer from installer directory
+Fourth, we run installer from installer directory
 
 ```bash
 sudo ./puppet-enterprise-installer -c PECONFPATH
 ```
 
-Lastly, run puppet twice after installation is complete
+Lastly, we run puppet twice after installation is complete
 
 ```bash
 puppet agent `-t` 
 ```
 
 
-### Install using text mode ( split configuration )
+### Text mode split installation
 
-:o: unclear what the difference is between split and mono, no
-brackets in headline.
+The split installation is the base installation type for a large 
+environment, which you’d use to manage more than 20,000 nodes. 
+If you’re not managing this many nodes, we recommend the 
+monolithic installation type.
 
-split configuration is used when master and agent node needs to be
-installed on separate nodes. Components must be installed in specific
-order under this method.
+When you perform a split PE install in text-mode, you pass the 
+installer and the pe.conf file to each machine on which your 
+installing component.
 
+We need to install componenets in order
 
 #### Install Puppet master
 
-
-First, Unpack installation tarball
+First, we unpack installation tarball
 
 ```bash
 $ tar -xf <TARBALL_FILENAME>
 ```
 
-Second, Run installer from installed directory. Installation steps vary
-depending on path. Run it with  `-c` flag pointed to 
+Second, we run installer from installed directory. 
+we run it with  `-c` flag pointed to 
 `pe.conf` if parameters have already been populated.
 
 
@@ -207,94 +215,82 @@ depending on path. Run it with  `-c` flag pointed to
 $ sudo ./puppet-enterprise-installer -c PECONFPATH
 ```
 
-
-To have the installer open a copy of pe.conf for editing, run the
-installer without the `-c` flag.
+if parameters values are not already defined in `peconf`
+file, we run command without `-c` flag
 
 ```bash
 $ sudo ./puppet-enterprise-installer
 ```
 
-:o: unclear:
+Third, we select text-mode when prompted. `pe.conf` file will be opened
 
-* Select text-mode when prompted. `pe.conf` file will be opened
+Fourth, we change master node related configuration parameters
 
-* Change the master node related configuration parameters
+Installation will begin after the file is saved and closed.
 
-* Installation will begin after the file is saved and closed.
-
-* When installation is completed, transfer the installer and pe.conf file 
-  located at /etc/puppetlabs/enterprise/conf.d/ to the next server in case
-  if infrastructure with multiple server needs to be set up.
+When installation is completed, transfer the installer and pe.conf file 
+located at `PECONFPATH` to next server if we need to set up
+infrastructure with multiple puppet masters.
 
 #### Install PuppetDB
 
-PuppetDB, stores the details on the relations, nodes, resources
-for the whole architecture.
+PuppetDB stores details of relations, nodes and resources
+of whole infrastructure.
 
-:o: what architecture
+we need to install PuppetDB after successful installation of
+master.
 
-This information can be accessed 
-any tool or workflow.
-
-In a split installation, after installing the master, its ready to 
-install PuppetDB.
-
-* Unpack the installation tarball:
+First, we unpack installation tarball
 
 ```bash
 $ tar -xf <TARBALL_FILENAME>
 ```
 
-:o:
-
-<TARBALL_FILENAME> is the path where .tar file for 
-respective operating system is downloaded.
-:o:
-
-* From the installer directory, run the installer:
+Second, we run installer from installation directory
 
 ```bash
 $ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>
 ```
 
-* Select text-mode when prompted. `pe.conf` file will be opened
+Third, we select text-mode when prompted. `pe.conf` file will be opened
 
-* Change the database node related configuration parameters
 
-* Installation will begin after file is saved and closed.
+Fourth, we edit value of `puppet_enterprise::puppet_master_host` 
+parameter to the puppet master host name and change other database
+related configuration parameter values
 
-* Transfer the installer and the `pe.conf` 
-  file located at `PECONFPATH` to the next puppet db 
-  server in case if infrastructure with multiple db server needs to be set up.
+Installation will begin after file is saved and closed.
+
+Transfer installer and `pe.conf` file to the next puppet db server 
+in case if infrastructure with multiple PuppetDB server needs to be set up.
 
 
 #### Install the console
 
-In split installation, after installing master and PuppetDB, are ready
-to install from console.
+Console is installed after installing master and PuppetDB.
 
-- Unpack the installation tarball:
+First, we unpack installation tarball
 
 ```bash
 $ tar -xf <TARBALL_FILENAME>
 ```
 
-- From the installer directory, run the installer:
+Second, we run installer from installation directory
 
 ```bash
 $ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>
 ```
 
-* Select text-mode when prompted. `pe.conf` file will be opened
+Third, we select text-mode when prompted. `pe.conf` file will be opened
 
-* Change the console node related configuration parameters
+Fourth, we edit value of `puppet_enterprise::puppet_master_host` 
+parameter to the puppet master host name
 
-* Installation will begin after the file is saved and closed.
+Installation will begin after the file is saved and closed.
 
 #### Run Puppet on infrastructure nodes
 
-To complete a split installation, run Puppet on all infrastructure 
+To complete split installation, run Puppet on all infrastructure 
 nodes in the order that they were installed.
 
 * Run Puppet on the master node.
@@ -557,4 +553,6 @@ $ curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \
 * <https://puppet.com/docs/puppet/5.3/config_file_main.html> --config
 * <https://fullstack-puppet-docs.readthedocs.io/en/latest/puppet_master.html> r10k
 * <https://www.digitalocean.com/community/tutorials/how-to-install-puppet-to-manage-your-server-infrastructure#install-puppet-agent> -- puppet agent
+* <https://puppet.com/docs/pe/2017.1/install_text_mode_mono.html> -- mono
+* <https://puppet.com/docs/pe/2017.1/install_text_mode_split.html> -- split
 * Images - are taken form from <https://www.edureka.co/blog/videos/puppet-tutorial/> devops class
