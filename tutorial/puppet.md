@@ -98,35 +98,31 @@ infrastructure.
 
 ### Download and verify installation package
 
-Puppet can be installed using below steps:
 
-* Download tarball for given operating system and architecture. 
+First, we download tarball for given operating system and architecture. 
 
 For Ubuntu download -ubuntu-<version and arch>.tar.gz
 
 
-* Import Puppet public key 
+Second, we import Puppet public key 
 
 ```bash
 $ wget -O - https://downloads.puppetlabs.com/puppet-gpg-signing-key.pub
   | gpg --import
 ```
 
-
-- Print fingerprint of used key
+Third, we print fingerprint of used key
 
 ```bash
 $ gpg --fingerprint 0x7F438280EF8D349F
 ```
 
-- Verify release signature of installed package.
+Fourth, we verify release signature of installed package
 
 ```bash
-$ gpg --verify puppet-enterprise-<version>-<platform>.tar.gz.asc
+$ gpg --verify puppet-enterprise-VERSION-PLATFORM.tar.gz.asc
 ```
 
-:o: do not use greater equal but just capital letters to be constant
-with other sections
 
 ### Install using text mode (mono configuration)
 
@@ -148,34 +144,39 @@ puppet_enterprise::console_host
 puppet_enterprise::puppetdb_host
 puppet_enterprise::puppetdb_database_name
 puppet_enterprise::puppetdb_database_user
-```bash
-
-Next, you need to Unpack the installation tarball.
-Let us assume if it is stored in a file. We will be storing the 
-location in a variable `$TARBALL` and use the variable in our 
-installation.
-
-```bash
-export TARBALL=put the path to the tarball filename here
 ```
 
-First we extract the tarball:
+Next, we need to unpack installation tarball.
+Store location of path in a variable `$TARBALL`. This  variable will be
+used in our installation.
+
+```bash
+export TARBALL=path of tarball file
+```
+
+First, we extract tarball
 
 ```bash
 $ tar -xf $TARBALL
 ```
 
-- Run the installer from the installer directory
+Second, define variable for storing path of configuration file 
 
 ```bash
-sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>
+export PECONFPATH=path of peconf file
 ```
 
-:o: this seems to complex and you should give more direct instructions
-on where to place the conf file maybe using mkdir and place the file
-there, or do another export and integrate this above
+Third, we run installer from installer directory
 
-- Run puppet twice : puppet agent `-t` after installation is complete.
+```bash
+sudo ./puppet-enterprise-installer -c PECONFPATH
+```
+
+Lastly, run puppet twice after installation is complete
+
+```bash
+puppet agent `-t` 
+```
 
 
 ### Install using text mode ( split configuration )
@@ -188,28 +189,22 @@ installed on separate nodes. Components must be installed in specific
 order under this method.
 
 
-#### Install the master
+#### Install Puppet master
 
-:o: bullet unnecessary, we need full sentences. Fix in all of the paper.
 
-- Unpack installation tarball:
+First, Unpack installation tarball
 
 ```bash
 $ tar -xf <TARBALL_FILENAME>
 ```
 
-:o use `$TRABALL`
-
-<TARBALL_FILENAME> is the path where .tar file for respective
-operating system is downloaded.
-
-* Run installer from installed directory. Installation steps vary
+Second, Run installer from installed directory. Installation steps vary
 depending on path. Run it with  `-c` flag pointed to 
-`pe.conf` if it parameters have already been populated.
+`pe.conf` if parameters have already been populated.
 
 
 ```bash
-$ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>
+$ sudo ./puppet-enterprise-installer -c PECONFPATH
 ```
 
 
@@ -270,7 +265,7 @@ $ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>
 * Installation will begin after file is saved and closed.
 
 * Transfer the installer and the `pe.conf` 
-  file located at /etc/puppetlabs/enterprise/conf.d/ to the next puppet db 
+  file located at `PECONFPATH` to the next puppet db 
   server in case if infrastructure with multiple db server needs to be set up.
 
 
