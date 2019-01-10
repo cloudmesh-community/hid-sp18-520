@@ -544,16 +544,13 @@ $ sudo /opt/puppetlabs/bin/puppet cert clean hostname
 
 ### Viewing all signed requests
 
-To list all signed certificates you can use the command
+List all signed certificates
 
 ```bash $ sudo /opt/puppetlabs/bin/puppet cert list --all ```
 
-This will lead to an output similar to, where the + sign in the
-beginning indicates signed certificate:
+output staring with + are signed request where as lines that 
+does not begin with + sign are unsigned request.
 
-+ "puppet"(SHA256)
-
-:o: please fix the next using verbatim
 
 ```bash
 5A:71:E6:06:D8:0F:44:4D:70:F0:BE:51:72:15:97:68:D9:67:16:41:B0:38:
