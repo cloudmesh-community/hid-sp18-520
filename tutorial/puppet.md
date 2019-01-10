@@ -317,7 +317,6 @@ Master, Agent, certificates are all specified in this file.
 
 ### Agent config section
 
-Below :o: is the example
 
 [main]
 
@@ -331,8 +330,6 @@ runinterval = 4h
 :o: gregor commented till here. will do other later
 
 ### Puppet master config file
-
-Below :o: is the example
 
 [main]
 
@@ -416,31 +413,17 @@ $ sudo systemctl enable puppetserver
 
 ## Installing puppet agent
 
-:o: an agent is an agent not just software
 
-Puppet agent is :o: software that needs to be installed on all the nodes 
-that needs to be part of network and managed. Puppet master can not 
-reach and manage any node that does  not have puppet agent installed.  
-Puppet agent software can be installed and run on any Linux, Unix or 
-windows based machines.
+Puppet agent is installed on all the nodes that needs to be part of 
+network and managed. Puppet master can not reach and manage any node 
+that does  not have puppet agent installed.  
+Puppet agent can be installed and run on any Linux, Unix or 
+windows based platforms.
 
-### Steps to install Puppet agent software
+### Steps to install Puppet agent
 
-:o: unnecessary use of bullets and no full centences. This is not just
-valid here but throughout the paper. Fix in entire paper, use things
-this as
 
-Next we describe how to do ....
-
-First, we need to ...
-
-Second, we need to
-
-Third, we need to ...
-
-and so on ...
-
-* Connect to puppet repository.
+First, we need to connect to puppet repository
 
 ```bash
 $ sudo rpm -ivh 
@@ -448,125 +431,64 @@ $ sudo rpm -ivh
 (https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm)
 ```
 
-* Install Puppet agent.
+Second, we need to install Puppet agent
 
 ```bash
 $ sudo yum -y install puppet-agent
 ```
 
-* Enable agent.
+Third, we need to enable agent
 
 ```bash
 $ sudo /opt/puppetlabs/bin/puppet resource service puppet ensure=running enable=true
 ```
  
-Once the puppet agent is installed and runs for the first time, it
+Once the puppet agent is installed and runs for first time, it
 generates a SSL certificate and sends it to the master for
-signing. The master communicates and manages client nodes after the
+signing. Puppet master communicates and manages client nodes after 
 certificate is signed.
 
-Each puppet client node in the infrastructure managed with puppet
-needs to follow this process.
+Each puppet client node that needs to be managed with puppet
+is required to follow this process.
 
-## Configuring SSL
+First, we want to view all requests on master
 
-SSL certificate approval by puppet master is required  for all nodes in order 
-for master to communicate and manage client nodes. 
-
-### Find out and list all unsigned  certificate requests.
-
-```bash
-$ sudo /opt/puppetlabs/bin/puppet cert list
-```
-
-### View requests
-
-Sample request that is displayed after agent is set up successfully
-
-:o: notes must be done in markdown, see notation.md
-
-( Note - Used Certificate name is for illustration purpose only )
-
-:o: unclear
-
-* <http://test.hid520-hid523.com/> (SHA259)
-
-:o: verbatim
-
-15:90:C2:FB:ED:69:A4:F7:B1:87:0B:BF:F7:ll:B5:1C:33:F7:76:67:F3:F6:45:AE:07:4B:F
-
-6:E3:ss:04:11:8d
-
-:o: unclear
-
-Identification of signed/un-signed certificate is done by looking at the 
-+ sign in the beginning. Absence of + sign indicate that certificate is not signed.
-
-### Sign request
-
-On the puppet master in order to sign the new certificate 
-request that is sent by puppet agent(client node) for approval(signing)
-
-:o: unclear why `<>`. 
-
-Note - <http://test.hid520-hid523.com/> (SHA259) certificate name is used for 
-illustration and example only
-
-```bash
-$ sudo /opt/puppetlabs/bin/puppet cert sign  
-[test.hid520-hid523.com](http://test.hid520-hid523.com/)
-```
-
-output - :o: no - here fix throughout the paper. use full sentence,
-see next section for an example
-
-Notice: Signed certificate request for <http://test.hid520-hid523.com/>
-
-Notice: Removing file Puppet::SSL::CertificateRequest 
-<http://test.hid520-hid523.com/> 
-at '/etc/puppetlabs/puppet/ssl/ca/requests/test.hid520-hid523.com.pem'
-
-Puppet master can now communicate and manage the client node
-
-```bash
-$ sudo /opt/puppetlabs/bin/puppet cert sign --all
-```
-
-### Removing and adding Puppet agent
-
-
-Sometimes there is a need to remove the puppet agent node from puppet 
-infrastructure for debugging. This is done with the following command:
-
-```bash
-$ sudo /opt/puppetlabs/bin/puppet cert clean hostname
-```
-
-### Viewing all signed requests
-
-List all signed certificates
 
 ```bash $ sudo /opt/puppetlabs/bin/puppet cert list --all ```
+
+cryptographic hash value of agent node will be displayed
+
+```bash
+
++ "host1.hid523.example.com" (SHA256) F5:DC:68:24:63:E6:F1:9E:C5:
+FE:F5:1A:90:93:DF:19:F2:28:8B:D7:BD:D2:6A:83:07:BA:FE:24:11:24:54:6A
+
+"host2.hid523.example.com" (SHA256) F5:DC:68:24:63:E6:F1:9E:C5:
+FE:F5:1A:90:93:DF:19:F2:28:8B:D7:BD:D2:6A:83:07:BA:FE:24:11:24:54:6A
+
+```
 
 output staring with + are signed request where as lines that 
 does not begin with + sign are unsigned request.
 
 
+Second, we we need to sign unsigned request
+
+
 ```bash
-5A:71:E6:06:D8:0F:44:4D:70:F0:BE:51:72:15:97:68:D9:67:16:41:B0:38:
-9A:F2:B2:6C:BB:33:7E:0F:D4:53 (alt names: "DNS:puppet", 
-"DNS:[test.hid520-hid523.puppetproject.com]
-(http://test.hid520-hid523.puppetproject.com/)")
-
-+ "[test.hid520-hid523.com](http://test.hid520-hid523.com/)"(SHA259)
-
-F5:DC:68:24:63:E6:F1:9E:C5:FE:F5:1A:90:93:DF:19:F2:28:8B:D7:BD:D2:6A:83:
-07:BA:FE:24:11:24:54:6A
-
-+ "  [test.hid520-hid523.com](http://test.hid520-hid523.com/)"(SHA259)
-
-CB:CB:CA:48:E0:DF:06:6A:7D:75:E6:CB:22:BE:35:5A:9A:B3
+$ sudo /opt/puppetlabs/bin/puppet cert sign host2.hid523.example.com
 ```
+
+Puppet master is now ready to communicate and manage client nodes
+
+
+Lastly, we can remove specific agent node from puppet infrastructure
+for debugging or investigation.
+
+```bash
+$ sudo /opt/puppetlabs/bin/puppet cert clean hostname
+```
+
 
 # Managing puppet environment through tool
 
