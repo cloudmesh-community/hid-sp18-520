@@ -556,4 +556,5 @@ $ curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \
 * <https://puppet.com/docs/pe/2017.3/installing_pe.html> --install
 * <https://puppet.com/docs/puppet/5.3/config_file_main.html> --config
 * <https://fullstack-puppet-docs.readthedocs.io/en/latest/puppet_master.html> r10k
+* <https://www.digitalocean.com/community/tutorials/how-to-install-puppet-to-manage-your-server-infrastructure#install-puppet-agent> -- puppet agent
 * Images - are taken form from <https://www.edureka.co/blog/videos/puppet-tutorial/> devops class
