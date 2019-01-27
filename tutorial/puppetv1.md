@@ -293,7 +293,7 @@ server = <my-puppet-server>
 server = <my-puppet-server>
 ```
 
-*Note: <my-puppet-server> is the name that we have set up in 
+*Note: my-puppet-server is the name that we have set up in 
  /etc/hosts file while installing Puppet server. And certname
  is the name of the certificate*
  
