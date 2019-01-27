@@ -310,9 +310,11 @@ server = <my-puppet-server>
  
  we will see something like
  
+ ```
  ritesh@ritesh-ubuntu1:~$ sudo /opt/puppetlabs/bin/puppet cert list
-  "puppet-agent" (SHA256) 7B:C1:FA:73:7A:35:00:93:AF:9F:42:05:77:9B:05:09:2F:EA:15:A7:5C:C9:D7:2F:D7:4F:37:A8:6E:3C:FF:6B
-
+  "puppet-agent" (SHA256) 7B:C1:FA:73:7A:35:00:93:AF:9F:42:05:77:9B:
+  05:09:2F:EA:15:A7:5C:C9:D7:2F:D7:4F:37:A8:6E:3C:FF:6B
+```
  
 * Note that puppet-agent is the name that we have configured for certname
 in puppet.conf file*
@@ -329,9 +331,11 @@ we will see message saying certificate was signed if successful
 ```
 ritesh@ritesh-ubuntu1:~$ sudo /opt/puppetlabs/bin/puppet cert sign puppet-agent
 Signing Certificate Request for:
-  "puppet-agent" (SHA256) 7B:C1:FA:73:7A:35:00:93:AF:9F:42:05:77:9B:05:09:2F:EA:15:A7:5C:C9:D7:2F:D7:4F:37:A8:6E:3C:FF:6B
+  "puppet-agent" (SHA256) 7B:C1:FA:73:7A:35:00:93:AF:9F:42:05:77:9B:05:09:2F:
+  EA:15:A7:5C:C9:D7:2F:D7:4F:37:A8:6E:3C:FF:6B
 Notice: Signed certificate request for puppet-agent
-Notice: Removing file Puppet::SSL::CertificateRequest puppet-agent at '/etc/puppetlabs/puppet/ssl/ca/requests/puppet-agent.pem'
+Notice: Removing file Puppet::SSL::CertificateRequest puppet-agent 
+at '/etc/puppetlabs/puppet/ssl/ca/requests/puppet-agent.pem'
 ```
  
 
