@@ -4,13 +4,13 @@
 by the contributor. We can not accept sections and chapters that are
 not tested. If unclear discuss in the online hours.
 
-:white_check_mark: created new version of md file. This version contains
+:white_check_mark: This version of md file contains
 verified and tested command of installing open source puppet on Ubuntu
 
 :o: create a real example possibly usingg virtual machines
 
-:white_check_mark: created new version of md file. This version contains
-verified and tested command of installing open source puppet on Ubuntu VM
+:white_check_mark: This version contains verified and tested command of 
+installing open source puppet on Ubuntu VM
 
 
 :o: use a $ in front of a bash command
@@ -65,8 +65,7 @@ URLs so they must have different titles.
 
 :o: code examples contain hyperlinks that can not work
 
-:white_check_mark: corrected. Verified on VM to make sure that 
-hyperlinks works
+:white_check_mark: corrected. 
 
 ## Overview
 
