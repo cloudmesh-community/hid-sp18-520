@@ -4,36 +4,69 @@
 by the contributor. We can not accept sections and chapters that are
 not tested. If unclear discuss in the online hours.
 
+:white_check_mark: created new version of md file. This version contains
+verified and tested command of installing open source puppet on Ubuntu
+
 :o: create a real example possibly usingg virtual machines
 
+:white_check_mark: created new version of md file. This version contains
+verified and tested command of installing open source puppet on Ubuntu VM
+
+
 :o: use a $ in front of a bash command
+
+:white_check_mark: used $ before bash command wherever it was missing
+
 
 :o: use of a and the needs to be checked as it seems there is	
 a different opinion on how to use this. changes thet Gregor did were	
 for example reverted. So it is importnat that this is checked by a	
 second native English speaker, E.g. Tyler	
 
+:white_check_mark: corrected use of a and the
 
  :o: there is lots of redundancy in here in install, maybe this could	
 ebe simplified with a script. or two, one for mono, one for split.	
 
+
+:white_check_mark: Redundancy is removed in this new version of md
+
  :o: explanation of difference between mono and split need to be improved.	
+ 
+ :white_check_mark: difference between mono and split is explaination added
 
  :o: inconsistent use of single `#` in file check TOC for this md file	
+ 
+  :white_check_mark: corrected
 
  :o: cert section unclear. I recommend attending online hour to discuss	
 this. Maybe even separate meetin. We need to have TA in the meeting	
 
+  :white_check_mark: certificate section is changed in new version.
+  It contains result of command tested on VM
+
  :o: I suggest that you do improvements backwards. Often by the end	
 sections are less worked on
+
+
+  :white_check_mark: Improvements have been made in backwards section
+  and it now contains results of verified commands
 
 :o: it has been verified that this was not tested so this can not be
 included in this form in the document.
 
+:white_check_mark: new md version contains installation steps that has
+been tested on VM
+
 :o: many puppet related refernces have the same title but different
 URLs so they must have different titles.
 
+:white_check_mark: references corrected and merged in bib
+
 :o: code examples contain hyperlinks that can not work
+
+:white_check_mark: corrected. Verified on VM to make sure that 
+hyperlinks works
 
 ## Overview
 
@@ -169,7 +202,7 @@ Store location of path in `$TARBALL` variable. This  variable will be
 used in our installation.
 
 ```bash
-export TARBALL=path of tarball file
+$ export TARBALL=path of tarball file
 ```
 
 Second, we extract tarball
@@ -181,7 +214,7 @@ $ tar -xf $TARBALL
 Third, we define variable for storing path of configuration file 
 
 ```bash
-export PECONFPATH=path of pe.conf file
+$ export PECONFPATH=path of pe.conf file
 ```
 
 Fourth, we specify console admin password in `pe.conf` file
@@ -190,14 +223,14 @@ and use default certificate
 Fifth, we run installer from installer directory
 
 ```bash
-sudo ./puppet-enterprise-installer -c PECONFPATH
+$ sudo ./puppet-enterprise-installer -c PECONFPATH
 ```
 
 
 Lastly, we run puppet twice after installation is complete
 
 ```bash
-puppet agent `-t` 
+$ puppet agent `-t` 
 ```
 
 
@@ -527,7 +560,7 @@ EOF
 ### Installing Puppet manifest and module
 
 ```bash
-r10k deploy environment -pv
+$ r10k deploy environment -pv
 ```
 
 Creating cron job is recommended as environment needs to be updated
