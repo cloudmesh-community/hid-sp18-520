@@ -139,14 +139,12 @@ infrastructure.
 
 ![Master Slave SSL Workflow [@hid-sp18-523-puppetimages]](images/master-slave-connection.jpg){#fig:master-slave-connection}
 
-## Installation
+## Installation of Puppet Enterprise
 
 ### Download and verify installation package
 
 
-First, we download tarball for given operating system and architecture. 
-
-For Ubuntu download the `ubuntu-<version and arch>.tar.gz`
+First, download `ubuntu-<version and arch>.tar.gz` on VM  
 
 :o: this is incomplete and dir is missing
 
