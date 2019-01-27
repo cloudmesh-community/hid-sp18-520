@@ -146,7 +146,6 @@ infrastructure.
 
 First, download `ubuntu-<version and arch>.tar.gz` on VM  
 
-:o: this is incomplete and dir is missing
 
 Second, we import Puppet public key 
 
