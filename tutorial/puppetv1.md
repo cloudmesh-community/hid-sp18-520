@@ -97,7 +97,7 @@ as shown in @fig:push-pull-config.
 
 
 Another popular infrastructure tool is Ansible. It does not have
-master and client nodes. Any node in Ansible can act as executor.  Any
+master and client nodes. Any node in Ansible can act as executor. Any
 node containing list of inventory and SSH credential can play master
 node role to connect with other nodes as opposed to puppet
 architecture where server and agent software needs to be setup and
@@ -138,6 +138,54 @@ infrastructure.
  master and slave.
 
 ![Master Slave SSL Workflow [@hid-sp18-523-puppetimages]](images/master-slave-connection.jpg){#fig:master-slave-connection}
+
+
+Puppet comes in two forms. Open source Puppet and Enterprise
+In this tutorial we will showcase installation steps of both
+forms.
+
+
+## Install Opensource Puppet on Ubuntu
+
+We will demonstrate installation of Puppet 4 on Ubuntu 16.04
+
+Prerequisite - 4 GB RAM, Ubuntu 16 04 box ( standalone or VM )
+
+First, we need to make sure that Puppet master and agent is able
+to communicate with each other. Agent should be able to connect
+with master using name. 
+
+configure Puppet server name and map with its ip address
+
+```bash
+$ sudo nano /etc/hosts
+```
+
+contents of /etc/hosts should look like -
+
+```
+<ip_address> my-puppet-master
+```
+
+my-puppet-master is name of Puppet master to which Puppet agent would
+try to connect
+
+Next, we will install Puppet server. We will excute below commands to 
+pull from official Puppet Labs Repository
+
+```bash
+$ curl -O https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
+$ sudo dpkg -i puppetlabs-release-pc1-xenial.deb
+$ sudo apt-get update
+```
+
+Intstall the Puppet server
+
+```bash
+$ sudo apt-get install puppetserver
+```
+
+
 
 ## Installation of Puppet Enterprise
 
