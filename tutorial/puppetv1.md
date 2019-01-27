@@ -164,6 +164,8 @@ $ sudo nano /etc/hosts
 contents of /etc/hosts should look like -
 
 ```
+          /etc/hosts
+         -------------
 <ip_address> my-puppet-master
 ```
 
@@ -185,7 +187,25 @@ Intstall the Puppet server
 $ sudo apt-get install puppetserver
 ```
 
+Default instllation of Puppet server is configured to use 2 GB
+of RAM. However, we can customize this by opening puppetserver
+configuration file
 
+```bash
+$ sudo nano /etc/default/puppetserver
+```
+
+This will open the file in editor. Look for JAVA_ARGS line and
+change the value of -Xms and -Xmx parameters to 3g if we wish
+to configure Puppet server for 3GB RAM. Note that default value
+of this parameter is 2g.
+
+```
+               /etc/default/puppetserver
+               ---------------------------
+
+JAVA_ARGS="-Xms3g -Xmx3g -XX:MaxPermSize=256m"
+```
 
 ## Installation of Puppet Enterprise
 
