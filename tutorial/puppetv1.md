@@ -657,8 +657,7 @@ Pull software package from repository.
 
 ```bash
 $ sudo rpm -ivh 
-[https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm]
-(https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm)
+https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
 ```
 
 Install puppetserver package on master node
@@ -709,8 +708,7 @@ First, we need to connect to puppet repository
 
 ```bash
 $ sudo rpm -ivh 
-[https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm]
-(https://yum.puppetlabs.com/puppetlabs-release-pc1-el7.noarch.rpm)
+https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
 ```
 
 Second, we need to install Puppet agent
