@@ -106,16 +106,16 @@ infrastructure.
 
 ![Master Slave SSL Workflow [@hid-sp18-523-puppetimages]](images/master-slave-connection.jpg){#fig:master-slave-connection}
 
-## Installation
+## Install Puppet Enterprise on Ubuntu
 
 ### Download and verify installation package
 
 
-First, we download tarball for given operating system and architecture. 
+First, download `ubuntu-<version and arch>.tar.gz` in home folder 
 
-For Ubuntu download the `ubuntu-<version and arch>.tar.gz`
-
-:o: this is incomplete and dir is missing
+```bash
+export TARBALL_FILENAME = <name of .tar file >
+```
 
 Second, we import Puppet public key 
 
@@ -365,7 +365,7 @@ but multiple can be specified in rare cases [@hid-sp18-523-config].
 
 ## Setting up Puppet master
 
-Puppet server software is installed on puppet master node which then
+Puppet server is installed on puppet master node which then
 pushes configuration to clients nodes (puppet agents).
 
 Pull software package from repository.
