@@ -385,8 +385,10 @@ Notice: /Stage[main]/Main/File[/tmp/it_works.txt]/content:
 +it works!
 
 Info: Computing checksum on file /tmp/it_works.txt
-Info: /Stage[main]/Main/File[/tmp/it_works.txt]: Filebucketed /tmp/it_works.txt to puppet with sum d41d8cd98f00b204e9800998ecf8427e
-Notice: /Stage[main]/Main/File[/tmp/it_works.txt]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}0375aad9b9f3905d3c545b500e871aca'
+Info: /Stage[main]/Main/File[/tmp/it_works.txt]: Filebucketed /tmp/it_works.txt 
+to puppet with sum d41d8cd98f00b204e9800998ecf8427e
+Notice: /Stage[main]/Main/File[/tmp/it_works.txt]/content: content 
+changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}0375aad9b9f3905d3c545b500e871aca'
 Info: Creating state file /opt/puppetlabs/puppet/cache/state/state.yaml
 Notice: Applied catalog in 0.13 seconds
 ```
