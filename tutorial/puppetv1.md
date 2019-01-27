@@ -338,6 +338,58 @@ Notice: Removing file Puppet::SSL::CertificateRequest puppet-agent
 at '/etc/puppetlabs/puppet/ssl/ca/requests/puppet-agent.pem'
 ```
  
+Next, we will verify installation and make sure that Puppet server
+is able to push configuration to agent. Puppet uses domian specific language 
+code written in manifests ( .pp ) file 
+
+create default manifest site.pp file 
+
+```bash
+$ sudo nano /etc/puppetlabs/code/environments/production/manifests/site.pp
+```
+
+This will open file in edit mode. Make following changes to this file
+
+```
+file {'/tmp/it_works.txt':                        # resource type file and filename
+  ensure  => present,                             # make sure it exists
+  mode    => '0644',                              # file permissions
+  content => "It works!\n",  # Print the eth0 IP fact
+}
+```
+
+domain specific language is used to create it_works.txt file inside /tmp
+directory on agent node. ensure directive make sure that file is present.
+It creates one if file is removed. mode directive specifies that process 
+has write permission on file to make changes. content directive is used to 
+define content of the changes applied [hid-sp18-523-open]
+
+next, we test the installation on single node
+
+```bash
+sudo /opt/puppetlabs/bin/puppet agent --test
+```
+
+successfull verification will display 
+
+```
+Info: Using configured environment 'production'
+Info: Retrieving pluginfacts
+Info: Retrieving plugin
+Info: Caching catalog for puppet-agent
+Info: Applying configuration version '1548305548'
+Notice: /Stage[main]/Main/File[/tmp/it_works.txt]/content: 
+--- /tmp/it_works.txt    2019-01-27 02:32:49.810181594 +0000
++++ /tmp/puppet-file20190124-9628-1vy51gg    2019-01-27 02:52:28.717734377 +0000
+@@ -0,0 +1 @@
++it works!
+
+Info: Computing checksum on file /tmp/it_works.txt
+Info: /Stage[main]/Main/File[/tmp/it_works.txt]: Filebucketed /tmp/it_works.txt to puppet with sum d41d8cd98f00b204e9800998ecf8427e
+Notice: /Stage[main]/Main/File[/tmp/it_works.txt]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}0375aad9b9f3905d3c545b500e871aca'
+Info: Creating state file /opt/puppetlabs/puppet/cache/state/state.yaml
+Notice: Applied catalog in 0.13 seconds
+```
 
 
 ## Installation of Puppet Enterprise
