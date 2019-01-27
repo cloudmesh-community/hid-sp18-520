@@ -172,6 +172,8 @@ contents of /etc/hosts should look like -
 my-puppet-master is name of Puppet master to which Puppet agent would
 try to connect
 
+press <ctrl> + O to Save and <ctrl> + X to exit
+
 Next, we will install Puppet server. We will excute below commands to 
 pull from official Puppet Labs Repository
 
@@ -206,6 +208,133 @@ of this parameter is 2g.
 
 JAVA_ARGS="-Xms3g -Xmx3g -XX:MaxPermSize=256m"
 ```
+
+press <ctrl> + O to Save and <ctrl> + X to exit
+ 
+By default Puppet server is configured to use port 8140 to 
+communicate with agents. We need to make sure that firewall
+allows to communicate on this port 
+
+```bash
+$ sudo ufw allow 8140
+```
+
+next, we start Puppet server 
+
+```bash
+$ sudo systemctl start puppetserver
+```
+
+Verify server has started 
+
+```
+$ sudo systemctl status puppetserver
+```
+
+we would see "active(running)" if server has started successfully 
+
+```
+ritesh@ritesh-ubuntu1:~$ sudo systemctl status puppetserver
+● puppetserver.service - puppetserver Service
+   Loaded: loaded (/lib/systemd/system/puppetserver.service; disabled; vendor pr
+   Active: active (running) since Sun 2019-01-27 00:12:38 EST; 2min 29s ago
+  Process: 3262 ExecStart=/opt/puppetlabs/server/apps/puppetserver/bin/puppetser
+ Main PID: 3269 (java)
+   CGroup: /system.slice/puppetserver.service
+           └─3269 /usr/bin/java -Xms3g -Xmx3g -XX:MaxPermSize=256m -Djava.securi
+
+Jan 27 00:11:34 ritesh-ubuntu1 systemd[1]: Starting puppetserver Service...
+Jan 27 00:11:34 ritesh-ubuntu1 puppetserver[3262]: OpenJDK 64-Bit Server VM warn
+Jan 27 00:12:38 ritesh-ubuntu1 systemd[1]: Started puppetserver Service.
+lines 1-11/11 (END)
+```
+
+configure Puppet server to start at boot time
+
+```bash
+$ sudo systemctl enable puppetserver
+```
+
+
+Next, we will install Puppet agent
+
+```bash
+$ sudo apt-get install puppet-agent
+```
+
+start Puppet agent
+
+```bash
+$ sudo systemctl start puppet
+```
+
+configure Puppet agent to start at boot time
+
+```bash
+$ sudo systemctl enable puppet
+```
+
+next, we need to change Puppet agent config file so that 
+it can connect to Puppet master and communicate
+
+```bash
+$ sudo nano /etc/puppetlabs/puppet/puppet.conf
+```
+
+configuration file will be opened in an editor. Add following
+sections in file
+
+```
+[main]
+certname = <puppet-agent>
+server = <my-puppet-server>
+
+[agent]
+server = <my-puppet-server>
+```
+
+*Note: <my-puppet-server> is the name that we have set up in 
+ /etc/hosts file while installing Puppet server. And certname
+ is the name of the certificate*
+ 
+ Puppet agent sends certificate signing request to Puppet server 
+ when it connects first time. After signing request, Puppet server
+ trusts and identifies agent for managing.
+ 
+ execute following command on Puppet Master in order to see all 
+ incoming cerficate signing requests
+ 
+ ```bash
+ $ sudo /opt/puppetlabs/bin/puppet cert list
+ ```
+ 
+ we will see something like
+ 
+ ritesh@ritesh-ubuntu1:~$ sudo /opt/puppetlabs/bin/puppet cert list
+  "puppet-agent" (SHA256) 7B:C1:FA:73:7A:35:00:93:AF:9F:42:05:77:9B:05:09:2F:EA:15:A7:5C:C9:D7:2F:D7:4F:37:A8:6E:3C:FF:6B
+
+ 
+* Note that puppet-agent is the name that we have configured for certname
+in puppet.conf file*
+
+After validating that request is from valid and trusted agent, we sign
+the request 
+
+```bash
+$ sudo /opt/puppetlabs/bin/puppet cert sign puppet-agent
+```
+
+we will see message saying certificate was signed if successful
+
+```
+ritesh@ritesh-ubuntu1:~$ sudo /opt/puppetlabs/bin/puppet cert sign puppet-agent
+Signing Certificate Request for:
+  "puppet-agent" (SHA256) 7B:C1:FA:73:7A:35:00:93:AF:9F:42:05:77:9B:05:09:2F:EA:15:A7:5C:C9:D7:2F:D7:4F:37:A8:6E:3C:FF:6B
+Notice: Signed certificate request for puppet-agent
+Notice: Removing file Puppet::SSL::CertificateRequest puppet-agent at '/etc/puppetlabs/puppet/ssl/ca/requests/puppet-agent.pem'
+```
+ 
+
 
 ## Installation of Puppet Enterprise
 
