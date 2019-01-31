@@ -1,10 +1,14 @@
 # Puppet :wave:
 
+:o: ubuntu 16.04 is outdated. Could that not be done on 18.04
+
+:o: export PECONFPATH=path of pe.conf file, this would mean you need to put a $ before PECONFPATH when using it
+
 :o: review has been halted as it was verified that this was not tested
 by the contributor. We can not accept sections and chapters that are
 not tested. If unclear discuss in the online hours.
 
-:white_check_mark: This version of md file contains
+:white_check_mark: created new version of md file. This version contains
 verified and tested command of installing open source puppet on Ubuntu
 
 :o: create a real example possibly usingg virtual machines
