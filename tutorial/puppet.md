@@ -1,10 +1,14 @@
 # Puppet :wave:
 
+:o: ubuntu 16.04 is outdated. Could that not be done on 18.04
+
+:o: export PECONFPATH=path of pe.conf file, this would mean you need to put a $ before PECONFPATH when using it
+
 :o: review has been halted as it was verified that this was not tested
 by the contributor. We can not accept sections and chapters that are
 not tested. If unclear discuss in the online hours.
 
-:white_check_mark: This version of md file contains
+:white_check_mark: created new version of md file. This version contains
 verified and tested command of installing open source puppet on Ubuntu
 
 :o: create a real example possibly usingg virtual machines
@@ -160,18 +164,16 @@ configure Puppet server name and map with its ip address
 $ sudo nano /etc/hosts
 ```
 
-contents of /etc/hosts should look like -
+contents of the `/etc/hosts` should look like
 
 ```
-          /etc/hosts
-         -------------
 <ip_address> my-puppet-master
 ```
 
 my-puppet-master is name of Puppet master to which Puppet agent would
 try to connect
 
-press <ctrl> + O to Save and <ctrl> + X to exit
+press `<ctrl> + O` to Save and `<ctrl> + X` to exit
 
 Next, we will install Puppet server. We will excute below commands to 
 pull from official Puppet Labs Repository
@@ -197,18 +199,15 @@ $ sudo nano /etc/default/puppetserver
 ```
 
 This will open the file in editor. Look for JAVA_ARGS line and
-change the value of -Xms and -Xmx parameters to 3g if we wish
+change the value of `-Xms` and `-Xmx` parameters to 3g if we wish
 to configure Puppet server for 3GB RAM. Note that default value
 of this parameter is 2g.
 
 ```
-               /etc/default/puppetserver
-               ---------------------------
-
 JAVA_ARGS="-Xms3g -Xmx3g -XX:MaxPermSize=256m"
 ```
 
-press <ctrl> + O to Save and <ctrl> + X to exit
+press `<ctrl> + O` to Save and `<ctrl> + X` to exit
  
 By default Puppet server is configured to use port 8140 to 
 communicate with agents. We need to make sure that firewall
