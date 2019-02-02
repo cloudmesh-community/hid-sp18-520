@@ -204,13 +204,10 @@ to configure Puppet server for 3GB RAM. Note that default value
 of this parameter is 2g.
 
 ```
-               /etc/default/puppetserver
-               ---------------------------
-
 JAVA_ARGS="-Xms3g -Xmx3g -XX:MaxPermSize=256m"
 ```
 
-press <ctrl> + O to Save and <ctrl> + X to exit
+press `<ctrl> + O` to Save and `<ctrl> + X` to exit
  
 By default Puppet server is configured to use port 8140 to 
 communicate with agents. We need to make sure that firewall
