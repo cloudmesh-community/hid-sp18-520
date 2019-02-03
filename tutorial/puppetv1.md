@@ -2,10 +2,13 @@
 
 :o: ubuntu 16.04 is outdated. Could that not be done on 18.04
 
-:white_check_mark: Installed in 18.04. Created two VM. Installed Puppet Master on on VM and Puppet agent on other VM.
-Used bridged network so that both VM can communicate with each other. Verified and tested successfull installation.
+:white_check_mark: Installed in 18.04. Created two VM. 
+Installed Puppet Master on on VM and Puppet agent on other VM.
+Used bridged network so that both VM can communicate with each other. 
+Verified and tested successfull installation.
 Installed Puppet Enterprise on Ubuntu 18.04 using both web and text mode install methods and successfully tested.
-Updated Puppet Enterprise report content based on result of successfull installation. Removed reduntant steps from the content and origanized steps for Puupet Enterprise installation.
+Updated Puppet Enterprise report content based on result of successfull installation. 
+Removed reduntant steps from content and origanized steps for Puupet Enterprise installation.
 
 
 :o: export PECONFPATH=path of pe.conf file, this would mean you need to put a $ before PECONFPATH when using it
