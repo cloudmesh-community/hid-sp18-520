@@ -5,10 +5,10 @@
 :white_check_mark: Installed in 18.04. Created two VM. 
 Installed Puppet Master on on VM and Puppet agent on other VM.
 Used bridged network so that both VM can communicate with each other. 
-Verified and tested successfull installation.
+Verified and tested successful installation.
 Installed Puppet Enterprise on Ubuntu 18.04 using both web and text mode install methods and successfully tested.
-Updated Puppet Enterprise report content based on result of successfull installation. 
-Removed reduntant steps from content and origanized steps for Puupet Enterprise installation.
+Updated Puppet Enterprise report content based on result of successful installation. 
+Removed redundant steps from content and organized steps for Puppet Enterprise installation.
 
 
 :o: export PECONFPATH=path of pe.conf file, this would mean you need to put a $ before PECONFPATH when using it
@@ -186,7 +186,7 @@ try to connect
 
 press `<ctrl> + O` to Save and `<ctrl> + X` to exit
 
-Next, we will install Puppet 4 on Ubuntu 16.04 server. 
+Next, we will install Puppet on Ubuntu  server. 
 We will excute below commands to pull from official 
 Puppet Labs Repository
 
