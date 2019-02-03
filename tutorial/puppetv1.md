@@ -1,4 +1,4 @@
-# Puppet :wave:
+# Puppet :smiley:
 
 :o: ubuntu 16.04 is outdated. Could that not be done on 18.04
 
