@@ -175,8 +175,9 @@ try to connect
 
 press `<ctrl> + O` to Save and `<ctrl> + X` to exit
 
-Next, we will install Puppet server. We will excute below commands to 
-pull from official Puppet Labs Repository
+Next, we will install Puppet 4 on Ubuntu 16.04 server. 
+We will excute below commands to pull from official 
+Puppet Labs Repository
 
 ```bash
 $ curl -O https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
@@ -394,10 +395,9 @@ Notice: Applied catalog in 0.13 seconds
 
 ## Installation of Puppet Enterprise
 
-### Download and verify installation package
 
-
-First, download `ubuntu-<version and arch>.tar.gz` on VM  
+First, download `ubuntu-<version and arch>.tar.gz` and CPG 
+signature file on Ubuntu VM  
 
 
 Second, we import Puppet public key 
@@ -406,10 +406,46 @@ Second, we import Puppet public key
 $ wget -O - https://downloads.puppetlabs.com/puppet-gpg-signing-key.pub | gpg --import
 ```
 
+we will see ouput as
+
+```
+ritesh@ritesh-pe-text:~/pe1$ wget -O 
+- https://downloads.puppetlabs.com/puppet-gpg-signing-key.pub | gpg --import
+--2019-02-03 14:02:54--  https://downloads.puppetlabs.com/puppet-gpg-signing-key.pub
+Resolving downloads.puppetlabs.com 
+(downloads.puppetlabs.com)... 2600:9000:201a:b800:10:d91b:7380:93a1
+, 2600:9000:201a:800:10:d91b:7380:93a1, 2600:9000:201a:be00:10:d91b:7380:93a1, ...
+Connecting to downloads.puppetlabs.com (downloads.puppetlabs.com)
+|2600:9000:201a:b800:10:d91b:7380:93a1|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3139 (3.1K) [binary/octet-stream]
+Saving to: ‘STDOUT’
+
+-                   100%[===================>]   3.07K  --.-KB/s    in 0s      
+
+2019-02-03 14:02:54 (618 MB/s) - written to stdout [3139/3139]
+
+gpg: key 7F438280EF8D349F: "Puppet, Inc. Release Key 
+(Puppet, Inc. Release Key) <release@puppet.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+```
+
 Third, we print fingerprint of used key
 
 ```bash
 $ gpg --fingerprint 0x7F438280EF8D349F
+```
+
+we will see successful output as
+
+```
+ritesh@ritesh-pe-text:~/pe1$ gpg --fingerprint 0x7F438280EF8D349F
+pub   rsa4096 2016-08-18 [SC] [expires: 2021-08-17]
+      6F6B 1550 9CF8 E59E 6E46  9F32 7F43 8280 EF8D 349F
+uid           [ unknown] Puppet, Inc. Release Key 
+(Puppet, Inc. Release Key) <release@puppet.com>
+sub   rsa4096 2016-08-18 [E] [expires: 2021-08-17]
 ```
 
 Fourth, we verify release signature of installed package
@@ -418,9 +454,155 @@ Fourth, we verify release signature of installed package
 $ gpg --verify puppet-enterprise-VERSION-PLATFORM.tar.gz.asc
 ```
 
+successful output will show as
 
-### Text mode monolithic installation
+```
+ritesh@ritesh-pe-text:~/pe$ gpg --verify 
+puppet-enterprise-2019.0.2-ubuntu-18.04-amd64.tar.gz.asc
+gpg: assuming signed data in 'puppet-enterprise-2019.0.2-ubuntu-18.04-amd64.tar.gz'
+gpg: Signature made Fri 25 Jan 2019 02:03:23 PM EST
+gpg:                using RSA key 7F438280EF8D349F
+gpg: Good signature from "Puppet, Inc. Release Key 
+(Puppet, Inc. Release Key) <release@puppet.com>" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 6F6B 1550 9CF8 E59E 6E46  9F32 7F43 8280 EF8D 349
+```
 
+Next, we need to unpack installation tarball.
+Store location of path in `$TARBALL` variable. This  variable will be
+used in our installation.
+
+```bash
+$ export TARBALL=path of tarball file
+```
+
+then, we extract tarball
+
+```bash
+$ tar -xf $TARBALL
+```
+
+Next, we run installer from installer directory
+
+```bash
+$ sudo ./puppet-enterprise-installer
+```
+
+This will ask us to chose installation option; we could chose from
+guided installation or text based installation
+
+```
+ritesh@ritesh-ubuntu-pe:~/pe/puppet-enterprise-2019.0.2-ubuntu-18.04-amd64
+$ sudo ./puppet-enterprise-installer
+~/pe/puppet-enterprise-2019.0.2-ubuntu-18.04-amd64 
+~/pe/puppet-enterprise-2019.0.2-ubuntu-18.04-amd64
+=============================================================
+    Puppet Enterprise Installer
+=============================================================
+
+## Installer analytics are enabled by default.
+## To disable, set the DISABLE_ANALYTICS environment variable and rerun 
+this script. 
+For example, "sudo DISABLE_ANALYTICS=1 ./puppet-enterprise-installer".
+## If puppet_enterprise::send_analytics_data is set to false in your 
+existing pe.conf, this is not necessary and analytics will be disabled.
+
+Puppet Enterprise offers three different methods of installation.
+
+[1] Express Installation (Recommended)
+
+This method will install PE and provide you with a link at the end 
+of the installation to reset your PE console admin password
+
+Make sure to click on the link and reset your password before proceeding 
+to use PE
+
+[2] Text-mode Install
+
+This method will open your EDITOR (vi) with a PE config file (pe.conf) 
+for you to edit before you proceed with installation.
+
+The pe.conf file is a HOCON formatted file that declares parameters 
+and values needed to install and configure PE.
+We recommend that you review it carefully before proceeding.
+
+[3] Graphical-mode Install
+
+This method will install and configure a temporary webserver to walk 
+you through the various configuration options.
+
+NOTE: This method requires you to be able to access port 3000 on this 
+machine from your desktop web browser.
+
+=============================================================
+
+ How to proceed? [1]: 
+
+-------------------------------------------------------------------
+```
+
+Press 3 for web based Graphic-mode-Install
+
+when successfull, we will see output as
+
+```
+## We're preparing the Web Installer...
+
+2019-02-02T20:01:39.677-05:00 Running command: 
+mkdir -p /opt/puppetlabs/puppet/share/installer/installer
+2019-02-02T20:01:39.685-05:00 Running command: 
+cp -pR /home/ritesh/pe/puppet-enterprise-2019.0.2-ubuntu-18.04-amd64/* 
+/opt/puppetlabs/puppet/share/installer/installer/
+
+## Go to https://ritesh-ubuntu-pe:3000 in your browser to continue installation.
+
+```
+
+By default Puppet Enterprise server uses 3000 port. Make sure that 
+firewall allows communication on port 3000
+
+```bash
+$ sudo ufw allow 3000
+```
+
+next, go to `https://localhost:3000` url for completing installation
+
+click on `get started` button.
+
+chose install on this server
+
+enter <mypserver> as DNS name
+
+enter console admin password
+
+click continue 
+
+we will get Confirm the plan screen with following information
+
+```
+The Puppet master component
+Hostname 
+ritesh-ubuntu-pe
+DNS aliases
+<mypserver>
+```
+click continue and verify installer validation screen.
+
+click `Deploy Now` button
+
+Puppet enterprise will be installed. 
+
+login to console with admin password that was set earlier
+and click on nodes links to manage nodes.
+
+
+Installing Puppet Enterprise as Text mode monolithic installation
+
+```bash
+$ sudo ./puppet-enterprise-installer
+```
+Enter 2 on `How to Proceed` for text mode  monolithic installation
 
 This is called as monolithic installation as all components of 
 Puppet Enterprise such as Puppet master, PuppetDB and Console are 
@@ -447,45 +629,14 @@ puppet_enterprise::puppetdb_database_name
 puppet_enterprise::puppetdb_database_user
 ```
 
-First, we need to unpack installation tarball.
-Store location of path in `$TARBALL` variable. This  variable will be
-used in our installation.
-
-```bash
-$ export TARBALL=path of tarball file
-```
-
-Second, we extract tarball
-
-```bash
-$ tar -xf $TARBALL
-```
-
-Third, we define variable for storing path of configuration file 
-
-```bash
-$ export PECONFPATH=path of pe.conf file
-```
-
-Fourth, we specify console admin password in `pe.conf` file
-and use default certificate
-
-Fifth, we run installer from installer directory
-
-```bash
-$ sudo ./puppet-enterprise-installer -c $PECONFPATH
-```
-
-
 Lastly, we run puppet twice after installation is complete
 
 ```bash
-$ puppet agent `-t` 
+$ puppet agent -t 
 ```
 
 
-### Text mode split installation
-
+Text mode split installation is performed for large networks.
 Compared to monolithic installation split installation type
 can manage large infrastucture that requires more than 20,000
 nodes.  In this type of installation different components of 
@@ -496,112 +647,11 @@ organizations with large infrastructure needs [@hid-sp18-523-split].
 In this type of installation, we need to install componenets in 
 specific order. First master then puppet db followed by console.
 
-#### Install Puppet master
 
-First, we unpack installation tarball
-
-```bash
-$ tar -xf $TARBALL
-```
-
-Second, we run installer from installed directory. 
-we run it with  `-c` flag pointed to 
-`pe.conf` if parameters have already been populated.
-
-
-```bash
-$ sudo ./puppet-enterprise-installer -c $PECONFPATH
-```
-
-if parameters values are not already defined in `peconf`
-file, we run command without `-c` flag
-
-```bash
-$ sudo ./puppet-enterprise-installer
-```
-
-Third, we select text-mode when prompted. `pe.conf` file will be opened.
-
-Fourth, we change master node related configuration parameters such as
-host name
-
-Installation will begin after file is saved and closed.
-
-When installation is completed, transfer installer and pe.conf file 
-located at `PECONFPATH` to next server if we need to set up
-infrastructure with multiple puppet masters.
-
-#### Install PuppetDB
-
-PuppetDB stores details of relations, nodes and resources
-of whole infrastructure.
-
-we need to install PuppetDB after successful installation of
-master.
-
-First, we unpack installation tarball
-
-```bash
-$ tar -xf $TARBALL
-```
-
-Second, we run installer from installation directory
-
-```bash
-$ sudo ./puppet-enterprise-installer -c $PECONFPATH
-```
-
-Third, we select text-mode when prompted. `pe.conf` file will be opened
-
-
-Fourth, we edit value of `puppet_enterprise::puppet_master_host` 
-parameter to puppet master host name and change other database
-related configuration parameter values
-
-Installation will begin after file is saved and closed.
-
-Transfer installer and `pe.conf` file to next puppet db server 
-in case if infrastructure with multiple PuppetDB server needs to be set up.
-
-
-#### Install the console
-
-Console is installed after installing master and PuppetDB.
-
-First, we unpack installation tarball
-
-```bash
-$ tar -xf $TARBALL
-```
-
-Second, we run installer from installation directory
-
-```bash
-$ sudo ./puppet-enterprise-installer -c $PECONFPATH
-```
-
-Third, we select text-mode when prompted. `pe.conf` file will be opened
-
-Fourth, we edit value of `puppet_enterprise::puppet_master_host` 
-parameter to puppet master host name
-
-Installation will begin after file is saved and closed.
-
-#### Run Puppet on infrastructure nodes
-
-To complete split installation, run Puppet on all infrastructure 
-nodes in same order as they were installed.
-
-* Run Puppet on master node.
-* Run Puppet on PuppetDB node.
-* Run Puppet on master node a second time.
-* Run Puppet on console node.
-
-## Configuring Puppet
-
-`puppet.conf` is main puppet configuration file. Most configuration settings 
-of Puppet Enterprise componenets such as Master, Agent and security certificates 
-are all specified in this file.
+Puppet Enterprise master and agent settings can be configured in
+`puppet.conf` file. Most configuration settings of Puppet Enterprise 
+componenets such as Master, Agent and  security certificates are all 
+specified in this file.
 
 Config section of Agent Node
 
@@ -609,7 +659,7 @@ Config section of Agent Node
 ```bash
 [main]
 
-certname = <http://testing.hid520-hid523.com/>
+certname = <http://your-domain-name.com/>
 server = puppetserver
 environment = testing
 runinterval = 4h
@@ -621,8 +671,8 @@ Config section of Master Node
 ```bash
 [main]
 
-certname =  <http://testing.hid520-hid523.com/>
-server = puppetmaster
+certname =  <http://your-domain-name.com/>
+server = puppetserver
 environment = testing
 runinterval = 4h
 strict_variables = true
@@ -632,7 +682,7 @@ strict_variables = true
 ```bash
 [master]
 
-dns_alt_names = puppetserver,puppet, <http://puppet.test.com/>
+dns_alt_names = puppetserver,puppet, <http://your-domain-name.com/>
 reports = pupated
 storeconfigs_backend = puppetdb
 storeconfigs = true
@@ -641,7 +691,7 @@ environment_timeout = unlimited
 
 Comment lines, Settings lines and Settings variables are main
 components of puppet configuration file. Comments in config files 
-are specified by prefixing hash character.Setting line consists 
+are specified by prefixing hash character. Setting line consists 
 name of setting followed by equal sign, value of setting are specified 
 in this section. Setting variable value generally consists of one word 
 but multiple can be specified in rare cases [@hid-sp18-523-config].
