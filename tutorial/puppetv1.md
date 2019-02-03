@@ -2,7 +2,15 @@
 
 :o: ubuntu 16.04 is outdated. Could that not be done on 18.04
 
+:white_check_mark: Installed in 18.04. Created two VM. Installed Puppet Master on on VM and Puppet agent on other VM.
+Used bridged network so that both VM can communicate with each other. Verified and tested successfull installation.
+Installed Puppet Enterprise on Ubuntu 18.04 using both web and text mode install methods and successfully tested.
+Updated Puppet Enterprise report content based on result of successfull installation. Removed reduntant steps from the content and origanized steps for Puupet Enterprise installation.
+
+
 :o: export PECONFPATH=path of pe.conf file, this would mean you need to put a $ before PECONFPATH when using it
+
+:white_check_mark: Corrected
 
 :o: review has been halted as it was verified that this was not tested
 by the contributor. We can not accept sections and chapters that are
@@ -566,19 +574,20 @@ firewall allows communication on port 3000
 $ sudo ufw allow 3000
 ```
 
-next, go to `https://localhost:3000` url for completing installation
+Next, go to `https://localhost:3000` url for completing installation
 
-click on `get started` button.
+Click on `get started` button.
 
-chose install on this server
+Chose install on this server
 
-enter <mypserver> as DNS name
+Enter `<mypserver>` as DNS name. This is our Puppet Server name.
+This can be configured in confile file also.
 
-enter console admin password
+Enter console admin password
 
-click continue 
+Click continue 
 
-we will get Confirm the plan screen with following information
+we will get confirm the plan screen with following information
 
 ```
 The Puppet master component
@@ -591,7 +600,12 @@ click continue and verify installer validation screen.
 
 click `Deploy Now` button
 
-Puppet enterprise will be installed. 
+Puppet enterprise will be installed and will display message
+on screen 
+
+```
+Puppet agent ran sucessfully
+```
 
 login to console with admin password that was set earlier
 and click on nodes links to manage nodes.
@@ -602,7 +616,36 @@ Installing Puppet Enterprise as Text mode monolithic installation
 ```bash
 $ sudo ./puppet-enterprise-installer
 ```
-Enter 2 on `How to Proceed` for text mode  monolithic installation
+
+Enter 2 on `How to Proceed` for text mode  monolithic installation.
+Following message will be displayed if successfull.
+
+```
+2019-02-02T22:08:12.662-05:00 - [Notice]: Applied catalog in 339.28 seconds
+2019-02-02T22:08:13.856-05:00 - [Notice]: 
+Sent analytics: pe_installer - install_finish - succeeded
+* /opt/puppetlabs/puppet/bin/puppet infrastructure configure  
+--detailed-exitcodes --environmentpath /opt/puppetlabs/server/data/environments 
+--environment enterprise --no-noop --install=2019.0.2 --install-method='repair'  
+* returned: 2
+
+## Puppet Enterprise configuration complete!
+
+
+Documentation: https://puppet.com/docs/pe/2019.0/pe_user_guide.html
+Release notes: https://puppet.com/docs/pe/2019.0/pe_release_notes.html
+
+If this is a monolithic configuration, run 'puppet agent -t' to complete the 
+setup of this system.
+
+If this is a split configuration, install or upgrade the remaining PE components, 
+and then run puppet agent -t on the Puppet master, PuppetDB, and PE console, 
+in that order.
+~/pe/puppet-enterprise-2019.0.2-ubuntu-18.04-amd64
+2019-02-02T22:08:14.805-05:00 Running command: /opt/puppetlabs/puppet/bin/puppet 
+agent --enable
+ritesh@ritesh-pe-text:~/pe/puppet-enterprise-2019.0.2-ubuntu-18.04-amd64$
+```
 
 This is called as monolithic installation as all components of 
 Puppet Enterprise such as Puppet master, PuppetDB and Console are 
@@ -614,9 +657,9 @@ network grows. This is recommended installation type for small to
 mid size organizations [@hid-sp18-523-mono].
 
 
-`pe.conf` configuration file needs to be specified in order to install
-Puppet Enterprise in text mode. This file contains parameters and
-values for installing, upgrading and configuring Puppet.
+`pe.conf` configuration file will be opened in editor to configure
+values. This file contains parameters and values for installing, 
+upgrading and configuring Puppet.
 
 Some important parameters that can be specified in 
 `pe.conf` file are
@@ -629,7 +672,7 @@ puppet_enterprise::puppetdb_database_name
 puppet_enterprise::puppetdb_database_user
 ```
 
-Lastly, we run puppet twice after installation is complete
+Lastly, we run puppet after installation is complete
 
 ```bash
 $ puppet agent -t 
