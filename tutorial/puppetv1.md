@@ -161,9 +161,9 @@ forms.
 
 ## Install Opensource Puppet on Ubuntu
 
-We will demonstrate installation of Puppet 4 on Ubuntu 16.04
+We will demonstrate installation of Puppet on Ubuntu
 
-Prerequisite - 4 GB RAM, Ubuntu 16 04 box ( standalone or VM )
+Prerequisite - Atleast 4 GB RAM, Ubuntu box ( standalone or VM )
 
 First, we need to make sure that Puppet master and agent is able
 to communicate with each other. Agent should be able to connect
