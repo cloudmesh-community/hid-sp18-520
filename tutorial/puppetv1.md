@@ -473,7 +473,7 @@ and use default certificate
 Fifth, we run installer from installer directory
 
 ```bash
-$ sudo ./puppet-enterprise-installer -c PECONFPATH
+$ sudo ./puppet-enterprise-installer -c $PECONFPATH
 ```
 
 
@@ -501,7 +501,7 @@ specific order. First master then puppet db followed by console.
 First, we unpack installation tarball
 
 ```bash
-$ tar -xf <TARBALL_FILENAME>
+$ tar -xf $TARBALL
 ```
 
 Second, we run installer from installed directory. 
@@ -510,7 +510,7 @@ we run it with  `-c` flag pointed to
 
 
 ```bash
-$ sudo ./puppet-enterprise-installer -c PECONFPATH
+$ sudo ./puppet-enterprise-installer -c $PECONFPATH
 ```
 
 if parameters values are not already defined in `peconf`
@@ -542,13 +542,13 @@ master.
 First, we unpack installation tarball
 
 ```bash
-$ tar -xf <TARBALL_FILENAME>
+$ tar -xf $TARBALL
 ```
 
 Second, we run installer from installation directory
 
 ```bash
-$ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>
+$ sudo ./puppet-enterprise-installer -c $PECONFPATH
 ```
 
 Third, we select text-mode when prompted. `pe.conf` file will be opened
@@ -571,13 +571,13 @@ Console is installed after installing master and PuppetDB.
 First, we unpack installation tarball
 
 ```bash
-$ tar -xf <TARBALL_FILENAME>
+$ tar -xf $TARBALL
 ```
 
 Second, we run installer from installation directory
 
 ```bash
-$ sudo ./puppet-enterprise-installer -c <FULL PATH TO pe.conf>
+$ sudo ./puppet-enterprise-installer -c $PECONFPATH
 ```
 
 Third, we select text-mode when prompted. `pe.conf` file will be opened
@@ -645,191 +645,4 @@ are specified by prefixing hash character.Setting line consists
 name of setting followed by equal sign, value of setting are specified 
 in this section. Setting variable value generally consists of one word 
 but multiple can be specified in rare cases [@hid-sp18-523-config].
-
-## Setting up Puppet master
-
-Puppet server software is installed on puppet master node which then
-pushes configuration to clients nodes (puppet agents).
-
-Pull software package from repository.
-
-```bash
-$ sudo rpm -ivh 
-https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
-```
-
-Install puppetserver package on master node
-
-```bash
-$ sudo yum -y install puppetserver
-```
-
-By default 2GM memory is allocated, but it can be configured based on
-available memory as well as number of puppet agent nodes.  
-
-Open configuration file to change configured value
-
-```bash
-$ sudo vi /etc/sysconfig/puppetserver
-```
-
-For example set value of variable to increase memory to 3GB
-by adding 3g after -Xmx to `JAVA_ARGS`. 
-
-```bash
-JAVA_ARGS="-Xms3g -Xmx3g"
-```
-
-Start puppet server 
-
-```bash
-$ sudo systemctl start puppetserver
-```
-
-Start puppet server after master server is started.
-
-```bash
-$ sudo systemctl enable puppetserver
-```
-
-## Installing puppet agent
-
-
-Puppet agent is installed on all nodes that needs to be part of 
-managed network. Puppet master can not reach and manage any node 
-that does  not have puppet agent installed.  
-Puppet agent can be installed and run on any Linux, Unix or 
-windows based platforms[@hid-sp18-523-agent].
-
-
-First, we need to connect to puppet repository
-
-```bash
-$ sudo rpm -ivh 
-https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
-```
-
-Second, we need to install Puppet agent
-
-```bash
-$ sudo yum -y install puppet-agent
-```
-
-Third, we need to enable agent
-
-```bash
-$ sudo /opt/puppetlabs/bin/puppet resource service puppet ensure=running enable=true
-```
- 
-Once puppet agent is installed and runs for first time, it
-generates a SSL certificate and sends it to the master for
-signing. Puppet master communicates and manages client nodes after 
-certificate is signed.
-
-Each puppet client node that needs to be managed with puppet
-is required to follow this process[@hid-sp18-523-agent].
-
-First, we want to view all requests on master
-
-
-```bash $ sudo /opt/puppetlabs/bin/puppet cert list --all ```
-
-cryptographic hash value of agent node will be displayed
-
-```bash
-
-+ "host1.hid523.example.com" (SHA256) F5:DC:68:24:63:E6:F1:9E:C5:
-FE:F5:1A:90:93:DF:19:F2:28:8B:D7:BD:D2:6A:83:07:BA:FE:24:11:24:54:6A
-
-"host2.hid523.example.com" (SHA256) F5:DC:68:24:63:E6:F1:9E:C5:
-FE:F5:1A:90:93:DF:19:F2:28:8B:D7:BD:D2:6A:83:07:BA:FE:24:11:24:54:6A
-
-```
-
-output staring with + are signed request where as lines that 
-does not begin with + sign are unsigned request.
-
-
-Second, we we need to sign unsigned request
-
-
-```bash
-$ sudo /opt/puppetlabs/bin/puppet cert sign host2.hid523.example.com
-```
-
-Puppet master is now ready to communicate and manage client nodes
-
-
-Lastly, we can remove specific agent node from puppet infrastructure
-for debugging or investigation.
-
-```bash
-$ sudo /opt/puppetlabs/bin/puppet cert clean hostname
-```
-
-
-# Managing puppet environment through tool
-
-r10k is pupper environment management tool that is used for managing 
-configurations related to different environments such as testing, staging 
-and production. Configuration information is stored in central repository. 
-r10k tool creates an environment on puppet master and then uses modules 
-stored in repo to install and update the environment[@hid-sp18-523-r10k]. 
-
-Install r10k tool 
-
-```bash
-$ urlgrabber -o /etc/yum.repos.d/timhughes-r10k-epel-6.repo 
-[https://copr.fedoraproject.org/coprs/timhughes/yum]
-(https://copr.fedoraproject.org/coprs/timhughes/yum)
--y install rubygem-r10k
-```
-
-Configure environment in /etc/puppet/puppet.conf for r10k
-
-```bash
-[main]
-environmentpath = $confdir/environments
-```
-
-### Create configuration file for r10k config
-
-```bash 
-$ cat <<EOF >/etc/r10k.yaml
-:cachedir: '/var/cache/r10k'
-:sources:
-:opstree:
-remote: '/var/lib/git/fullstackpuppet-
-environment.git'
-basedir: '/etc/puppet/environments'
-EOF
-```
-
-### Installing Puppet manifest and module
-
-```bash
-$ r10k deploy environment -pv
-```
-
-Creating cron job is recommended as environment needs to be updated
-frequently.
-
-```bash
-$ cat << EOF > /etc/cron.d/r10k.conf SHELL=/bin/bash 
-PATH=/sbin:/bin:/usr/sbin:/usr/bin H/15 
-* * * * root r10k deploy environment -p EOF
-```
-
-### Testing installation
-
-Puppet manifest for Puppet module needs to be compiled in order to
-test and validate if environment is working correctly.  
-
-Get YAML manifest for puppet environment
-
-```bash
-$ curl --cert /etc/puppet/ssl/certs/puppet.corp.guest.pem \
---key /etc/puppet/ssl/private_keys/puppet.corp.guest.pem \
---cacert /etc/puppet/ssl/ca/ca_crt.pem \-H 'Accept: yaml' \
-```
 
